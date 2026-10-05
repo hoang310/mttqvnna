@@ -1648,7 +1648,7 @@
     }
 
     .mt.is-motion .mt-ticker-track {
-      animation: mt-marquee 60s linear infinite;
+      animation: mt-marquee 500s linear infinite;
     }
 
     .mt-ticker:hover .mt-ticker-track,
@@ -1958,11 +1958,11 @@
 
     @keyframes mt-marquee {
       from {
-        transform: translateX(0);
+        transform: translateX(100);
       }
 
       to {
-        transform: translateX(-50%);
+        transform: translateX(-100%);
       }
     }
 
@@ -2055,7 +2055,7 @@
       }
 
       .mt-ticker-track {
-        animation: mt-marquee 400s linear infinite !important;
+        animation: mt-marquee 60s linear infinite !important;
       }
     }
 
@@ -2068,6 +2068,21 @@
     html {
       scroll-behavior: smooth;
     }
+
+    .news {
+            width: 100%;
+            overflow: hidden;
+            background: #f5f5f5;
+            padding: 10px 0;
+        }
+
+        #newsText {
+            display: inline-block;
+            white-space: nowrap;
+            color: red;
+            font-size: 20px;
+            font-weight: bold;
+        }
   </style>
 </head>
 
@@ -2497,7 +2512,7 @@
         </div>
         <div>
           <article class="mt-card mt-card-std">
-            <img alt="" height="237" src="./images/bdhc.gif" width="100%">
+            <a href="https://baonghean.vn/130xaphuong"><img alt="" height="237" src="./images/bdhc.gif" width="100%"></a>
           </article>
           <div class="mt-sec-head" style="margin-top: 20px;">
             <h2 style="color: #000;" class="mt-sec-title has-ico"><a
