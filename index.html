@@ -335,6 +335,25 @@
       gap: var(--space-5);
     }
 
+    .mt-login-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border: 0;
+      border-radius: var(--radius-sm);
+      background: var(--gold);
+      color: var(--gold-ink);
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .mt-login-btn:hover {
+      background: var(--on-brand-deep);
+      color: var(--brand-deep);
+    }
+
     .mt-util a:hover {
       color: var(--on-brand-deep);
     }
@@ -422,26 +441,27 @@
 
     .mt-mast-name {
       flex: 1;
+      min-width: 0;
     }
 
     .mt-mast-kicker {
-      font: 700 15px/20px var(--font-sans);
-      letter-spacing: .02em;
+      font: 700 14px/20px var(--font-sans);
+      letter-spacing: .045em;
       text-transform: uppercase;
-      color: var(--ink);
+      color: var(--brand-deep);
     }
 
     .mt-mast-title {
-      font: 800 30px/34px var(--font-sans);
-      letter-spacing: .01em;
+      font: 700 30px/36px var(--font-sans);
+      letter-spacing: .025em;
       text-transform: uppercase;
       color: var(--brand);
-      margin: 2px 0 4px;
+      margin: 1px 0 3px;
     }
 
     .mt-mast-sub {
-      font: 500 13px/18px var(--font-sans);
-      letter-spacing: .08em;
+      font: 600 12px/18px var(--font-sans);
+      letter-spacing: .045em;
       text-transform: uppercase;
       color: var(--gold-ink);
     }
@@ -449,22 +469,22 @@
     .mt-search {
       display: flex;
       align-items: center;
-      height: 44px;
+      height: 38px;
       border: 1px solid var(--rule-strong);
       border-radius: var(--radius-pill);
       background: var(--surface);
-      padding: 0 6px 0 var(--space-4);
-      gap: var(--space-2);
+      padding: 0 4px 0 12px;
+      gap: 6px;
       color: var(--ink-muted);
-      width: 340px;
-      font-size: 14px;
+      width: 280px;
+      font-size: 13px;
     }
 
     .mt-search input {
       flex: 1;
       border: 0;
       background: transparent;
-      font: 400 14px/20px var(--font-sans);
+      font: 400 13px/18px var(--font-sans);
       color: var(--ink);
       min-width: 0;
     }
@@ -479,8 +499,8 @@
     }
 
     .mt-search button {
-      width: 34px;
-      height: 34px;
+      width: 30px;
+      height: 30px;
       border-radius: var(--radius-pill);
       border: 0;
       background: var(--brand);
@@ -1367,7 +1387,7 @@
         padding: 0 var(--space-4);
       }
 
-      .mt-util-links> :not(.mt-a11y) {
+      .mt-util-links> :not(.mt-a11y):not(.mt-login-btn) {
         display: none;
       }
 
@@ -1571,9 +1591,7 @@
       border-color: var(--surface-sunk);
     }
 
-    .mt-band-dark .mt-sec-ico {
-      
-    }
+    .mt-band-dark .mt-sec-ico {}
 
     .mt-band-dark .mt-sec-ico::after {
       display: none;
@@ -2070,19 +2088,19 @@
     }
 
     .news {
-            width: 100%;
-            overflow: hidden;
-            background: #f5f5f5;
-            padding: 10px 0;
-        }
+      width: 100%;
+      overflow: hidden;
+      background: #f5f5f5;
+      padding: 10px 0;
+    }
 
-        #newsText {
-            display: inline-block;
-            white-space: nowrap;
-            color: red;
-            font-size: 20px;
-            font-weight: bold;
-        }
+    #newsText {
+      display: inline-block;
+      white-space: nowrap;
+      color: red;
+      font-size: 20px;
+      font-weight: bold;
+    }
   </style>
 </head>
 
@@ -2095,15 +2113,17 @@
             <rect x="3" y="5" width="18" height="16" rx="2"></rect>
             <path d="M3 10h18M8 3v4M16 3v4"></path>
             <path d="M8 14h3v3H8z"></path>
-          </svg>Thứ Hai, 29/09/2026</span>
-        <div class="mt-util-links"><a href="tel:02383849369"><svg class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z">
-              </path>
-            </svg>Đường dây nóng: <b>02383.849.369</b></a><a href="mailto:ubmttq@nghean.gov.vn"><svg class="mt-ico"
+          </svg>Thứ Hai, 29/09/2026 <span>🌤️ Nghệ An 23°C</span></span>
+        <div class="mt-util-links"><a href="mailto:ubmttq@nghean.gov.vn"><svg class="mt-ico"
               viewBox="0 0 24 24" aria-hidden="true">
               <rect x="3" y="5" width="18" height="14" rx="2"></rect>
               <path d="M3 7l9 6 9-6"></path>
             </svg>ubmttq@nghean.gov.vn</a>
+          <button class="mt-login-btn" type="button"><svg class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M15 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M19 8v6M22 11h-6"></path>
+            </svg>Đăng nhập</button>
           <div class="mt-a11y" role="group" aria-label="Cỡ chữ và giao diện"><button type="button" data-size=""
               aria-pressed="true" aria-label="Cỡ chữ chuẩn">A</button><button type="button" data-size="is-lg"
               aria-pressed="false" aria-label="Chữ lớn">A+</button><button type="button" data-size="is-xl"
@@ -2115,7 +2135,9 @@
       </div>
     </div>
     <header class="mt-mast">
-      <img src="https://png.pngtree.com/png-clipart/20250103/original/pngtree-vietnamese-culture-drum-pattern-vector-png-image_9803714.png" alt="Họa tiết trống đồng văn hóa Việt Nam" class="mt-mast-motif">
+      <img
+        src="https://png.pngtree.com/png-clipart/20250103/original/pngtree-vietnamese-culture-drum-pattern-vector-png-image_9803714.png"
+        alt="Họa tiết trống đồng văn hóa Việt Nam" class="mt-mast-motif">
       <div class="mt-container">
         <div class="mt-logo-slot" style="border: none;"><img style="margin: 0 auto;" class="thumbnail"
             src="./images/news.avatar.9ef462f5dbaec21d.556e7469746c65642e706e67.png">
@@ -2134,109 +2156,123 @@
       </div>
     </header>
     <nav class="mt-nav" aria-label="Menu chính">
-      <div class="mt-container"><a class="mt-nav-item mt-nav-home is-active"
-          href="#"
+      <div class="mt-container" style="max-width: none;"><a class="mt-nav-item mt-nav-home is-active" href="#"
           aria-label="Trang chủ"><svg class="mt-ico" viewBox="0 0 24 24" aria-hidden="true"
             style="fill:currentColor;stroke:none">
             <path d="M12 3 2 11h3v9h5v-6h4v6h5v-9h3z"></path>
           </svg></a>
-        <div class="mt-nav-wrap"><a class="mt-nav-item"
-            href="#">Giới thiệu <svg
-              class="caret" viewBox="0 0 10 10" aria-hidden="true">
+        <div class="mt-nav-wrap"><a class="mt-nav-item" href="#">Giới thiệu <svg class="caret" viewBox="0 0 10 10"
+              aria-hidden="true">
               <path d="M1 3h8L5 8z"></path>
             </svg></a>
-          <div class="mt-nav-drop"><a
-              href="#">Giới thiệu
-              chung</a><a href="#">Lịch
-              sử phát triển</a><a
-              href="#">Chức năng, nhiệm
-              vụ</a><a href="#">Cơ cấu tổ
-              chức</a></div>
+          <div class="mt-nav-drop">
+            <a href="#">Giới thiệu chung</a>
+            <a href="#">Cơ cấu tổ chức</a>
+            <a href="#">Ban Thường trực</a>
+            <a href="#">Các Ban, Văn phòng</a>
+            <a href="#">Tổ chức thành viên</a>
+            <a href="#">MTTQ các xã, phường</a>
+          </div>
         </div>
-        <div class="mt-nav-wrap"><a class="mt-nav-item"
-            href="#">Hoạt động Mặt trận
+        <div class="mt-nav-wrap"><a class="mt-nav-item" href="#">Hoạt động
             <svg class="caret" viewBox="0 0 10 10" aria-hidden="true">
               <path d="M1 3h8L5 8z"></path>
             </svg>
           </a>
-          <div class="mt-nav-drop"><a
-              href="#">Đại hội Mặt
-              trận</a><a href="#">Hoạt
-              động nổi bật của Tỉnh</a><a
-              href="#">Hoạt động MTTQ
-              Tỉnh</a><a href="#">Hoạt
-              động MTTQ địa phương</a><a
-              href="#">Tin tổng hợp</a>
+          <div class="mt-nav-drop">
+            <a href="#">Thường trực Tỉnh ủy</a>
+            <a href="#">Ban Thường trực</a>
+            <a href="#">Mặt trận cơ sở</a>
+            <a href="#">Tổ chức thành viên</a>
           </div>
         </div>
-        <div class="mt-nav-wrap"><a class="mt-nav-item"
-            href="#">Tuyên truyền <svg
-              class="caret" viewBox="0 0 10 10" aria-hidden="true">
+        <div class="mt-nav-wrap"><a class="mt-nav-item" href="#">Tuyên truyền <svg class="caret" viewBox="0 0 10 10"
+              aria-hidden="true">
               <path d="M1 3h8L5 8z"></path>
             </svg></a>
-          <div class="mt-nav-drop"><a
-              href="#">Chủ trương, chính
-              sách mới</a><a href="#">Kỷ
-              niệm các ngày lễ lớn</a><a
-              href="#">Học tập và làm
-              theo tư tưởng, đạo đức, phong cách Hồ Chí Minh</a></div>
+          <div class="mt-nav-drop">
+            <a href="#">Chủ trương, chính sách mới</a>
+            <a href="#">Chuyển đổi số</a>
+            <a href="#">Các ngày lễ lớn</a>
+            <a href="#">Gương sáng Mặt trận</a>
+          </div>
         </div>
-        <div class="mt-nav-wrap"><a class="mt-nav-item"
-            href="#">Cuộc vận động <svg
-              class="caret" viewBox="0 0 10 10" aria-hidden="true">
+        <div class="mt-nav-wrap"><a class="mt-nav-item" href="#">Các cuộc vận động <svg class="caret"
+              viewBox="0 0 10 10" aria-hidden="true">
               <path d="M1 3h8L5 8z"></path>
             </svg></a>
-          <div class="mt-nav-drop"><a
-              href="#">Toàn dân đoàn kết
-              xây dựng nông thôn mới</a><a
-              href="#">Người Việt Nam ưu
-              tiên dùng hàng Việt Nam</a><a
-              href="#">Cứu trợ – An sinh
-              xã hội</a><a href="#">Các
-              phong trào thi đua khác</a></div>
+          <div class="mt-nav-drop">
+            <a href="#">Phong trào thi đua</a>
+            <a href="#">An sinh xã hội</a>
+            <a href="#">Đoàn kết xây dựng nông thôn mới</a>
+            <a href="#">Khu dân cư Đoàn kết, ấm no, hạnh phúc</a>
+            <a href="#">Người Việt ưu tiên dùng hàng Việt</a>
+          </div>
         </div>
-        <div class="mt-nav-wrap"><a class="mt-nav-item"
-            href="#">Dân chủ – Pháp luật
+        <div class="mt-nav-wrap"><a class="mt-nav-item" href="#">Dân chủ – Giám sát
             <svg class="caret" viewBox="0 0 10 10" aria-hidden="true">
               <path d="M1 3h8L5 8z"></path>
             </svg></a>
-          <div class="mt-nav-drop"><a
-              href="#">Giám sát, phản
-              biện xã hội</a><a
-              href="#">Xây dựng Đảng,
-              chính quyền</a><a
-              href="#">Phòng, chống tham
-              nhũng</a></div>
+          <div class="mt-nav-drop">
+            <a href="#">Giám sát, phản biện xã hội</a>
+            <a href="#">Xây dựng Đảng, Nhà nước</a>
+            <a href="#">Dân chủ ở cơ sở</a>
+            <a href="#">Tháng nghe dân nói</a>
+
+          </div>
         </div>
-        <div class="mt-nav-wrap"><a class="mt-nav-item"
-            href="#">Dân tộc – Tôn giáo
+        <div class="mt-nav-wrap"><a class="mt-nav-item" href="#">Dân tộc – Tôn giáo
             <svg class="caret" viewBox="0 0 10 10" aria-hidden="true">
               <path d="M1 3h8L5 8z"></path>
             </svg></a>
-          <div class="mt-nav-drop"><a
-              href="#">Công tác dân
-              tộc</a><a href="#">Công tác
-              tôn giáo</a></div>
+          <div class="mt-nav-drop">
+            <a href="#">Công tác dân tộc</a>
+            <a href="#">Công tác tôn giáo</a>
+            <a href="#">Đại đoàn kết dân tộc, tôn giáo</a>
+            <a href="#">Người có uy tín</a>
+            <a href="#">Chính sách dân tộc, tôn giáo</a>
+          </div>
         </div>
-        <div class="mt-nav-wrap"><a class="mt-nav-item"
-            href="#">Văn bản <svg
-              class="caret" viewBox="0 0 10 10" aria-hidden="true">
+        <div class="mt-nav-wrap"><a class="mt-nav-item" href="#">Tổ chức - Kiểm tra<svg class="caret"
+              viewBox="0 0 10 10" aria-hidden="true">
               <path d="M1 3h8L5 8z"></path>
             </svg></a>
-          <div class="mt-nav-drop"><a
-              href="#">Văn bản luật</a><a
-              href="#">Văn bản MTTQ Trung
-              ương</a><a href="#">Văn bản
-              HĐND và UBND</a><a
-              href="#">Văn bản hướng dẫn
-              MTTQ Tỉnh</a></div>
+          <div class="mt-nav-drop">
+            <a href="#">Tổ chức, cán bộ</a>
+            <a href="#">Ủy viên Ủy ban</a>
+            <a href="#">Kiểm tra</a>
+            <a href="#">Thi đua - Khen thưởng</a>
+            <a href="#">Tập huấn</a>
+          </div>
         </div>
+
+        <div class="mt-nav-wrap"><a class="mt-nav-item" href="#">Nhân dân<svg class="caret" viewBox="0 0 10 10"
+              aria-hidden="true">
+              <path d="M1 3h8L5 8z"></path>
+            </svg></a>
+          <div class="mt-nav-drop">
+            <a href="#">Phản ánh, kiến nghị</a>
+            <a href="#">Góp ý dự thảo văn bản</a>
+            <a href="#">Tra cứu kết quả giải quyết</a>
+          </div>
+        </div>
+
+        <div class="mt-nav-wrap"><a class="mt-nav-item" href="#">Lịch công tác<svg class="caret" viewBox="0 0 10 10"
+              aria-hidden="true">
+              <path d="M1 3h8L5 8z"></path>
+            </svg></a>
+          <div class="mt-nav-drop">
+            <a href="#">Lịch công tác Ban Thường trực</a>
+            <a href="#">Chương trình công tác tháng</a>
+          </div>
+        </div>
+
       </div>
       <div class="mt-progress" aria-hidden="true"><span style="transform: scaleX(0);"></span></div>
     </nav>
     <div class="mt-ticker">
       <div class="mt-container">
-        <span class="" style="color: #000; font-weight: bold;"><span class=""></span>Tin mới</span>
+        <span class="" style="color: #000; font-weight: bold;"><span class=""></span>Đã có tin mới</span>
         <div class="mt-ticker-items">
           <div class="mt-ticker-track1">
             <a href="#">Đại hội đại biểu
@@ -2247,148 +2283,118 @@
               thoại giữa người đứng đầu cấp ủy, chính quyền với Nhân dân về công tác quản lý đất đai</a>
             <a href="#">Xây dựng Sổ tay
               hướng dẫn thực hiện Bộ tiêu chí xã NTM, NTM hiện đại giai đoạn 2026–2030</a>
-            <a href="#"
-              aria-hidden="true" tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và Bảo trợ Người khuyết tật xã
-              Quỳnh Phú lần thứ Nhất</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ chức các hội quần chúng sau hợp nhất</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Quỳnh Anh: Đối thoại giữa người đứng đầu cấp ủy, chính quyền với Nhân dân về công tác quản
-              lý đất đai</a><a href="#"
-              aria-hidden="true" tabindex="-1">Xây dựng Sổ tay hướng dẫn thực hiện Bộ tiêu chí xã NTM, NTM hiện đại giai
-              đoạn 2026–2030</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và Bảo trợ Người khuyết tật xã Quỳnh Phú lần thứ
-              Nhất</a><a href="#"
-              aria-hidden="true" tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ chức các hội quần chúng sau hợp
-              nhất</a><a href="#"
-              aria-hidden="true" tabindex="-1">Quỳnh Anh: Đối thoại giữa người đứng đầu cấp ủy, chính quyền với Nhân dân
-              về công tác quản lý đất đai</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Xây dựng Sổ tay hướng dẫn thực hiện Bộ tiêu chí xã NTM, NTM hiện đại giai đoạn
-              2026–2030</a><a href="#"
-              aria-hidden="true" tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và Bảo trợ Người khuyết tật xã
-              Quỳnh Phú lần thứ Nhất</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ chức các hội quần chúng sau hợp nhất</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Quỳnh Anh: Đối thoại giữa người đứng đầu cấp ủy, chính quyền với Nhân dân về công tác quản
-              lý đất đai</a><a href="#"
-              aria-hidden="true" tabindex="-1">Xây dựng Sổ tay hướng dẫn thực hiện Bộ tiêu chí xã NTM, NTM hiện đại giai
-              đoạn 2026–2030</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và Bảo trợ Người khuyết tật xã Quỳnh Phú lần thứ
-              Nhất</a><a href="#"
-              aria-hidden="true" tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ chức các hội quần chúng sau hợp
-              nhất</a><a href="#"
-              aria-hidden="true" tabindex="-1">Quỳnh Anh: Đối thoại giữa người đứng đầu cấp ủy, chính quyền với Nhân dân
-              về công tác quản lý đất đai</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Xây dựng Sổ tay hướng dẫn thực hiện Bộ tiêu chí xã NTM, NTM hiện đại giai đoạn
-              2026–2030</a><a href="#"
-              aria-hidden="true" tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và Bảo trợ Người khuyết tật xã
-              Quỳnh Phú lần thứ Nhất</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ chức các hội quần chúng sau hợp nhất</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Quỳnh Anh: Đối thoại giữa người đứng đầu cấp ủy, chính quyền với Nhân dân về công tác quản
-              lý đất đai</a><a href="#"
-              aria-hidden="true" tabindex="-1">Xây dựng Sổ tay hướng dẫn thực hiện Bộ tiêu chí xã NTM, NTM hiện đại giai
-              đoạn 2026–2030</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và Bảo trợ Người khuyết tật xã Quỳnh Phú lần thứ
-              Nhất</a><a href="#"
-              aria-hidden="true" tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ chức các hội quần chúng sau hợp
-              nhất</a><a href="#"
-              aria-hidden="true" tabindex="-1">Quỳnh Anh: Đối thoại giữa người đứng đầu cấp ủy, chính quyền với Nhân dân
-              về công tác quản lý đất đai</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Xây dựng Sổ tay hướng dẫn thực hiện Bộ tiêu chí xã NTM, NTM hiện đại giai đoạn
-              2026–2030</a><a href="#"
-              aria-hidden="true" tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và Bảo trợ Người khuyết tật xã
-              Quỳnh Phú lần thứ Nhất</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ chức các hội quần chúng sau hợp nhất</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Quỳnh Anh: Đối thoại giữa người đứng đầu cấp ủy, chính quyền với Nhân dân về công tác quản
-              lý đất đai</a><a href="#"
-              aria-hidden="true" tabindex="-1">Xây dựng Sổ tay hướng dẫn thực hiện Bộ tiêu chí xã NTM, NTM hiện đại giai
-              đoạn 2026–2030</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và Bảo trợ Người khuyết tật xã Quỳnh Phú lần thứ
-              Nhất</a><a href="#"
-              aria-hidden="true" tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ chức các hội quần chúng sau hợp
-              nhất</a><a href="#"
-              aria-hidden="true" tabindex="-1">Quỳnh Anh: Đối thoại giữa người đứng đầu cấp ủy, chính quyền với Nhân dân
-              về công tác quản lý đất đai</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Xây dựng Sổ tay hướng dẫn thực hiện Bộ tiêu chí xã NTM, NTM hiện đại giai đoạn
-              2026–2030</a><a href="#"
-              aria-hidden="true" tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và Bảo trợ Người khuyết tật xã
-              Quỳnh Phú lần thứ Nhất</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ chức các hội quần chúng sau hợp nhất</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Quỳnh Anh: Đối thoại giữa người đứng đầu cấp ủy, chính quyền với Nhân dân về công tác quản
-              lý đất đai</a><a href="#"
-              aria-hidden="true" tabindex="-1">Xây dựng Sổ tay hướng dẫn thực hiện Bộ tiêu chí xã NTM, NTM hiện đại giai
-              đoạn 2026–2030</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và Bảo trợ Người khuyết tật xã Quỳnh Phú lần thứ
-              Nhất</a><a href="#"
-              aria-hidden="true" tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ chức các hội quần chúng sau hợp
-              nhất</a><a href="#"
-              aria-hidden="true" tabindex="-1">Quỳnh Anh: Đối thoại giữa người đứng đầu cấp ủy, chính quyền với Nhân dân
-              về công tác quản lý đất đai</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Xây dựng Sổ tay hướng dẫn thực hiện Bộ tiêu chí xã NTM, NTM hiện đại giai đoạn
-              2026–2030</a><a href="#"
-              aria-hidden="true" tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và Bảo trợ Người khuyết tật xã
-              Quỳnh Phú lần thứ Nhất</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ chức các hội quần chúng sau hợp nhất</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Quỳnh Anh: Đối thoại giữa người đứng đầu cấp ủy, chính quyền với Nhân dân về công tác quản
-              lý đất đai</a><a href="#"
-              aria-hidden="true" tabindex="-1">Xây dựng Sổ tay hướng dẫn thực hiện Bộ tiêu chí xã NTM, NTM hiện đại giai
-              đoạn 2026–2030</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và Bảo trợ Người khuyết tật xã Quỳnh Phú lần thứ
-              Nhất</a><a href="#"
-              aria-hidden="true" tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ chức các hội quần chúng sau hợp
-              nhất</a><a href="#"
-              aria-hidden="true" tabindex="-1">Quỳnh Anh: Đối thoại giữa người đứng đầu cấp ủy, chính quyền với Nhân dân
-              về công tác quản lý đất đai</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Xây dựng Sổ tay hướng dẫn thực hiện Bộ tiêu chí xã NTM, NTM hiện đại giai đoạn
-              2026–2030</a><a href="#"
-              aria-hidden="true" tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và Bảo trợ Người khuyết tật xã
-              Quỳnh Phú lần thứ Nhất</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ chức các hội quần chúng sau hợp nhất</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Quỳnh Anh: Đối thoại giữa người đứng đầu cấp ủy, chính quyền với Nhân dân về công tác quản
-              lý đất đai</a><a href="#"
-              aria-hidden="true" tabindex="-1">Xây dựng Sổ tay hướng dẫn thực hiện Bộ tiêu chí xã NTM, NTM hiện đại giai
-              đoạn 2026–2030</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và Bảo trợ Người khuyết tật xã Quỳnh Phú lần thứ
-              Nhất</a><a href="#"
-              aria-hidden="true" tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ chức các hội quần chúng sau hợp
-              nhất</a><a href="#"
-              aria-hidden="true" tabindex="-1">Quỳnh Anh: Đối thoại giữa người đứng đầu cấp ủy, chính quyền với Nhân dân
-              về công tác quản lý đất đai</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Xây dựng Sổ tay hướng dẫn thực hiện Bộ tiêu chí xã NTM, NTM hiện đại giai đoạn
-              2026–2030</a><a href="#"
-              aria-hidden="true" tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và Bảo trợ Người khuyết tật xã
-              Quỳnh Phú lần thứ Nhất</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ chức các hội quần chúng sau hợp nhất</a><a
-              href="#" aria-hidden="true"
-              tabindex="-1">Quỳnh Anh: Đối thoại giữa người đứng đầu cấp ủy, chính quyền với Nhân dân về công tác quản
-              lý đất đai</a><a href="#"
-              aria-hidden="true" tabindex="-1">Xây dựng Sổ tay hướng dẫn thực hiện Bộ tiêu chí xã NTM, NTM hiện đại giai
+            <a href="#" aria-hidden="true" tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và Bảo trợ Người
+              khuyết tật xã
+              Quỳnh Phú lần thứ Nhất</a><a href="#" aria-hidden="true" tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ
+              chức các hội quần chúng sau hợp nhất</a><a href="#" aria-hidden="true" tabindex="-1">Quỳnh Anh: Đối thoại
+              giữa người đứng đầu cấp ủy, chính quyền với Nhân dân về công tác quản
+              lý đất đai</a><a href="#" aria-hidden="true" tabindex="-1">Xây dựng Sổ tay hướng dẫn thực hiện Bộ tiêu chí
+              xã NTM, NTM hiện đại giai
+              đoạn 2026–2030</a><a href="#" aria-hidden="true" tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và
+              Bảo trợ Người khuyết tật xã Quỳnh Phú lần thứ
+              Nhất</a><a href="#" aria-hidden="true" tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ chức các hội quần
+              chúng sau hợp
+              nhất</a><a href="#" aria-hidden="true" tabindex="-1">Quỳnh Anh: Đối thoại giữa người đứng đầu cấp ủy,
+              chính quyền với Nhân dân
+              về công tác quản lý đất đai</a><a href="#" aria-hidden="true" tabindex="-1">Xây dựng Sổ tay hướng dẫn thực
+              hiện Bộ tiêu chí xã NTM, NTM hiện đại giai đoạn
+              2026–2030</a><a href="#" aria-hidden="true" tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và Bảo
+              trợ Người khuyết tật xã
+              Quỳnh Phú lần thứ Nhất</a><a href="#" aria-hidden="true" tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ
+              chức các hội quần chúng sau hợp nhất</a><a href="#" aria-hidden="true" tabindex="-1">Quỳnh Anh: Đối thoại
+              giữa người đứng đầu cấp ủy, chính quyền với Nhân dân về công tác quản
+              lý đất đai</a><a href="#" aria-hidden="true" tabindex="-1">Xây dựng Sổ tay hướng dẫn thực hiện Bộ tiêu chí
+              xã NTM, NTM hiện đại giai
+              đoạn 2026–2030</a><a href="#" aria-hidden="true" tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và
+              Bảo trợ Người khuyết tật xã Quỳnh Phú lần thứ
+              Nhất</a><a href="#" aria-hidden="true" tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ chức các hội quần
+              chúng sau hợp
+              nhất</a><a href="#" aria-hidden="true" tabindex="-1">Quỳnh Anh: Đối thoại giữa người đứng đầu cấp ủy,
+              chính quyền với Nhân dân
+              về công tác quản lý đất đai</a><a href="#" aria-hidden="true" tabindex="-1">Xây dựng Sổ tay hướng dẫn thực
+              hiện Bộ tiêu chí xã NTM, NTM hiện đại giai đoạn
+              2026–2030</a><a href="#" aria-hidden="true" tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và Bảo
+              trợ Người khuyết tật xã
+              Quỳnh Phú lần thứ Nhất</a><a href="#" aria-hidden="true" tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ
+              chức các hội quần chúng sau hợp nhất</a><a href="#" aria-hidden="true" tabindex="-1">Quỳnh Anh: Đối thoại
+              giữa người đứng đầu cấp ủy, chính quyền với Nhân dân về công tác quản
+              lý đất đai</a><a href="#" aria-hidden="true" tabindex="-1">Xây dựng Sổ tay hướng dẫn thực hiện Bộ tiêu chí
+              xã NTM, NTM hiện đại giai
+              đoạn 2026–2030</a><a href="#" aria-hidden="true" tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và
+              Bảo trợ Người khuyết tật xã Quỳnh Phú lần thứ
+              Nhất</a><a href="#" aria-hidden="true" tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ chức các hội quần
+              chúng sau hợp
+              nhất</a><a href="#" aria-hidden="true" tabindex="-1">Quỳnh Anh: Đối thoại giữa người đứng đầu cấp ủy,
+              chính quyền với Nhân dân
+              về công tác quản lý đất đai</a><a href="#" aria-hidden="true" tabindex="-1">Xây dựng Sổ tay hướng dẫn thực
+              hiện Bộ tiêu chí xã NTM, NTM hiện đại giai đoạn
+              2026–2030</a><a href="#" aria-hidden="true" tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và Bảo
+              trợ Người khuyết tật xã
+              Quỳnh Phú lần thứ Nhất</a><a href="#" aria-hidden="true" tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ
+              chức các hội quần chúng sau hợp nhất</a><a href="#" aria-hidden="true" tabindex="-1">Quỳnh Anh: Đối thoại
+              giữa người đứng đầu cấp ủy, chính quyền với Nhân dân về công tác quản
+              lý đất đai</a><a href="#" aria-hidden="true" tabindex="-1">Xây dựng Sổ tay hướng dẫn thực hiện Bộ tiêu chí
+              xã NTM, NTM hiện đại giai
+              đoạn 2026–2030</a><a href="#" aria-hidden="true" tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và
+              Bảo trợ Người khuyết tật xã Quỳnh Phú lần thứ
+              Nhất</a><a href="#" aria-hidden="true" tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ chức các hội quần
+              chúng sau hợp
+              nhất</a><a href="#" aria-hidden="true" tabindex="-1">Quỳnh Anh: Đối thoại giữa người đứng đầu cấp ủy,
+              chính quyền với Nhân dân
+              về công tác quản lý đất đai</a><a href="#" aria-hidden="true" tabindex="-1">Xây dựng Sổ tay hướng dẫn thực
+              hiện Bộ tiêu chí xã NTM, NTM hiện đại giai đoạn
+              2026–2030</a><a href="#" aria-hidden="true" tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và Bảo
+              trợ Người khuyết tật xã
+              Quỳnh Phú lần thứ Nhất</a><a href="#" aria-hidden="true" tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ
+              chức các hội quần chúng sau hợp nhất</a><a href="#" aria-hidden="true" tabindex="-1">Quỳnh Anh: Đối thoại
+              giữa người đứng đầu cấp ủy, chính quyền với Nhân dân về công tác quản
+              lý đất đai</a><a href="#" aria-hidden="true" tabindex="-1">Xây dựng Sổ tay hướng dẫn thực hiện Bộ tiêu chí
+              xã NTM, NTM hiện đại giai
+              đoạn 2026–2030</a><a href="#" aria-hidden="true" tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và
+              Bảo trợ Người khuyết tật xã Quỳnh Phú lần thứ
+              Nhất</a><a href="#" aria-hidden="true" tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ chức các hội quần
+              chúng sau hợp
+              nhất</a><a href="#" aria-hidden="true" tabindex="-1">Quỳnh Anh: Đối thoại giữa người đứng đầu cấp ủy,
+              chính quyền với Nhân dân
+              về công tác quản lý đất đai</a><a href="#" aria-hidden="true" tabindex="-1">Xây dựng Sổ tay hướng dẫn thực
+              hiện Bộ tiêu chí xã NTM, NTM hiện đại giai đoạn
+              2026–2030</a><a href="#" aria-hidden="true" tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và Bảo
+              trợ Người khuyết tật xã
+              Quỳnh Phú lần thứ Nhất</a><a href="#" aria-hidden="true" tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ
+              chức các hội quần chúng sau hợp nhất</a><a href="#" aria-hidden="true" tabindex="-1">Quỳnh Anh: Đối thoại
+              giữa người đứng đầu cấp ủy, chính quyền với Nhân dân về công tác quản
+              lý đất đai</a><a href="#" aria-hidden="true" tabindex="-1">Xây dựng Sổ tay hướng dẫn thực hiện Bộ tiêu chí
+              xã NTM, NTM hiện đại giai
+              đoạn 2026–2030</a><a href="#" aria-hidden="true" tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và
+              Bảo trợ Người khuyết tật xã Quỳnh Phú lần thứ
+              Nhất</a><a href="#" aria-hidden="true" tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ chức các hội quần
+              chúng sau hợp
+              nhất</a><a href="#" aria-hidden="true" tabindex="-1">Quỳnh Anh: Đối thoại giữa người đứng đầu cấp ủy,
+              chính quyền với Nhân dân
+              về công tác quản lý đất đai</a><a href="#" aria-hidden="true" tabindex="-1">Xây dựng Sổ tay hướng dẫn thực
+              hiện Bộ tiêu chí xã NTM, NTM hiện đại giai đoạn
+              2026–2030</a><a href="#" aria-hidden="true" tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và Bảo
+              trợ Người khuyết tật xã
+              Quỳnh Phú lần thứ Nhất</a><a href="#" aria-hidden="true" tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ
+              chức các hội quần chúng sau hợp nhất</a><a href="#" aria-hidden="true" tabindex="-1">Quỳnh Anh: Đối thoại
+              giữa người đứng đầu cấp ủy, chính quyền với Nhân dân về công tác quản
+              lý đất đai</a><a href="#" aria-hidden="true" tabindex="-1">Xây dựng Sổ tay hướng dẫn thực hiện Bộ tiêu chí
+              xã NTM, NTM hiện đại giai
+              đoạn 2026–2030</a><a href="#" aria-hidden="true" tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và
+              Bảo trợ Người khuyết tật xã Quỳnh Phú lần thứ
+              Nhất</a><a href="#" aria-hidden="true" tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ chức các hội quần
+              chúng sau hợp
+              nhất</a><a href="#" aria-hidden="true" tabindex="-1">Quỳnh Anh: Đối thoại giữa người đứng đầu cấp ủy,
+              chính quyền với Nhân dân
+              về công tác quản lý đất đai</a><a href="#" aria-hidden="true" tabindex="-1">Xây dựng Sổ tay hướng dẫn thực
+              hiện Bộ tiêu chí xã NTM, NTM hiện đại giai đoạn
+              2026–2030</a><a href="#" aria-hidden="true" tabindex="-1">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và Bảo
+              trợ Người khuyết tật xã
+              Quỳnh Phú lần thứ Nhất</a><a href="#" aria-hidden="true" tabindex="-1">Nghĩa Đàn tập trung kiện toàn tổ
+              chức các hội quần chúng sau hợp nhất</a><a href="#" aria-hidden="true" tabindex="-1">Quỳnh Anh: Đối thoại
+              giữa người đứng đầu cấp ủy, chính quyền với Nhân dân về công tác quản
+              lý đất đai</a><a href="#" aria-hidden="true" tabindex="-1">Xây dựng Sổ tay hướng dẫn thực hiện Bộ tiêu chí
+              xã NTM, NTM hiện đại giai
               đoạn 2026–2030</a>
           </div>
         </div>
@@ -2401,25 +2407,162 @@
     <section style="padding-top:24px">
       <div class="mt-container mt-hero3">
         <div style="display:grid;gap:20px;align-content:start">
+
+          <aside class="mt-panel" style="text-align: justify;">
+            <div class="mt-panel-head">
+              <h2 style="color: #000;" class="mt-sec-title has-ico"><a href="#">Văn bản mới</a>
+              </h2>
+            </div>
+            <div class="mt-panel-body mt-list">
+              <article class="mt-card mt-card-text" style="text-align: justify;">
+                <h3 class="mt-card-title"><a href="#">Đại hội đại
+                    biểu Hội Bảo vệ quyền trẻ em và Bảo trợ Người khuyết tật xã Quỳnh Phú lần thứ Nhất</a></h3>
+                <div class="mt-card-meta"><span class="mt-meta mt-date"><svg class="mt-ico" viewBox="0 0 24 24"
+                      aria-hidden="true">
+                      <circle cx="12" cy="12" r="9"></circle>
+                      <path d="M12 7v5l3 2"></path>
+                    </svg>24/09/2026</span></div>
+              </article>
+              <article class="mt-card mt-card-text">
+                <h3 class="mt-card-title"><a href="#">Nghĩa Đàn tập
+                    trung kiện toàn tổ chức các hội quần chúng sau hợp nhất</a></h3>
+                <div class="mt-card-meta"><span class="mt-meta mt-date"><svg class="mt-ico" viewBox="0 0 24 24"
+                      aria-hidden="true">
+                      <circle cx="12" cy="12" r="9"></circle>
+                      <path d="M12 7v5l3 2"></path>
+                    </svg>23/09/2026</span></div>
+              </article>
+              <article class="mt-card mt-card-text">
+                <h3 class="mt-card-title"><a href="#">Quỳnh Anh: Đối
+                    thoại giữa người đứng đầu cấp ủy, chính quyền với Nhân dân về quản lý đất đai</a></h3>
+                <div class="mt-card-meta"><span class="mt-meta mt-date"><svg class="mt-ico" viewBox="0 0 24 24"
+                      aria-hidden="true">
+                      <circle cx="12" cy="12" r="9"></circle>
+                      <path d="M12 7v5l3 2"></path>
+                    </svg>23/09/2026</span></div>
+              </article>
+              <article class="mt-card mt-card-text">
+                <h3 class="mt-card-title"><a href="#">Xây dựng Sổ
+                    tay hướng dẫn thực hiện Bộ tiêu chí xã NTM, NTM hiện đại giai đoạn 2026–2030</a></h3>
+                <div class="mt-card-meta"><span class="mt-meta mt-date"><svg class="mt-ico" viewBox="0 0 24 24"
+                      aria-hidden="true">
+                      <circle cx="12" cy="12" r="9"></circle>
+                      <path d="M12 7v5l3 2"></path>
+                    </svg>23/09/2026</span></div>
+              </article>
+              
+              <article class="mt-card mt-card-text">
+                <h3 class="mt-card-title"><a href="#">Quỹ BHYT sẽ
+                    thanh toán chi phí khám sức khỏe định kỳ thế nào?</a></h3>
+                <div class="mt-card-meta"><span class="mt-meta mt-date"><svg class="mt-ico" viewBox="0 0 24 24"
+                      aria-hidden="true">
+                      <circle cx="12" cy="12" r="9"></circle>
+                      <path d="M12 7v5l3 2"></path>
+                    </svg>23/09/2026</span></div>
+              </article>
+            </div>
+          </aside>
+
           <div class="mt-panel">
             <div class="mt-panel-head">
-              <h3 style="color: #000;">Giới thiệu</h3><a class="mt-sec-more"
-                href="#" style="color: gray;">Chi tiết ›</a>
+              <h3 style="color: #000;">Số lượng truy cập</h3>
             </div>
-            <div class="mt-panel-body"
-              style="padding-top:16px;display:grid;grid-template-columns:84px 1fr;gap:12px;align-items:center">
-              <div class="mt-ph r-11 is-loaded"><img
-                  src="./images/avt.jpg"
-                  alt="Võ Thị Minh Sinh" loading="lazy" onerror="this.remove()"><span></span></div>
-              <div style="text-align: justify;">
-                <div style="font-weight:700;font-size:16px;line-height:22px">Võ Thị Minh Sinh</div>
-                <div class="mt-meta" style="margin-top:4px">Ủy viên Ban Thường vụ Tỉnh ủy, Chủ tịch Ủy ban MTTQ Việt Nam
-                  tỉnh Nghệ An</div>
+            <div class="mt-panel-body" style="padding-top:14px">
+              <div class="mt-links">
+                <div
+                  style="width: 100%; font-family: Arial, sans-serif; font-size: 14px;">
+                  <table style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                      <td style="text-align: left;">Truy cập hôm nay</td>
+                      <td style="text-align: right; font-weight: bold;">88</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: left;">Tổng truy cập</td>
+                      <td style="text-align: right; font-weight: bold;">614.937</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: left;">Xem trang hôm nay</td>
+                      <td style="text-align: right; font-weight: bold;">136</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: left;">Tổng lượt xem</td>
+                      <td style="text-align: right; font-weight: bold;">1.053.129</td>
+                    </tr>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
 
-          <aside class="mt-panel" style="text-align: justify;">
+        </div>
+        <div>
+          <article class="mt-card mt-card-lead" style="text-align: justify;"><a href="#">
+              <div class="mt-ph r-169 is-loaded"><img
+                  src="./images/news.avatar.938fbbdd7db7dd76.32616f626f717a6c316d79737a6f6570733162396839707031616874687978727131676f6a34656f2831292e6a7067.jpg"
+                  alt="Phó Bí thư Tỉnh ủy Nguyễn Thanh Bình: Nỗ lực, chung sức xây dựng Nghệ An phát triển"
+                  loading="lazy" onerror="this.remove()"><span>Ảnh tiêu điểm</span></div>
+              <h3 class="mt-card-title">Phó Bí thư Tỉnh ủy Nguyễn Thanh Bình: Nỗ lực, chung sức xây dựng Nghệ An phát
+                triển</h3>
+            </a>
+            <p class="mt-card-sapo">Sa-pô bài viết tiêu điểm — hai đến ba dòng tóm tắt, lấy từ trường tóm tắt trong hệ
+              thống quản trị nội dung.</p>
+            <div class="mt-card-meta"><span class="mt-meta">Tuyên truyền vận động</span><span
+                class="mt-meta mt-date"><svg class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <path d="M12 7v5l3 2"></path>
+                </svg>21/09/2026</span></div>
+          </article>
+          <div class="mt-grid-3"
+            style="grid-template-columns:1fr 1fr;margin-top:20px;padding-top:20px;border-top:1px solid var(--rule)">
+            <article class="mt-card mt-card-std"><a href="#">
+                <div class="mt-ph is-loaded"><img
+                    src="./images/news.avatar.8ed1ad939e5e1266.6368692d73696e682e6a7067.jpg"
+                    alt="Thư của Tổng Bí thư, Chủ tịch nước Tô Lâm gửi các cháu thiếu niên, nhi đồng nhân dịp Tết Trung thu năm 2026"
+                    loading="lazy" onerror="this.remove()"><span>Ảnh</span></div>
+                <h3 class="mt-card-title">Thư của Tổng Bí thư, Chủ tịch nước Tô Lâm gửi các cháu thiếu niên, nhi đồng
+                  nhân dịp Tết Trung thu năm 2026</h3>
+              </a>
+              <div class="mt-card-meta"><span class="mt-meta">Kỷ niệm, sự kiện</span><span class="mt-meta mt-date"><svg
+                    class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <path d="M12 7v5l3 2"></path>
+                  </svg>19/09/2026</span></div>
+            </article>
+            <article class="mt-card mt-card-std"><a href="#">
+                <div class="mt-ph is-loaded"><img src="./images/news.avatar.a951d3b5d1b423d8.3031312e706e67.png"
+                    alt="err" loading="lazy" onerror="this.remove()"><span>Ảnh</span></div>
+                <h3 class="mt-card-title">Bàn giao chức năng, nhiệm vụ về công tác dân vận sang Đảng ủy Mặt trận Tổ
+                  quốc, các đoàn thể tỉnh</h3>
+              </a>
+              <div class="mt-card-meta"><span class="mt-meta">Tin tổng hợp</span><span class="mt-meta mt-date"><svg
+                    class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <path d="M12 7v5l3 2"></path>
+                  </svg>22/09/2026</span></div>
+            </article>
+          </div>
+        </div>
+        <div>
+          <article class="mt-card mt-card-std">
+            <div class="mt-panel">
+              <div class="mt-panel-head">
+                <h3 style="color: #000;">Giới thiệu</h3><a class="mt-sec-more" href="#" style="color: gray;">Chi tiết
+                  ›</a>
+              </div>
+              <div class="mt-panel-body"
+                style="padding-top:16px;display:grid;grid-template-columns:84px 1fr;gap:12px;align-items:center">
+                <div class="mt-ph r-11 is-loaded"><img src="./images/avt.jpg" alt="Võ Thị Minh Sinh" loading="lazy"
+                    onerror="this.remove()"><span></span></div>
+                <div style="text-align: justify;">
+                  <div style="font-weight:700;font-size:16px;line-height:22px">Võ Thị Minh Sinh</div>
+                  <div class="mt-meta" style="margin-top:4px">Ủy viên Ban Thường vụ Tỉnh ủy, Chủ tịch Ủy ban MTTQ Việt
+                    Nam
+                    tỉnh Nghệ An</div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <aside class="mt-panel" style="text-align: justify; margin-top: 20px;">
             <div class="mt-panel-head">
               <h3 style="color: #000;">Lịch công tác</h3>
               <div class="mt-tabs" role="tablist"><button class="is-on" type="button">Tuần</button><button
@@ -2450,136 +2593,23 @@
                 <li>
                   <div class="mt-sched-date"><b>04</b><small>Th10</small></div>
                   <div class="mt-sched-what">Giao ban
-                    Thường trực Ủy ban MTTQ tỉnh<span
-                      class="mt-meta">15:00 · Hội trường UBMTTQ tỉnh</span></div>
+                    Thường trực Ủy ban MTTQ tỉnh<span class="mt-meta">15:00 · Hội trường UBMTTQ tỉnh</span></div>
+                </li>
+                <li>
+                  <div class="mt-sched-date"><b>05</b><small>Th10</small></div>
+                  <div class="mt-sched-what">Giám sát việc thực hiện chính sách BHYT tại xã<span class="mt-meta">Cả ngày
+                      · Đoàn giám sát số 6</span></div>
                 </li>
               </ul>
             </div>
           </aside>
-          
-        </div>
-        <div>
-          <article class="mt-card mt-card-lead" style="text-align: justify;"><a
-              href="#">
-              <div class="mt-ph r-169 is-loaded"><img
-                  src="./images/news.avatar.938fbbdd7db7dd76.32616f626f717a6c316d79737a6f6570733162396839707031616874687978727131676f6a34656f2831292e6a7067.jpg"
-                  alt="Phó Bí thư Tỉnh ủy Nguyễn Thanh Bình: Nỗ lực, chung sức xây dựng Nghệ An phát triển"
-                  loading="lazy" onerror="this.remove()"><span>Ảnh tiêu điểm</span></div>
-              <h3 class="mt-card-title">Phó Bí thư Tỉnh ủy Nguyễn Thanh Bình: Nỗ lực, chung sức xây dựng Nghệ An phát
-                triển</h3>
-            </a>
-            <p class="mt-card-sapo">Sa-pô bài viết tiêu điểm — hai đến ba dòng tóm tắt, lấy từ trường tóm tắt trong hệ
-              thống quản trị nội dung.</p>
-            <div class="mt-card-meta"><span class="mt-meta">Tuyên truyền vận động</span><span
-                class="mt-meta mt-date"><svg class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
-                  <circle cx="12" cy="12" r="9"></circle>
-                  <path d="M12 7v5l3 2"></path>
-                </svg>21/09/2026</span></div>
-          </article>
-          <div class="mt-grid-3"
-            style="grid-template-columns:1fr 1fr;margin-top:20px;padding-top:20px;border-top:1px solid var(--rule)">
-            <article class="mt-card mt-card-std"><a
-                href="#">
-                <div class="mt-ph is-loaded"><img
-                    src="./images/news.avatar.8ed1ad939e5e1266.6368692d73696e682e6a7067.jpg"
-                    alt="Thư của Tổng Bí thư, Chủ tịch nước Tô Lâm gửi các cháu thiếu niên, nhi đồng nhân dịp Tết Trung thu năm 2026"
-                    loading="lazy" onerror="this.remove()"><span>Ảnh</span></div>
-                <h3 class="mt-card-title">Thư của Tổng Bí thư, Chủ tịch nước Tô Lâm gửi các cháu thiếu niên, nhi đồng
-                  nhân dịp Tết Trung thu năm 2026</h3>
-              </a>
-              <div class="mt-card-meta"><span class="mt-meta">Kỷ niệm, sự kiện</span><span class="mt-meta mt-date"><svg
-                    class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
-                    <circle cx="12" cy="12" r="9"></circle>
-                    <path d="M12 7v5l3 2"></path>
-                  </svg>19/09/2026</span></div>
-            </article>
-            <article class="mt-card mt-card-std"><a
-                href="#">
-                <div class="mt-ph is-loaded"><img
-                    src="./images/news.avatar.a951d3b5d1b423d8.3031312e706e67.png"
-                    alt="err"
-                    loading="lazy" onerror="this.remove()"><span>Ảnh</span></div>
-                <h3 class="mt-card-title">Bàn giao chức năng, nhiệm vụ về công tác dân vận sang Đảng ủy Mặt trận Tổ
-                  quốc, các đoàn thể tỉnh</h3>
-              </a>
-              <div class="mt-card-meta"><span class="mt-meta">Tin tổng hợp</span><span class="mt-meta mt-date"><svg
-                    class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
-                    <circle cx="12" cy="12" r="9"></circle>
-                    <path d="M12 7v5l3 2"></path>
-                  </svg>22/09/2026</span></div>
-            </article>
-          </div>
-        </div>
-        <div>
-          <article class="mt-card mt-card-std">
-            <h2 style="color: #000; margin-bottom: 3px;" class="mt-sec-title has-ico"><a
-                href="#">Thông tin địa phương</a>
-            </h2>
-            <a href="https://baonghean.vn/130xaphuong"><img alt="" height="237" src="./images/bdna.png" width="100%"></a>
-          </article>
-          <div class="mt-sec-head" style="margin-top: 20px;">
-            <h2 style="color: #000;" class="mt-sec-title has-ico"><a
-                href="#">Tin mới nhất</a>
-            </h2><span class="mt-sec-line"></span>
-          </div>
-          <div class="mt-list">
-            <article class="mt-card mt-card-text" style="text-align: justify;">
-              <h3 class="mt-card-title"><a
-                  href="#">Đại hội đại
-                  biểu Hội Bảo vệ quyền trẻ em và Bảo trợ Người khuyết tật xã Quỳnh Phú lần thứ Nhất</a></h3>
-              <div class="mt-card-meta"><span class="mt-meta mt-date"><svg class="mt-ico" viewBox="0 0 24 24"
-                    aria-hidden="true">
-                    <circle cx="12" cy="12" r="9"></circle>
-                    <path d="M12 7v5l3 2"></path>
-                  </svg>24/09/2026</span></div>
-            </article>
-            <article class="mt-card mt-card-text">
-              <h3 class="mt-card-title"><a
-                  href="#">Nghĩa Đàn tập
-                  trung kiện toàn tổ chức các hội quần chúng sau hợp nhất</a></h3>
-              <div class="mt-card-meta"><span class="mt-meta mt-date"><svg class="mt-ico" viewBox="0 0 24 24"
-                    aria-hidden="true">
-                    <circle cx="12" cy="12" r="9"></circle>
-                    <path d="M12 7v5l3 2"></path>
-                  </svg>23/09/2026</span></div>
-            </article>
-            <article class="mt-card mt-card-text">
-              <h3 class="mt-card-title"><a
-                  href="#">Quỳnh Anh: Đối
-                  thoại giữa người đứng đầu cấp ủy, chính quyền với Nhân dân về quản lý đất đai</a></h3>
-              <div class="mt-card-meta"><span class="mt-meta mt-date"><svg class="mt-ico" viewBox="0 0 24 24"
-                    aria-hidden="true">
-                    <circle cx="12" cy="12" r="9"></circle>
-                    <path d="M12 7v5l3 2"></path>
-                  </svg>23/09/2026</span></div>
-            </article>
-            <article class="mt-card mt-card-text">
-              <h3 class="mt-card-title"><a
-                  href="#">Xây dựng Sổ
-                  tay hướng dẫn thực hiện Bộ tiêu chí xã NTM, NTM hiện đại giai đoạn 2026–2030</a></h3>
-              <div class="mt-card-meta"><span class="mt-meta mt-date"><svg class="mt-ico" viewBox="0 0 24 24"
-                    aria-hidden="true">
-                    <circle cx="12" cy="12" r="9"></circle>
-                    <path d="M12 7v5l3 2"></path>
-                  </svg>23/09/2026</span></div>
-            </article>
-            <article class="mt-card mt-card-text">
-              <h3 class="mt-card-title"><a
-                  href="#">Quỹ BHYT sẽ
-                  thanh toán chi phí khám sức khỏe định kỳ thế nào?</a></h3>
-              <div class="mt-card-meta"><span class="mt-meta mt-date"><svg class="mt-ico" viewBox="0 0 24 24"
-                    aria-hidden="true">
-                    <circle cx="12" cy="12" r="9"></circle>
-                    <path d="M12 7v5l3 2"></path>
-                  </svg>23/09/2026</span></div>
-            </article>
-          </div>
         </div>
       </div>
     </section>
 
     <div class="mt-section">
-        <img class="mt-container" style="display: flex; justify-content: center; align-items: center; width: 100%;" src="./images/kh.png" alt="" srcset="">
+      <img class="mt-container" style="display: flex; justify-content: center; align-items: center; width: 100%;"
+        src="./images/kh.png" alt="" srcset="">
     </div>
 
     <section class="mt-band" style="margin-top:40px;padding:32px 0;">
@@ -2587,30 +2617,27 @@
         <div class="mt-sec-head">
           <h2 class="mt-sec-title has-ico">
             <img src="images/hoasen.png" alt="err" class="mt-sec-ico">
-            <a
-              href="#" style="color: #000;">Mặt trận với Nhân
-              dân</a></h2><span class="mt-sec-line"></span>
+            <a href="#" style="color: #000;">Mặt trận với Nhân
+              dân</a>
+          </h2><span class="mt-sec-line"></span>
         </div>
-        <div class="mt-quick"><a
-            href="#"><span
-              class="mt-quick-ico"><svg class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
+        <div class="mt-quick"><a href="#"><span class="mt-quick-ico"><svg class="mt-ico" viewBox="0 0 24 24"
+                aria-hidden="true">
                 <path d="M4 5h16v11H9l-5 4z"></path>
                 <path d="M8 9h8M8 12h5"></path>
               </svg></span><span class="mt-quick-txt"><b>Gửi ý kiến, kiến nghị</b><small>Phản ánh của Nhân dân tới Mặt
                 trận</small></span><span class="mt-quick-go"><svg class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M5 12h14M13 6l6 6-6 6"></path>
-              </svg></span></a><a
-            href="#"><span
-              class="mt-quick-ico"><svg class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
+              </svg></span></a><a href="#"><span class="mt-quick-ico"><svg class="mt-ico" viewBox="0 0 24 24"
+                aria-hidden="true">
                 <path d="M6 3h9l4 4v14H6z"></path>
                 <path d="M14 3v5h5"></path>
                 <path d="M9 16l6-6 2 2-6 6H9z"></path>
               </svg></span><span class="mt-quick-txt"><b>Góp ý dự thảo văn bản</b><small>Tham gia xây dựng pháp
                 luật</small></span><span class="mt-quick-go"><svg class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M5 12h14M13 6l6 6-6 6"></path>
-              </svg></span></a><a
-            href="#"><span
-              class="mt-quick-ico"><svg class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
+              </svg></span></a><a href="#"><span class="mt-quick-ico"><svg class="mt-ico" viewBox="0 0 24 24"
+                aria-hidden="true">
                 <path d="M6 3h9l4 4v6"></path>
                 <path d="M6 3v18h7"></path>
                 <circle cx="17" cy="17" r="3"></circle>
@@ -2618,13 +2645,11 @@
               </svg></span><span class="mt-quick-txt"><b>Tra cứu kết quả</b><small>Theo dõi ý kiến đã
                 gửi</small></span><span class="mt-quick-go"><svg class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M5 12h14M13 6l6 6-6 6"></path>
-              </svg></span></a><a
-            href="#"><span
-              class="mt-quick-ico"><svg class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
+              </svg></span></a><a href="#"><span class="mt-quick-ico"><svg class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
                 <rect x="3" y="5" width="18" height="16" rx="2"></rect>
                 <path d="M3 10h18M8 3v4M16 3v4"></path>
                 <path d="M8 14h3v3H8z"></path>
-              </svg></span><span class="mt-quick-txt"><b>Lịch tiếp công dân</b><small>Thời gian, địa điểm tiếp
+              </svg></span><span class="mt-quick-txt"><b>Tháng nghe dân nói</b><small>Thời gian, địa điểm tiếp
                 dân</small></span><span class="mt-quick-go"><svg class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M5 12h14M13 6l6 6-6 6"></path>
               </svg></span></a></div>
@@ -2635,35 +2660,30 @@
         <div class="mt-sec-head">
           <h2 class="mt-sec-title has-ico">
             <img src="images/hoasen.png" alt="err" class="mt-sec-ico">
-          <a
-              href="#" style="color: #000;">Hoạt động Mặt
-              trận</a></h2>
-          <div class="mt-sec-subs"><a
-              href="#">Tỉnh</a><a
-              href="#">Địa phương</a><a
-              href="#">Đại hội Mặt
+            <a href="#" style="color: #000;">Hoạt động Mặt
+              trận</a>
+          </h2>
+          <div class="mt-sec-subs"><a href="#">Tỉnh</a><a href="#">Địa phương</a><a href="#">Đại hội Mặt
               trận</a><a href="#">Tin
-              tổng hợp</a></div><span class="mt-sec-line"></span><a class="mt-sec-more"
-            href="#" style="color: gray;">Xem thêm <span
-              class="mt-arrow"><svg class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
+              tổng hợp</a></div><span class="mt-sec-line"></span><a class="mt-sec-more" href="#"
+            style="color: gray;">Xem thêm <span class="mt-arrow"><svg class="mt-ico" viewBox="0 0 24 24"
+                aria-hidden="true">
                 <path d="M5 12h14M13 6l6 6-6 6"></path>
               </svg></span></a>
         </div>
         <div class="mt-grid-4" style="text-align: justify;">
-          <article class="mt-card mt-card-std"><a
-              href="#">
+          <article class="mt-card mt-card-std"><a href="#">
               <div class="mt-ph is-loaded"><img
                   src="./images/news.avatar.93d30f8f3e0179c9.313738393030383233333231325f3231333933393038303332323837323034395f3231333933393038303332323837323034395f30653034353466346.jpg"
                   alt="Yên Xuân ra mắt mô hình “Kết nối số – Mặt trận đồng hành cùng nhân dân”" loading="lazy"
                   onerror="this.remove()"><span>Ảnh</span></div>
-              <h3 class="mt-card-title" style="text-align: justify;">Yên Xuân ra mắt mô hình “Kết nối số – Mặt trận đồng hành cùng nhân dân”</h3>
+              <h3 class="mt-card-title" style="text-align: justify;">Yên Xuân ra mắt mô hình “Kết nối số – Mặt trận đồng
+                hành cùng nhân dân”</h3>
             </a>
             <div class="mt-card-meta"><span class="mt-meta">Địa phương</span></div>
           </article>
-          <article class="mt-card mt-card-std"><a
-              href="#">
-              <div class="mt-ph is-loaded"><img
-                  src="./images/news.avatar.aefa870ff8a9a1da.312e6a7067.jpg"
+          <article class="mt-card mt-card-std"><a href="#">
+              <div class="mt-ph is-loaded"><img src="./images/news.avatar.aefa870ff8a9a1da.312e6a7067.jpg"
                   alt="Đại hội đại biểu Hội Bảo vệ quyền trẻ em và Bảo trợ Người khuyết tật xã Quỳnh Phú, nhiệm kỳ 2026–2031"
                   loading="lazy" onerror="this.remove()"><span>Ảnh</span></div>
               <h3 class="mt-card-title">Đại hội đại biểu Hội Bảo vệ quyền trẻ em và Bảo trợ Người khuyết tật xã Quỳnh
@@ -2675,10 +2695,8 @@
                   <path d="M12 7v5l3 2"></path>
                 </svg>24/09/2026</span></div>
           </article>
-          <article class="mt-card mt-card-std"><a
-              href="#">
-              <div class="mt-ph is-loaded"><img
-                  src="./images/news.avatar.8d834326279a410a.312e6a7067.jpg"
+          <article class="mt-card mt-card-std"><a href="#">
+              <div class="mt-ph is-loaded"><img src="./images/news.avatar.8d834326279a410a.312e6a7067.jpg"
                   alt="Quỳnh Anh: Đối thoại giữa người đứng đầu cấp ủy, chính quyền với Nhân dân về công tác quản lý đất đai"
                   loading="lazy" onerror="this.remove()"><span>Ảnh</span></div>
               <h3 class="mt-card-title">Quỳnh Anh: Đối thoại giữa người đứng đầu cấp ủy, chính quyền với Nhân dân về
@@ -2690,10 +2708,8 @@
                   <path d="M12 7v5l3 2"></path>
                 </svg>23/09/2026</span></div>
           </article>
-          <article class="mt-card mt-card-std"><a
-              href="#">
-              <div class="mt-ph is-loaded"><img
-                  src="./images/news.avatar.a47635076d5e01cb.2e2e6a7067.jpg"
+          <article class="mt-card mt-card-std"><a href="#">
+              <div class="mt-ph is-loaded"><img src="./images/news.avatar.a47635076d5e01cb.2e2e6a7067.jpg"
                   alt="Nghĩa Đàn tập trung kiện toàn tổ chức các hội quần chúng sau hợp nhất" loading="lazy"
                   onerror="this.remove()"><span>Ảnh</span></div>
               <h3 class="mt-card-title">Nghĩa Đàn tập trung kiện toàn tổ chức các hội quần chúng sau hợp nhất</h3>
@@ -2709,7 +2725,8 @@
     </section>
 
     <div class="mt-section">
-        <img class="mt-container" style="display: flex; justify-content: center; align-items: center; width: 100%;" src="./images/kh2.png" alt="" srcset="">
+      <img class="mt-container" style="display: flex; justify-content: center; align-items: center; width: 100%;"
+        src="./images/kh2.png" alt="" srcset="">
     </div>
 
     <section class="mt-section" style="text-align: justify;">
@@ -2718,14 +2735,12 @@
           <div class="mt-sec-head">
             <h2 class="mt-sec-title has-ico">
               <img src="images/hoasen.png" alt="err" class="mt-sec-ico">
-              <a
-                href="#" style="color: #000;">Giám sát – Phản
-                biện</a></h2><span class="mt-sec-line"></span>
+              <a href="#" style="color: #000;">Giám sát – Phản
+                biện</a>
+            </h2><span class="mt-sec-line"></span>
           </div>
-          <article class="mt-card mt-card-std"><a
-              href="#">
-              <div class="mt-ph is-loaded"><img
-                  src="./images/news.avatar.a951d3b5d1b423d8.3031312e706e67.png"
+          <article class="mt-card mt-card-std"><a href="#">
+              <div class="mt-ph is-loaded"><img src="./images/news.avatar.a951d3b5d1b423d8.3031312e706e67.png"
                   alt="Thường trực HĐND tỉnh Nghệ An sẽ tổ chức phiên giải trình làm rõ việc cấp nước sinh hoạt cho nhân dân"
                   loading="lazy" onerror="this.remove()"><span>Ảnh</span></div>
               <h3 class="mt-card-title">Thường trực HĐND tỉnh Nghệ An sẽ tổ chức phiên giải trình làm rõ việc cấp nước
@@ -2735,13 +2750,11 @@
           </article>
           <div class="mt-list" style="margin-top:14px;padding-top:12px;border-top:1px solid var(--rule)">
             <article class="mt-card mt-card-text">
-              <h3 class="mt-card-title"><a
-                  href="#">Nghệ An thành
+              <h3 class="mt-card-title"><a href="#">Nghệ An thành
                   lập đoàn kiểm tra việc chấp hành pháp luật về an toàn thực phẩm dịp Tết Trung thu năm 2026</a></h3>
             </article>
             <article class="mt-card mt-card-text">
-              <h3 class="mt-card-title"><a 
-                  href="#">Vai trò tham
+              <h3 class="mt-card-title"><a href="#">Vai trò tham
                   gia xây dựng Đảng, Nhà nước và giám sát, phản biện xã hội của MTTQ Việt Nam</a></h3>
             </article>
           </div>
@@ -2750,14 +2763,12 @@
           <div class="mt-sec-head">
             <h2 class="mt-sec-title has-ico">
               <img src="images/hoasen.png" alt="err" class="mt-sec-ico">
-              <a
-                href="#" style="color: #000;">Xây dựng Đảng –
-                Chính quyền</a></h2><span class="mt-sec-line"></span>
+              <a href="#" style="color: #000;">Xây dựng Đảng –
+                Chính quyền</a>
+            </h2><span class="mt-sec-line"></span>
           </div>
-          <article class="mt-card mt-card-std"><a
-              href="#">
-              <div class="mt-ph is-loaded"><img
-                  src="./images/news.avatar.afa5c7737f27112a.30312e706e67.png"
+          <article class="mt-card mt-card-std"><a href="#">
+              <div class="mt-ph is-loaded"><img src="./images/news.avatar.afa5c7737f27112a.30312e706e67.png"
                   alt="Sẽ sàng lọc, chuẩn hóa cán bộ để chính quyền địa phương 2 cấp vận hành hiệu quả" loading="lazy"
                   onerror="this.remove()"><span>Ảnh</span></div>
               <h3 class="mt-card-title">Sẽ sàng lọc, chuẩn hóa cán bộ để chính quyền địa phương 2 cấp vận hành hiệu quả
@@ -2767,13 +2778,11 @@
           </article>
           <div class="mt-list" style="margin-top:14px;padding-top:12px;border-top:1px solid var(--rule)">
             <article class="mt-card mt-card-text">
-              <h3 class="mt-card-title"><a
-                  href="#">Thủ tướng chủ
+              <h3 class="mt-card-title"><a href="#">Thủ tướng chủ
                   trì hội nghị đánh giá việc sắp xếp tổ chức bộ máy và vận hành chính quyền địa phương 2 cấp</a></h3>
             </article>
             <article class="mt-card mt-card-text">
-              <h3 class="mt-card-title"><a
-                  href="#">Thay thế mã số
+              <h3 class="mt-card-title"><a href="#">Thay thế mã số
                   bảo hiểm xã hội bằng số định danh cá nhân, căn cước công dân</a></h3>
             </article>
           </div>
@@ -2782,14 +2791,12 @@
           <div class="mt-sec-head">
             <h2 class="mt-sec-title has-ico">
               <img src="images/hoasen.png" alt="err" class="mt-sec-ico">
-              <a
-                href="#" style="color: #000;">Đối thoại Nhân
-                dân</a></h2><span class="mt-sec-line"></span>
+              <a href="#" style="color: #000;">Đối thoại Nhân
+                dân</a>
+            </h2><span class="mt-sec-line"></span>
           </div>
-          <article class="mt-card mt-card-std"><a
-              href="#">
-              <div class="mt-ph is-loaded"><img
-                  src="./images/news.avatar.8bb2cf9473260727.30312e706e67.png"
+          <article class="mt-card mt-card-std"><a href="#">
+              <div class="mt-ph is-loaded"><img src="./images/news.avatar.8bb2cf9473260727.30312e706e67.png"
                   alt="Đại biểu Quốc hội đoàn Nghệ An chất vấn Bộ trưởng Bộ Tài chính về hiệu quả hoạt động của các khu kinh tế ven biển"
                   loading="lazy" onerror="this.remove()"><span>Ảnh</span></div>
               <h3 class="mt-card-title">Đại biểu Quốc hội đoàn Nghệ An chất vấn Bộ trưởng Bộ Tài chính về hiệu quả hoạt
@@ -2799,13 +2806,11 @@
           </article>
           <div class="mt-list" style="margin-top:14px;padding-top:12px;border-top:1px solid var(--rule)">
             <article class="mt-card mt-card-text">
-              <h3 class="mt-card-title"><a
-                  href="#">Quỳnh Anh: Đối
+              <h3 class="mt-card-title"><a href="#">Quỳnh Anh: Đối
                   thoại giữa người đứng đầu cấp ủy, chính quyền với Nhân dân về công tác quản lý đất đai</a></h3>
             </article>
             <article class="mt-card mt-card-text">
-              <h3 class="mt-card-title"><a
-                  href="#">Chủ tịch UBND
+              <h3 class="mt-card-title"><a href="#">Chủ tịch UBND
                   tỉnh Lê Hồng Vinh tiếp xúc cử tri huyện Anh Sơn</a></h3>
             </article>
           </div>
@@ -2818,22 +2823,19 @@
           <div class="mt-sec-head">
             <h2 class="mt-sec-title has-ico">
               <img src="images/hoasen.png" alt="err" class="mt-sec-ico">
-              <a
-                href="#" style="color: #000;">Tuyên truyền vận
-                động</a></h2>
-            <div class="mt-sec-subs"><a
-                href="#">Chủ trương,
-                chính sách mới</a><a
-                href="#">Học tập và làm
-                theo Bác</a></div><span class="mt-sec-line"></span><a class="mt-sec-more"
-              href="#" style="color: gray;">Xem thêm <span
-                class="mt-arrow"><svg class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
+              <a href="#" style="color: #000;">Tuyên truyền vận
+                động</a>
+            </h2>
+            <div class="mt-sec-subs"><a href="#">Chủ trương,
+                chính sách mới</a><a href="#">Học tập và làm
+                theo Bác</a></div><span class="mt-sec-line"></span><a class="mt-sec-more" href="#"
+              style="color: gray;">Xem thêm <span class="mt-arrow"><svg class="mt-ico" viewBox="0 0 24 24"
+                  aria-hidden="true">
                   <path d="M5 12h14M13 6l6 6-6 6"></path>
                 </svg></span></a>
           </div>
           <div class="mt-grid-3" style="grid-template-columns:1.4fr 1fr;gap:28px">
-            <article class="mt-card mt-card-std"><a
-                href="#">
+            <article class="mt-card mt-card-std"><a href="#">
                 <div class="mt-ph is-loaded"><img
                     src="./images/news.avatar.8132b6f4d3358320.626e615f2d746f616e2d63616e682d76756e672d74726f6e672d64756f632d6c6965752d6375612d7461702d646f616e2d74682d7461692d78612d6d7.jpg"
                     alt="Thống nhất chủ trương thí điểm mô hình “Làng Hạnh phúc Mường Lống” từ quý IV/2026"
@@ -2845,16 +2847,13 @@
               <div class="mt-card-meta"><span class="mt-meta">Tuyên truyền</span></div>
             </article>
             <div class="mt-list">
-              <article class="mt-card mt-card-row"><a
-                  href="#">
-                  <div class="mt-ph r-43 is-loaded"><img
-                      src="./images/news.avatar.8553598f5b2f4b7d.31312e6a7067.jpg"
+              <article class="mt-card mt-card-row"><a href="#">
+                  <div class="mt-ph r-43 is-loaded"><img src="./images/news.avatar.8553598f5b2f4b7d.31312e6a7067.jpg"
                       alt="Quỹ BHYT sẽ thanh toán chi phí khám sức khỏe định kỳ thế nào?" loading="lazy"
                       onerror="this.remove()"><span></span></div>
                 </a>
                 <div>
-                  <h3 class="mt-card-title"><a
-                      href="#">Quỹ BHYT
+                  <h3 class="mt-card-title"><a href="#">Quỹ BHYT
                       sẽ thanh toán chi phí khám sức khỏe định kỳ thế nào?</a></h3>
                   <div class="mt-card-meta"><span class="mt-meta mt-date"><svg class="mt-ico" viewBox="0 0 24 24"
                         aria-hidden="true">
@@ -2863,29 +2862,25 @@
                       </svg>23/09/2026</span></div>
                 </div>
               </article>
-              <article class="mt-card mt-card-row"><a
-                  href="#">
+              <article class="mt-card mt-card-row"><a href="#">
                   <div class="mt-ph r-43 is-loaded"><img
                       src="./images/news.avatar.8d5d79ed464425e3.626e615f32616f626f716d6d3166776865796a706732626276706c697065776a6c6c7363326a7167796a65772e6a7067.jpg"
                       alt="Phản biện từ sớm, sát thực tiễn" loading="lazy" onerror="this.remove()"><span></span></div>
                 </a>
                 <div>
-                  <h3 class="mt-card-title"><a
-                      href="#">Phản biện
+                  <h3 class="mt-card-title"><a href="#">Phản biện
                       từ sớm, sát thực tiễn</a></h3>
                   <div class="mt-card-meta"></div>
                 </div>
               </article>
-              <article class="mt-card mt-card-row"><a
-                  href="#">
+              <article class="mt-card mt-card-row"><a href="#">
                   <div class="mt-ph r-43 is-loaded"><img
                       src="./images/news.avatar.938fbbdd7db7dd76.32616f626f717a6c316d79737a6f6570733162396839707031616874687978727131676f6a34656f2831292e6a7067.jpg"
                       alt="Phó Bí thư Tỉnh ủy Nguyễn Thanh Bình: Nỗ lực, chung sức xây dựng Nghệ An phát triển"
                       loading="lazy" onerror="this.remove()"><span></span></div>
                 </a>
                 <div>
-                  <h3 class="mt-card-title"><a
-                      href="#">Phó Bí thư
+                  <h3 class="mt-card-title"><a href="#">Phó Bí thư
                       Tỉnh ủy Nguyễn Thanh Bình: Nỗ lực, chung sức xây dựng Nghệ An phát triển</a></h3>
                   <div class="mt-card-meta"><span class="mt-meta mt-date"><svg class="mt-ico" viewBox="0 0 24 24"
                         aria-hidden="true">
@@ -2900,21 +2895,19 @@
             <div class="mt-sec-head">
               <h2 class="mt-sec-title has-ico">
                 <img src="images/hoasen.png" alt="err" class="mt-sec-ico">
-                <a
-                  href="#" style="color: #000;">Dân tộc – Tôn
-                  giáo</a></h2>
-              <div class="mt-sec-subs"><a
-                  href="#">Công tác dân
+                <a href="#" style="color: #000;">Dân tộc – Tôn
+                  giáo</a>
+              </h2>
+              <div class="mt-sec-subs"><a href="#">Công tác dân
                   tộc</a><a href="#">Công
-                  tác tôn giáo</a></div><span class="mt-sec-line"></span><a class="mt-sec-more"
-                href="#" style="color: gray;">Xem thêm <span
-                  class="mt-arrow"><svg class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
+                  tác tôn giáo</a></div><span class="mt-sec-line"></span><a class="mt-sec-more" href="#"
+                style="color: gray;">Xem thêm <span class="mt-arrow"><svg class="mt-ico" viewBox="0 0 24 24"
+                    aria-hidden="true">
                     <path d="M5 12h14M13 6l6 6-6 6"></path>
                   </svg></span></a>
             </div>
             <div class="mt-grid-3">
-              <article class="mt-card mt-card-std"><a
-                  href="#">
+              <article class="mt-card mt-card-std"><a href="#">
                   <div class="mt-ph is-loaded"><img
                       src="./images/news.avatar.a624ccc000f67bbf.75792d74696e2e6a706567.jpeg"
                       alt="Phát huy vai trò người có uy tín trong phát triển kinh tế – xã hội vùng miền núi"
@@ -2924,10 +2917,8 @@
                 </a>
                 <div class="mt-card-meta"><span class="mt-meta">Dân tộc</span></div>
               </article>
-              <article class="mt-card mt-card-std"><a
-                  href="#">
-                  <div class="mt-ph is-loaded"><img
-                      src="./images/news.avatar.bb1929aaf77f981d.30332e706e67.png"
+              <article class="mt-card mt-card-std"><a href="#">
+                  <div class="mt-ph is-loaded"><img src="./images/news.avatar.bb1929aaf77f981d.30332e706e67.png"
                       alt="Tương Dương sau lũ: Hơn 900 nồi cơm, quạt máy, tủ lạnh hỏng được người dân mang đến điểm sửa chữa miễn phí"
                       loading="lazy" onerror="this.remove()"><span>Ảnh</span></div>
                   <h3 class="mt-card-title">Tương Dương sau lũ: Hơn 900 nồi cơm, quạt máy, tủ lạnh hỏng được người dân
@@ -2935,10 +2926,8 @@
                 </a>
                 <div class="mt-card-meta"><span class="mt-meta">Dân tộc</span></div>
               </article>
-              <article class="mt-card mt-card-std"><a
-                  href="#">
-                  <div class="mt-ph is-loaded"><img
-                      src="./images/news.avatar.9a27f651092439cc.30312e706e67.png"
+              <article class="mt-card mt-card-std"><a href="#">
+                  <div class="mt-ph is-loaded"><img src="./images/news.avatar.9a27f651092439cc.30312e706e67.png"
                       alt="Ban Tôn giáo Chính phủ tổ chức hội nghị phổ biến chính sách, pháp luật về tôn giáo"
                       loading="lazy" onerror="this.remove()"><span>Ảnh</span></div>
                   <h3 class="mt-card-title">Ban Tôn giáo Chính phủ tổ chức hội nghị phổ biến chính sách, pháp luật về
@@ -2946,20 +2935,43 @@
                 </a>
                 <div class="mt-card-meta"><span class="mt-meta">Tôn giáo</span></div>
               </article>
+              <article class="mt-card mt-card-std"><a href="#">
+                  <div class="mt-ph is-loaded"><img src="./images/news.avatar.bb1929aaf77f981d.30332e706e67.png"
+                      alt="Tương Dương sau lũ: Hơn 900 nồi cơm, quạt máy, tủ lạnh hỏng được người dân mang đến điểm sửa chữa miễn phí"
+                      loading="lazy" onerror="this.remove()"><span>Ảnh</span></div>
+                  <h3 class="mt-card-title">Tương Dương sau lũ: Hơn 900 nồi cơm, quạt máy, tủ lạnh hỏng được người dân
+                    mang đến điểm sửa chữa miễn phí</h3>
+                </a>
+                <div class="mt-card-meta"><span class="mt-meta">Dân tộc</span></div>
+              </article>
+              <article class="mt-card mt-card-std"><a href="#">
+                  <div class="mt-ph is-loaded"><img src="./images/news.avatar.9a27f651092439cc.30312e706e67.png"
+                      alt="Ban Tôn giáo Chính phủ tổ chức hội nghị phổ biến chính sách, pháp luật về tôn giáo"
+                      loading="lazy" onerror="this.remove()"><span>Ảnh</span></div>
+                  <h3 class="mt-card-title">Ban Tôn giáo Chính phủ tổ chức hội nghị phổ biến chính sách, pháp luật về
+                    tôn giáo</h3>
+                </a>
+                <div class="mt-card-meta"><span class="mt-meta">Tôn giáo</span></div>
+              </article>
+              <article class="mt-card mt-card-std"><a href="#">
+                  <div class="mt-ph is-loaded"><img
+                      src="./images/news.avatar.a624ccc000f67bbf.75792d74696e2e6a706567.jpeg"
+                      alt="Phát huy vai trò người có uy tín trong phát triển kinh tế – xã hội vùng miền núi"
+                      loading="lazy" onerror="this.remove()"><span>Ảnh</span></div>
+                  <h3 class="mt-card-title">Phát huy vai trò người có uy tín trong phát triển kinh tế – xã hội vùng miền
+                    núi</h3>
+                </a>
+                <div class="mt-card-meta"><span class="mt-meta">Dân tộc</span></div>
+              </article>
             </div>
           </div>
         </div>
         <div style="display:grid;gap:20px;align-content:start">
 
-          <iframe 
-            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fubmttqnghean&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
-            width="100%" 
-            height="500" 
-            style="border:none;overflow:hidden" 
-            scrolling="no" 
-            frameborder="0" 
-            allowfullscreen="true" 
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+          <iframe
+            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fubmttqnghean&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+            width="100%" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+            allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
           </iframe>
 
           <div class="mt-panel">
@@ -2970,19 +2982,57 @@
               <div class="mt-links">
                 <div>
                   <h4>Cấp Trung ương</h4>
-                  <ul>
-                    <li><a href="#">Cổng
-                        TTĐT Chính phủ</a></li>
-                    <li><a href="#">Ủy
-                        ban Trung ương MTTQ Việt Nam</a></li>
-                    <li><a href="#">Thư
-                        viện Pháp luật</a></li>
+                  <ul style="margin-left: 15px">
+                    <li><a style="font-size: small;" href="http://egov.chinhphu.vn/">Trang tin Chính phủ điện tử</a></li>
+                    <li><a style="font-size: small;" href="http://mattran.org.vn/">Ủy ban Trung ương MTTQ Việt Nam</a></li>
+                    <li><a style="font-size: small;" href="https://thuvienphapluat.vn/">Thư viện Pháp luật</a></li>
                   </ul>
                 </div>
+
+                <div>
+                  <h4>Cấp Tỉnh</h4>
+                  <ul style="margin-left: 15px">
+                    <li><a style="font-size: small;" href="http://www.nghean.gov.vn/">Ủy ban nhân dân Tỉnh Nghệ An</a></li>
+                    <li><a style="font-size: small;" href="http://duthaovanban.nghean.gov.vn/">Trang dự thảo văn bản online</a></li>
+                    <li><a style="font-size: small;" href="https://nghean.dcs.vn/">Đảng bộ Tỉnh Nghệ An</a></li>
+                    <li><a style="font-size: small;" href="http://dbndnghean.vn">Hội đồng nhân dân tỉnh Nghệ An</a></li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4>Liên kết website khác</h4>
+                  <ul style="margin-left: 15px;">
+                    <li><a style="font-size: small;" href="https://truyenhinhnghean.vn/">Đài truyền hình Tỉnh Nghệ An</a></li>
+                    <li><a style="font-size: small;" href="http://congbao.nghean.gov.vn/">Công báo Tỉnh</a></li>
+                    <li><a style="font-size: small;" href="http://baonghean.vn/">Báo Nghệ An</a></li>
+                  </ul>
+                </div>
+
                 <div>
                   <h4>Ủy ban MTTQ xã, phường</h4>
                   <select class="mt-select" aria-label="Chọn xã, phường">
                     <option>— Chọn xã, phường —</option>
+                    <option value="">UBMTTQ Thành phố Vinh</option>
+                    <option value="">UBMTTQ Huyện Anh Sơn</option>
+                    <option value="">UBMTTQ Huyện Con Cuông</option>
+                    <option value="">UBMTTQ Thị xã Cửa Lò</option>
+                    <option value="">UBMTTQ Huyện Diễn Châu</option>
+                    <option value="">UBMTTQ Huyện Đô Lương</option>
+                    <option value="">UBMTTQ Thị xã Hoàng Mai</option>
+                    <option value="">UBMTTQ Huyện Hưng Nguyên</option>
+                    <option value="">UBMTTQ Huyện Kỳ Sơn</option>
+                    <option value="">UBMTTQ Huyện Nam Đàn</option>
+                    <option value="">UBMTTQ Huyện Nghi Lộc</option>
+                    <option value="">UBMTTQ Huyện Nghĩa Đàn</option>
+                    <option value="">UBMTTQ Huyện Quế Phong</option>
+                    <option value="">UBMTTQ Huyện Quỳ Châu</option>
+                    <option value="">UBMTTQ Huyện Quỳ Hợp</option>
+                    <option value="">UBMTTQ Huyện Quỳnh Lưu</option>
+                    <option value="">UBMTTQ Huyện Tân Kỳ</option>
+                    <option value="">UBMTTQ Thị xã Thái Hòa</option>
+                    <option value="">UBMTTQ Huyện Thanh Chương</option>
+                    <option value="">UBMTTQ Huyện Tương Dương</option>
+                    <option value="">UBMTTQ Huyện Yên Thành</option>
                   </select>
                 </div>
               </div>
@@ -2996,81 +3046,45 @@
       <div class="mt-container">
         <div class="mt-sec-head">
           <h2 class="mt-sec-title has-ico">
-            <span class="mt-sec-ico"><svg class="mt-ico" viewBox="0 0 24 24"
-                aria-hidden="true">
+            <span class="mt-sec-ico"><svg class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M3 8h4l2-3h6l2 3h4v12H3z"></path>
                 <circle cx="12" cy="13" r="4"></circle>
-              </svg></span><a
-              href="#" style="color: #000;">Hình ảnh –
-              Video</a></h2>
-          <div class="mt-sec-subs" style="color: #000;"><a
-              href="#">Hình ảnh hoạt
+              </svg></span><a href="#" style="color: #000;">Hình ảnh –
+              Video</a>
+          </h2>
+          <div class="mt-sec-subs" style="color: #000;"><a href="#">Hình ảnh hoạt
               động</a><a href="#">Thư
-              viện video</a></div><span></span><a class="mt-sec-more"
-            href="#" style="color: gray;">Xem thêm <span
+              viện video</a></div><span></span><a class="mt-sec-more" href="#" style="color: gray;">Xem thêm <span
               class="mt-arrow"><svg class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M5 12h14M13 6l6 6-6 6"></path>
               </svg></span></a>
         </div>
-        <div class="mt-grid-main" style="grid-template-columns:1.4fr 1fr"><a class="mt-media mt-media-big"
-            href="#">
-            <div class="mt-ph is-loaded"><img
-                src="./images/IMG_7454.jpg"
-                alt="Nhân sự nhiệm kỳ mới" loading="lazy" onerror="this.remove()"><span>Video</span></div><span
-              class="mt-media-play"><svg viewBox="0 0 24 24" aria-hidden="true">
+        <div class="mt-grid-main" style="grid-template-columns:1.4fr 1fr"><a class="mt-media mt-media-big" href="#">
+            <div class="mt-ph is-loaded"><img src="./images/IMG_7454.jpg" alt="Nhân sự nhiệm kỳ mới" loading="lazy"
+                onerror="this.remove()"><span>Video</span></div><span class="mt-media-play"><svg viewBox="0 0 24 24"
+                aria-hidden="true">
                 <path d="M6 4l14 8-14 8z"></path>
               </svg></span>
             <div class="mt-media-title" style="color: #000;">Nhân sự nhiệm kỳ mới</div>
           </a>
-          <div class="mt-grid-3" style="grid-template-columns:1fr 1fr;align-content:start"><a class="mt-media"
-              href="#">
-              <div class="mt-ph is-loaded"><img
-                  src="./images/IMG_7447.jpg"
-                  alt="Hình ảnh hoạt động" loading="lazy" onerror="this.remove()"><span>Hình ảnh</span></div>
+          <div class="mt-grid-3" style="grid-template-columns:1fr 1fr;align-content:start"><a class="mt-media" href="#">
+              <div class="mt-ph is-loaded"><img src="./images/IMG_7447.jpg" alt="Hình ảnh hoạt động" loading="lazy"
+                  onerror="this.remove()"><span>Hình ảnh</span></div>
               <div class="mt-media-title" style="color: #000;">Hình ảnh hoạt động</div>
-            </a><a class="mt-media"
-              href="#">
+            </a><a class="mt-media" href="#">
               <div class="mt-ph is-loaded"><img
                   src="./images/youtube.avatar.9b492b050513329d.47656d696e695f47656e6572617465645f496d6167655f38336d76787238336d76787238336d762e706e67.png"
                   alt="Hình ảnh hoạt động" loading="lazy" onerror="this.remove()"><span>Hình ảnh</span></div>
               <div class="mt-media-title" style="color: #000;">Hình ảnh hoạt động</div>
-            </a><a class="mt-media"
-              href="#">
-              <div class="mt-ph is-loaded"><img
-                  src="./images/IMG_7473.jpg"
-                  alt="Hình ảnh hoạt động" loading="lazy" onerror="this.remove()"><span>Hình ảnh</span></div>
+            </a><a class="mt-media" href="#">
+              <div class="mt-ph is-loaded"><img src="./images/IMG_7473.jpg" alt="Hình ảnh hoạt động" loading="lazy"
+                  onerror="this.remove()"><span>Hình ảnh</span></div>
               <div class="mt-media-title" style="color: #000;">Hình ảnh hoạt động</div>
-            </a><a class="mt-media"
-              href="#">
-              <div class="mt-ph is-loaded"><img
-                  src="./images/IMG_7488.jpg"
-                  alt="Hình ảnh hoạt động" loading="lazy" onerror="this.remove()"><span>Hình ảnh</span></div>
+            </a><a class="mt-media" href="#">
+              <div class="mt-ph is-loaded"><img src="./images/IMG_7488.jpg" alt="Hình ảnh hoạt động" loading="lazy"
+                  onerror="this.remove()"><span>Hình ảnh</span></div>
               <div class="mt-media-title" style="color: #000;">Hình ảnh hoạt động</div>
             </a></div>
-        </div>
-      </div>
-    </section>
-    <section class="mt-section" style="padding-bottom:56px">
-      <div class="mt-container">
-        <div class="mt-sec-head">
-          <h2 class="mt-sec-title has-ico">
-            <span class="mt-sec-ico"><svg class="mt-ico" viewBox="0 0 24 24"
-                aria-hidden="true">
-                <path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"></path>
-                <path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"></path>
-              </svg></span><a
-              href="#" style="color: #000;">Liên kết</a></h2>
-          <span class="mt-sec-line"></span>
-        </div>
-        <div class="mt-logos" style="width: 100%;">
-          <a href="https://mattran.org.vn/">
-            <img src="./images/webmt.png" alt="" srcset="" style="width: 400px; height: 72px;">
-          </a>
-          <a href="https://chinhphu.vn/"><img src="./images/cttcp.png" alt="Cổng TTĐT Chính phủ " srcset="" style="width: 400px; height: 72px;"></a>
-          <a href="https://nghean.gov.vn/"><img src="./images/dtna.png" alt="" srcset="" style="width: 400px; height: 72px;"></a>
-          <a href="https://nghean.dcs.vn/vi-vn"><img src="./images/dbna.png" alt="Đảng bộ tỉnh Nghệ An" srcset="" style="width: 400px; height: 72px;"></a>
-          <a href="https://dbndnghean.vn/"><img src="./images/dbndna.png" alt="HĐND tỉnh Nghệ An" srcset="" style="width: 400px; height: 72px;"></a>
-          <a href="https://truyenhinhnghean.vn/"><img src="./images/baona.png" alt="Báo và PT-TH Nghệ An" srcset="" style="width: 400px; height: 72px;"></a>
         </div>
       </div>
     </section>
@@ -3079,7 +3093,8 @@
         <div class="mt-foot-grid">
           <div>
             <div class="mt-foot-brand">
-              <div class="mt-logo-slot" style="border: none;"><img style="margin: 0 auto;" class="thumbnail" src="./images/news.avatar.9ef462f5dbaec21d.556e7469746c65642e706e67.png">
+              <div class="mt-logo-slot" style="border: none;"><img style="margin: 0 auto;" class="thumbnail"
+                  src="./images/news.avatar.9ef462f5dbaec21d.556e7469746c65642e706e67.png">
               </div>
               <div>
                 <p class="mt-foot-name">Ủy ban MTTQ Việt Nam<br>tỉnh Nghệ An</p>
@@ -3099,19 +3114,16 @@
                   <path d="M3 7l9 6 9-6"></path>
                 </svg><b>ubmttq@nghean.gov.vn</b></li>
             </ul>
-            <div class="mt-social"><a
-                href="#"
-                aria-label="Trang Facebook"><svg class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
+            <div class="mt-social"><a href="#" aria-label="Trang Facebook"><svg class="mt-ico" viewBox="0 0 24 24"
+                  aria-hidden="true">
                   <circle cx="12" cy="12" r="9"></circle>
                   <path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"></path>
-                </svg><span>Fanpage</span></a><a
-                href="#"
-                aria-label="Kênh video"><svg class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
+                </svg><span>Fanpage</span></a><a href="#" aria-label="Kênh video"><svg class="mt-ico"
+                  viewBox="0 0 24 24" aria-hidden="true">
                   <rect x="3" y="6" width="13" height="12" rx="2"></rect>
                   <path d="M16 10l5-3v10l-5-3z"></path>
-                </svg><span>Kênh video</span></a><a
-                href="#"
-                aria-label="Zalo OA"><svg class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
+                </svg><span>Kênh video</span></a><a href="#" aria-label="Zalo OA"><svg class="mt-ico"
+                  viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M3 5h12v8H8l-5 4z"></path>
                   <path d="M15 9h6v8l-3-2.5h-6V13"></path>
                 </svg><span>Zalo OA</span></a></div>
@@ -3151,15 +3163,13 @@
           </div>
         </div>
         <div class="mt-foot-bar"><span>© 2026 Ủy ban MTTQ Việt Nam tỉnh Nghệ An. Ghi rõ nguồn khi phát hành lại thông
-            tin từ trang này.</span><a
-            href="#top">Về đầu trang
+            tin từ trang này.</span><a href="#top">Về đầu trang
             ↑</a></div>
       </div>
     </footer>
     <div class="mt-rail" aria-label="Truy cập nhanh">
-      <a class="is-primary" href="#"
-        data-tip="Gửi ý kiến, kiến nghị" aria-label="Gửi ý kiến, kiến nghị"><svg class="mt-ico" viewBox="0 0 24 24"
-          aria-hidden="true">
+      <a class="is-primary" href="#" data-tip="Gửi ý kiến, kiến nghị" aria-label="Gửi ý kiến, kiến nghị"><svg
+          class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M4 5h16v11H9l-5 4z"></path>
           <path d="M8 9h8M8 12h5"></path>
         </svg></a>
@@ -3167,8 +3177,8 @@
           class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path>
         </svg></a>
-      <a href="#top" class="mt-rail-top"
-        data-tip="Lên đầu trang" aria-label="Lên đầu trang"><svg class="mt-ring" viewBox="0 0 48 48" aria-hidden="true">
+      <a href="#top" class="mt-rail-top" data-tip="Lên đầu trang" aria-label="Lên đầu trang"><svg class="mt-ring"
+          viewBox="0 0 48 48" aria-hidden="true">
           <circle cx="24" cy="24" r="22" style="--ring: 138.2;"></circle>
         </svg><svg class="mt-ico" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12 19V5M5 12l7-7 7 7"></path>
@@ -3178,14 +3188,14 @@
   <script>
     (function () {
       var root = document.querySelector('.mt'), html = document.documentElement;
-      function get(k) {try {return localStorage.getItem(k)} catch (e) {return null} }
-      function set(k, v) {try {localStorage.setItem(k, v)} catch (e) { } }
+      function get(k) { try { return localStorage.getItem(k) } catch (e) { return null } }
+      function set(k, v) { try { localStorage.setItem(k, v) } catch (e) { } }
       var sizeBtns = document.querySelectorAll('.mt-a11y [data-size]');
       function applySize(c) {
         root.classList.remove('is-lg', 'is-xl'); if (c) root.classList.add(c);
-        sizeBtns.forEach(function (b) {b.setAttribute('aria-pressed', String(b.getAttribute('data-size') === (c || '')))}); set('mt-size', c || '');
+        sizeBtns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-size') === (c || ''))) }); set('mt-size', c || '');
       }
-      sizeBtns.forEach(function (b) {b.addEventListener('click', function () {applySize(b.getAttribute('data-size'))})});
+      sizeBtns.forEach(function (b) { b.addEventListener('click', function () { applySize(b.getAttribute('data-size')) }) });
       applySize(get('mt-size') || '');
       var t = get('mt-theme'); if (t) html.setAttribute('data-theme', t);
       var tb = document.querySelector('[data-theme-toggle]');
@@ -3198,14 +3208,14 @@
       root.classList.add('is-motion');
       // images: fade in when loaded, stop shimmer
       document.querySelectorAll('.mt-ph img').forEach(function (im) {
-        function ok() {if (im.parentNode) im.parentNode.classList.add('is-loaded');}
+        function ok() { if (im.parentNode) im.parentNode.classList.add('is-loaded'); }
         if (im.complete && im.naturalWidth) ok(); else im.addEventListener('load', ok);
       });
       // ticker: duplicate items for a seamless loop + pause button
       var track = document.querySelector('.mt-ticker-track');
-      if (track) {[].slice.call(track.children).forEach(function (a) {var c = a.cloneNode(true); c.setAttribute('aria-hidden', 'true'); c.tabIndex = -1; track.appendChild(c);});}
+      if (track) { [].slice.call(track.children).forEach(function (a) { var c = a.cloneNode(true); c.setAttribute('aria-hidden', 'true'); c.tabIndex = -1; track.appendChild(c); }); }
       var pb = document.querySelector('.mt-ticker-pause'), tk = document.querySelector('.mt-ticker');
-      if (pb) pb.addEventListener('click', function () {var p = tk.classList.toggle('is-paused'); pb.setAttribute('aria-pressed', String(p)); pb.setAttribute('aria-label', p ? 'Tiếp tục chạy tin' : 'Tạm dừng chạy tin');});
+      if (pb) pb.addEventListener('click', function () { var p = tk.classList.toggle('is-paused'); pb.setAttribute('aria-pressed', String(p)); pb.setAttribute('aria-label', p ? 'Tiếp tục chạy tin' : 'Tạm dừng chạy tin'); });
       // scroll: progress bar, back-to-top ring
       var bar = document.querySelector('.mt-progress span'), top = document.querySelector('.mt-rail-top'), ring = document.querySelector('.mt-ring circle');
       var ticking = false;
@@ -3215,12 +3225,12 @@
         if (ring) ring.style.setProperty('--ring', String(138.2 * (1 - p)));
         if (top) top.classList.toggle('is-on', h.scrollTop > 600);
       }
-      addEventListener('scroll', function () {if (!ticking) {ticking = true; requestAnimationFrame(onScroll);} }, {passive: true}); onScroll();
+      addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true }); onScroll();
       // scroll reveal with stagger
       if (!still && 'IntersectionObserver' in window) {
         var els = document.querySelectorAll('.mt-section .mt-card, .mt-band .mt-card, .mt-quick a, .mt-panel, .mt-media, .mt-logos a, .mt-sec-head');
-        var io = new IntersectionObserver(function (es) {es.forEach(function (e) {if (e.isIntersecting) {e.target.classList.add('is-in'); io.unobserve(e.target);} });}, {rootMargin: '0px 0px -8% 0px'});
-        els.forEach(function (el) {var sib = [].indexOf.call(el.parentNode.children, el); el.style.setProperty('--d', Math.min(sib, 5) * 0.07 + 's'); el.classList.add('mt-reveal'); io.observe(el);});
+        var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -8% 0px' });
+        els.forEach(function (el) { var sib = [].indexOf.call(el.parentNode.children, el); el.style.setProperty('--d', Math.min(sib, 5) * 0.07 + 's'); el.classList.add('mt-reveal'); io.observe(el); });
       }
     })();
   </script>
