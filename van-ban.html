@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ thống văn bản chỉ đạo, hướng dẫn - Ủy ban Mặt trận Tổ quốc tỉnh Nghệ An</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        .nav-link {
+            height: 56px;
+            padding: 0 8px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: clamp(14px, 1vw, 16px);
+            font-weight: 600;
+            color: #222;
+            transition: .2s;
+        }
+
+        .nav-link:hover {
+            color: #DC2626;
+            background: rgb(255 217 102 / 20%);
+        }
+
+        .nav-link i {
+            font-size: 12px;
+            color: #555;
+        }
+
+        .top-search {
+            position: relative;
+            width: 220px;
+        }
+
+        .top-search input {
+            width: 100%;
+            height: 34px;
+            border-radius: 9999px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            padding: 0 36px 0 14px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .top-search input::placeholder {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .top-search i {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+        }
+
+        .mt-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            justify-content: space-between;
+            overflow: visible;
+        }
+
+        .mt-nav-wrap {
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .mt-nav-item {
+            display: flex;
+            white-space: nowrap;
+            align-items: center;
+            gap: 6px;
+            padding: 0 12px;
+            height: 56px;
+            font-size: clamp(13px, 1vw, 15px);
+            font-weight: 600;
+            color: #222;
+            transition: .2s;
+            text-decoration: none;
+        }
+
+        .mt-nav-item:hover,
+        .mt-nav-item.is-active {
+            color: #DC2626;
+            background: rgb(255 217 102 / 20%);
+        }
+
+        .mt-nav-item.is-active {
+            border-bottom: 3px solid #DC2626;
+        }
+
+        .mt-ico {
+            width: 20px;
+            height: 20px;
+        }
+
+        .caret {
+            width: 10px;
+            height: 10px;
+            fill: currentColor;
+            transition: transform 0.2s;
+        }
+
+        .mt-nav-wrap:hover .caret {
+            transform: rotate(180deg);
+        }
+
+        .mt-nav-drop {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            min-width: 220px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #eee;
+            border-top: 2px solid #DC2626;
+            display: none;
+            flex-direction: column;
+            z-index: 100;
+        }
+
+        .mt-nav-wrap:hover .mt-nav-drop {
+            display: flex;
+        }
+
+        .mt-nav-drop a {
+            padding: 12px 16px;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            border-bottom: 1px solid #f9f9f9;
+            transition: .2s;
+            white-space: normal;
+        }
+
+        .mt-nav-drop a:hover {
+            color: #DC2626;
+            background: #fdfdfd;
+            padding-left: 20px;
+        }
+
+        .mt-mobile-toggle {
+            display: none;
+        }
+
+        .brand-header {
+            height: 210px;
+            background-size: 100% 230px;
+        }
+
+        @media (max-width: 767px) {
+            .brand-header {
+                height: clamp(90px, 24vw, 120px);
+                background-size: auto 100%;
+            }
+
+            .mt-mobile-toggle {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: space-between;
+                padding: 12px 16px;
+                border: 0;
+                background: #fff;
+                color: #222;
+                font-size: 14px;
+                font-weight: 700;
+                text-align: left;
+            }
+
+            .mt-container {
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                border-top: 1px solid #eee;
+            }
+
+            .mt-container.is-open {
+                display: flex;
+            }
+
+            .mt-nav-wrap {
+                border-bottom: 1px solid #eee;
+            }
+
+            .mt-nav-home {
+                width: 100%;
+            }
+
+            .mt-nav-wrap>.mt-nav-item {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .mt-nav-drop {
+                position: static;
+                min-width: 0;
+                border: 0;
+                border-top: 1px solid #eee;
+                box-shadow: none;
+            }
+
+            .mt-nav-wrap:hover .mt-nav-drop {
+                display: none;
+            }
+
+            .mt-nav-wrap.is-open>.mt-nav-drop {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans text-base">
+
+    <!-- TOP BAR -->
+    <div class="bg-[#DC2626] text-white text-xs xl:text-sm leading-normal whitespace-nowrap">
+        <div class="max-w-[1550px] mx-auto px-4 h-[38px] flex items-center justify-between">
+            <div class="flex items-center gap-5">
+                <span class="flex items-center gap-2">
+                    <i class="fa-regular fa-calendar"></i>
+                    Thứ Hai, 29/09/2026
+                </span>
+                <span class="opacity-60">|</span>
+                <span class="flex items-center gap-2">
+                    🌤️ Nghệ An <b>26°C - 32°C</b>
+                </span>
+            </div>
+
+            <div class="hidden lg:flex items-center gap-2 xl:gap-4">
+                <div class="hidden xl:flex items-center gap-4">
+                    <span><i class="fa-regular fa-comment-dots mr-1"></i> Gửi phản ánh, ý kiến</span>
+                    <span class="opacity-60">|</span>
+                    <span><i class="fa-solid fa-envelope mr-1"></i> ubmttq@nghean.gov.vn</span>
+                    <span class="opacity-60">|</span>
+                </div>
+                <span>A</span>
+                <span>A+</span>
+                <span>A++</span>
+                <span class="opacity-60">|</span>
+                <span class="h-5 w-5 rounded-full bg-white/20 flex items-center justify-center">
+                    <i class="fa-solid fa-moon text-sm"></i>
+                </span>
+                <label class="top-search" aria-label="Tìm kiếm">
+                    <input type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </label>
+                <span class="flex items-center justify-center"><img class="w-[18px] h-[18px] mr-2"
+                        src="images/facei.png" alt=""> Fanpage</span>
+                <span class="flex items-center justify-center"><img class="w-[18px] h-[18px] mr-2"
+                        src="images/zaloi.png" alt=""> Zalo</span>
+                <span class="border-l border-white/50 pl-4">
+                    <div class="rounded-full border border-white px-2 py-1">
+                        <i class="fa-solid fa-user mr-1"></i> Đăng nhập
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- BRAND HEADER -->
+    <header class="brand-header relative border-b border-[#F5BC02] bg-center bg-no-repeat overflow-hidden"
+        style="background-image: url('images/headern.png');">
+        <div class="max-w-[1550px] h-full mx-auto px-4 flex items-center justify-center relative z-10">
+        </div>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-200 uppercase">
+        <div class="max-w-[1550px] mx-auto px-4">
+            <button class="mt-mobile-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">
+                <span></span>
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            </button>
+            <div class="mt-container" id="main-navigation" style="max-width: none;">
+                <a class="mt-nav-item mt-nav-home" href="index.html" aria-label="Trang chủ">
+                    <svg class="mt-ico" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none">
+                        <path d="M12 3 2 11h3v9h5v-6h4v6h5v-9h3z"></path>
+                    </svg>
+                </a>
+                <div class="mt-nav-wrap">
+                    <a class="mt-nav-item" href="gioi-thieu.html">Giới thiệu <svg class="caret" viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="gioi-thieu.html">Giới thiệu chung</a>
+                        <a href="co-cau-to-chuc.html">Cơ cấu tổ chức</a>
+                        <a href="co-cau-to-chuc.html#ban-thuong-truc">Ban Thường trực</a>
+                        <a href="co-cau-to-chuc.html#cac-ban-chuyen-mon">Các Ban, Văn phòng</a>
+                        <a href="co-cau-to-chuc.html#to-chuc-thanh-vien">Tổ chức thành viên</a>
+                        <a href="co-cau-to-chuc.html#mttq-co-so">MTTQ các xã, phường</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap">
+                    <a class="mt-nav-item" href="tin-tuc.html">Hoạt động
+                        <svg class="caret" viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg>
+                    </a>
+                    <div class="mt-nav-drop">
+                        <a href="tin-tuc.html">Tất cả tin tức</a>
+                        <a href="tin-tuc.html">Thường trực Tỉnh ủy</a>
+                        <a href="tin-tuc.html">Ban Thường trực</a>
+                        <a href="tin-tuc.html">Mặt trận cơ sở</a>
+                        <a href="tin-tuc.html">Tổ chức thành viên</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="#">Tuyên truyền <svg class="caret"
+                            viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="#">Chủ trương, chính sách mới</a>
+                        <a href="#">Chuyển đổi số</a>
+                        <a href="#">Các ngày lễ lớn</a>
+                        <a href="#">Gương sáng</a>
+                        <a href="#">Chương trình phối hợp</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="#">Các cuộc vận động <svg class="caret"
+                            viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="#">Phong trào thi đua</a>
+                        <a href="#">An sinh xã hội</a>
+                        <a href="#">Đoàn kết xây dựng nông thôn mới</a>
+                        <a href="#">Khu dân cư Đoàn kết, ấm no, hạnh phúc</a>
+                        <a href="#">Người Việt ưu tiên dùng hàng Việt</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="#">Dân chủ – Giám sát
+                        <svg class="caret" viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="#">Giám sát, phản biện xã hội</a>
+                        <a href="#">Xây dựng Đảng, Nhà nước</a>
+                        <a href="#">Dân chủ ở cơ sở</a>
+                        <a href="#">Tháng nghe dân nói</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="#">Dân tộc – Tôn giáo
+                        <svg class="caret" viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="#">Công tác dân tộc</a>
+                        <a href="#">Công tác tôn giáo</a>
+                        <a href="#">Người có uy tín</a>
+                        <a href="#">Chính sách dân tộc, tôn giáo</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="co-cau-to-chuc.html">Tổ chức - Kiểm tra<svg class="caret"
+                            viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="co-cau-to-chuc.html">Tổ chức, cán bộ</a>
+                        <a href="co-cau-to-chuc.html#ban-thuong-truc">Ủy viên Ủy ban</a>
+                        <a href="co-cau-to-chuc.html">Kiểm tra</a>
+                        <a href="#">Thi đua - Khen thưởng</a>
+                        <a href="#">Tập huấn</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="#">Nhân dân<svg class="caret" viewBox="0 0 10 10"
+                            aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="#">Phản ánh, kiến nghị</a>
+                        <a href="#">Góp ý dự thảo</a>
+                        <a href="#">Tra cứu kết quả giải quyết</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap">
+                    <a class="mt-nav-item is-active" href="van-ban.html">Văn bản</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BREADCRUMB -->
+    <div class="bg-gray-100/90 border-b border-gray-200 py-2.5">
+        <div class="max-w-7xl mx-auto px-4 flex items-center justify-between text-xs md:text-sm text-gray-600">
+            <div class="flex items-center gap-2 flex-wrap">
+                <a href="index.html" class="hover:text-[#DC2626] flex items-center gap-1.5 transition-colors">
+                    <i class="fa-solid fa-house text-[#DC2626]"></i> Trang chủ
+                </a>
+                <span class="text-gray-400">/</span>
+                <span class="text-gray-600">Văn bản</span>
+                <span class="text-gray-400">/</span>
+                <span class="text-[#DC2626] font-semibold">Hệ thống văn bản chỉ đạo & hướng dẫn</span>
+            </div>
+            <div class="hidden sm:flex items-center gap-2 text-xs text-gray-500">
+                <i class="fa-solid fa-cloud-arrow-down text-[#DC2626]"></i> Cơ sở dữ liệu văn bản chính thức
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-7xl mx-auto my-6 p-4">
+
+        <!-- TIÊU ĐỀ SECTION -->
+        <div class="bg-white border border-gray-200/90 rounded-2xl p-5 md:p-6 shadow-sm mb-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-gray-100 pb-4 mb-5 gap-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-xl bg-red-50 text-[#DC2626] flex items-center justify-center shrink-0 border border-red-100 shadow-sm">
+                        <i class="fa-solid fa-file-shield text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-lg md:text-2xl font-extrabold text-gray-900 uppercase tracking-wide">
+                            Hệ thống văn bản chỉ đạo, điều hành
+                        </h1>
+                        <p class="text-xs md:text-sm text-gray-500 mt-0.5">
+                            Tra cứu các Nghị quyết, Quyết định, Kế hoạch, Hướng dẫn của Ủy ban MTTQ Việt Nam tỉnh Nghệ An
+                        </p>
+                    </div>
+                </div>
+
+                <div class="text-xs text-gray-500 flex items-center gap-2 self-start sm:self-auto">
+                    <span class="bg-green-50 text-green-700 px-3 py-1 rounded-full border border-green-200 font-semibold">
+                        <i class="fa-solid fa-circle-check text-[10px] mr-1"></i> Đã số hóa 100%
+                    </span>
+                </div>
+            </div>
+
+            <!-- BỘ LỌC TÌM KIẾM NÂNG CAO -->
+            <form id="filter-form" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Từ khóa / Số hiệu</label>
+                        <div class="relative">
+                            <input type="text" id="keyword-input" placeholder="Nhập số hiệu hoặc trích yếu..."
+                                class="w-full bg-gray-50 border border-gray-200 rounded-lg py-2 pl-3 pr-8 text-xs md:text-sm outline-none focus:border-[#DC2626] focus:bg-white transition-all">
+                            <i class="fa-solid fa-magnifying-glass absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Loại văn bản</label>
+                        <select id="type-select" class="w-full bg-gray-50 border border-gray-200 rounded-lg py-2 px-3 text-xs md:text-sm outline-none focus:border-[#DC2626] focus:bg-white transition-all">
+                            <option value="">-- Tất cả loại văn bản --</option>
+                            <option value="Nghị quyết">Nghị quyết</option>
+                            <option value="Quyết định">Quyết định</option>
+                            <option value="Kế hoạch">Kế hoạch</option>
+                            <option value="Hướng dẫn">Hướng dẫn</option>
+                            <option value="Chương trình">Chương trình phối hợp</option>
+                            <option value="Thông tri">Thông tri</option>
+                            <option value="Thông báo">Thông báo</option>
+                            <option value="Công văn">Công văn</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Cơ quan ban hành</label>
+                        <select class="w-full bg-gray-50 border border-gray-200 rounded-lg py-2 px-3 text-xs md:text-sm outline-none focus:border-[#DC2626] focus:bg-white transition-all">
+                            <option value="">-- Tất cả cơ quan --</option>
+                            <option value="ubmttq">Ủy ban MTTQ Việt Nam tỉnh</option>
+                            <option value="btt">Ban Thường trực UBMTTQ tỉnh</option>
+                            <option value="tinhuy">Tỉnh ủy Nghệ An</option>
+                            <option value="ubnd">UBND tỉnh Nghệ An</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Năm ban hành</label>
+                        <select class="w-full bg-gray-50 border border-gray-200 rounded-lg py-2 px-3 text-xs md:text-sm outline-none focus:border-[#DC2626] focus:bg-white transition-all">
+                            <option value="">-- Tất cả các năm --</option>
+                            <option value="2026" selected>Năm 2026</option>
+                            <option value="2025">Năm 2025</option>
+                            <option value="2024">Năm 2024</option>
+                            <option value="2023">Năm 2023</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-2 border-t border-gray-100 flex-wrap gap-2">
+                    <span class="text-xs text-gray-500" id="result-count">Hiển thị <b>8</b> văn bản ban hành mới nhất</span>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="resetFilter()" class="px-3.5 py-1.5 rounded-lg border border-gray-300 bg-white hover:bg-gray-100 text-xs font-semibold text-gray-700 transition-colors">
+                            <i class="fa-solid fa-rotate-right mr-1"></i> Đặt lại
+                        </button>
+                        <button type="button" onclick="filterDocs()" class="px-5 py-1.5 rounded-lg bg-[#DC2626] hover:bg-[#B91C1C] text-white text-xs font-bold shadow-sm transition-colors flex items-center gap-1.5">
+                            <i class="fa-solid fa-filter"></i> Lọc văn bản
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+            <!-- CỘT TRÁI: BẢNG VĂN BẢN (8 CỘT) -->
+            <div class="lg:col-span-8 space-y-6">
+
+                <!-- BẢNG DANH SÁCH VĂN BẢN -->
+                <div class="bg-white border border-gray-200/90 rounded-2xl shadow-sm overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse" id="docs-table">
+                            <thead>
+                                <tr class="bg-gray-50/80 border-b border-gray-200 text-xs font-bold text-gray-600 uppercase tracking-wider">
+                                    <th class="py-3.5 px-4 w-32">Số hiệu</th>
+                                    <th class="py-3.5 px-4 min-w-[280px]">Trích yếu nội dung</th>
+                                    <th class="py-3.5 px-4 w-32 hidden md:table-cell">Ngày ban hành</th>
+                                    <th class="py-3.5 px-4 w-28 text-center">Tải về</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100 text-sm">
+
+                                <!-- Văn bản 1 -->
+                                <tr class="hover:bg-red-50/40 transition-colors group">
+                                    <td class="py-3.5 px-4 font-bold text-xs text-[#DC2626] align-top">
+                                        01/2026/NQ-MTTQ
+                                        <span class="block text-[10px] text-gray-400 font-normal mt-0.5">Nghị quyết</span>
+                                    </td>
+                                    <td class="py-3.5 px-4 align-top">
+                                        <a href="#" class="font-bold text-gray-900 group-hover:text-[#DC2626] transition-colors leading-snug block">
+                                            Nghị quyết Hội nghị Ủy ban Mặt trận Tổ quốc Việt Nam tỉnh Nghệ An lần thứ 4, nhiệm kỳ 2024 – 2029
+                                        </a>
+                                        <div class="text-xs text-gray-500 mt-1 flex flex-wrap gap-3">
+                                            <span><i class="fa-regular fa-building text-gray-400 mr-1"></i> UBMTTQ Việt Nam tỉnh</span>
+                                            <span class="md:hidden"><i class="fa-regular fa-calendar text-gray-400 mr-1"></i> 25/09/2026</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3.5 px-4 text-xs text-gray-500 hidden md:table-cell align-top whitespace-nowrap">
+                                        25/09/2026
+                                    </td>
+                                    <td class="py-3.5 px-4 text-center align-top">
+                                        <a href="#" class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-red-50 text-[#DC2626] hover:bg-[#DC2626] hover:text-white transition-colors shadow-sm" title="Tải tệp PDF">
+                                            <i class="fa-solid fa-file-pdf"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                <!-- Văn bản 2 -->
+                                <tr class="hover:bg-red-50/40 transition-colors group">
+                                    <td class="py-3.5 px-4 font-bold text-xs text-[#DC2626] align-top">
+                                        45/KH-MTTQ
+                                        <span class="block text-[10px] text-gray-400 font-normal mt-0.5">Kế hoạch</span>
+                                    </td>
+                                    <td class="py-3.5 px-4 align-top">
+                                        <a href="#" class="font-bold text-gray-900 group-hover:text-[#DC2626] transition-colors leading-snug block">
+                                            Kế hoạch tổ chức Ngày hội Đại đoàn kết toàn dân tộc năm 2026 kỷ niệm 96 năm Ngày truyền thống Mặt trận Tổ quốc Việt Nam
+                                        </a>
+                                        <div class="text-xs text-gray-500 mt-1 flex flex-wrap gap-3">
+                                            <span><i class="fa-regular fa-building text-gray-400 mr-1"></i> Ban Thường trực</span>
+                                            <span class="md:hidden"><i class="fa-regular fa-calendar text-gray-400 mr-1"></i> 18/09/2026</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3.5 px-4 text-xs text-gray-500 hidden md:table-cell align-top whitespace-nowrap">
+                                        18/09/2026
+                                    </td>
+                                    <td class="py-3.5 px-4 text-center align-top">
+                                        <a href="#" class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-red-50 text-[#DC2626] hover:bg-[#DC2626] hover:text-white transition-colors shadow-sm" title="Tải tệp PDF">
+                                            <i class="fa-solid fa-file-pdf"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                <!-- Văn bản 3 -->
+                                <tr class="hover:bg-red-50/40 transition-colors group">
+                                    <td class="py-3.5 px-4 font-bold text-xs text-[#DC2626] align-top">
+                                        12/HD-MTTQ
+                                        <span class="block text-[10px] text-gray-400 font-normal mt-0.5">Hướng dẫn</span>
+                                    </td>
+                                    <td class="py-3.5 px-4 align-top">
+                                        <a href="#" class="font-bold text-gray-900 group-hover:text-[#DC2626] transition-colors leading-snug block">
+                                            Hướng dẫn công tác giám sát của Mặt trận Tổ quốc các cấp đối với cán bộ, đảng viên và đại biểu dân cử tại nơi cư trú
+                                        </a>
+                                        <div class="text-xs text-gray-500 mt-1 flex flex-wrap gap-3">
+                                            <span><i class="fa-regular fa-building text-gray-400 mr-1"></i> Ban Dân chủ - Pháp luật</span>
+                                            <span class="md:hidden"><i class="fa-regular fa-calendar text-gray-400 mr-1"></i> 15/09/2026</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3.5 px-4 text-xs text-gray-500 hidden md:table-cell align-top whitespace-nowrap">
+                                        15/09/2026
+                                    </td>
+                                    <td class="py-3.5 px-4 text-center align-top">
+                                        <a href="#" class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-red-50 text-[#DC2626] hover:bg-[#DC2626] hover:text-white transition-colors shadow-sm" title="Tải tệp PDF">
+                                            <i class="fa-solid fa-file-pdf"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                <!-- Văn bản 4 -->
+                                <tr class="hover:bg-red-50/40 transition-colors group">
+                                    <td class="py-3.5 px-4 font-bold text-xs text-[#DC2626] align-top">
+                                        08/CTr-MTTQ
+                                        <span class="block text-[10px] text-gray-400 font-normal mt-0.5">Chương trình</span>
+                                    </td>
+                                    <td class="py-3.5 px-4 align-top">
+                                        <a href="#" class="font-bold text-gray-900 group-hover:text-[#DC2626] transition-colors leading-snug block">
+                                            Chương trình phối hợp công tác giữa Ban Thường trực Ủy ban MTTQ Việt Nam tỉnh và Thường trực HĐND tỉnh năm 2026
+                                        </a>
+                                        <div class="text-xs text-gray-500 mt-1 flex flex-wrap gap-3">
+                                            <span><i class="fa-regular fa-building text-gray-400 mr-1"></i> Ban Thường trực</span>
+                                            <span class="md:hidden"><i class="fa-regular fa-calendar text-gray-400 mr-1"></i> 10/09/2026</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3.5 px-4 text-xs text-gray-500 hidden md:table-cell align-top whitespace-nowrap">
+                                        10/09/2026
+                                    </td>
+                                    <td class="py-3.5 px-4 text-center align-top">
+                                        <a href="#" class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-red-50 text-[#DC2626] hover:bg-[#DC2626] hover:text-white transition-colors shadow-sm" title="Tải tệp PDF">
+                                            <i class="fa-solid fa-file-pdf"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                <!-- Văn bản 5 -->
+                                <tr class="hover:bg-red-50/40 transition-colors group">
+                                    <td class="py-3.5 px-4 font-bold text-xs text-[#DC2626] align-top">
+                                        28/QĐ-MTTQ
+                                        <span class="block text-[10px] text-gray-400 font-normal mt-0.5">Quyết định</span>
+                                    </td>
+                                    <td class="py-3.5 px-4 align-top">
+                                        <a href="#" class="font-bold text-gray-900 group-hover:text-[#DC2626] transition-colors leading-snug block">
+                                            Quyết định thành lập Đoàn giám sát chuyên đề việc thực hiện chế độ chính sách BHYT tại các xã vùng sâu, vùng xa
+                                        </a>
+                                        <div class="text-xs text-gray-500 mt-1 flex flex-wrap gap-3">
+                                            <span><i class="fa-regular fa-building text-gray-400 mr-1"></i> Ban Thường trực</span>
+                                            <span class="md:hidden"><i class="fa-regular fa-calendar text-gray-400 mr-1"></i> 05/09/2026</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3.5 px-4 text-xs text-gray-500 hidden md:table-cell align-top whitespace-nowrap">
+                                        05/09/2026
+                                    </td>
+                                    <td class="py-3.5 px-4 text-center align-top">
+                                        <a href="#" class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-red-50 text-[#DC2626] hover:bg-[#DC2626] hover:text-white transition-colors shadow-sm" title="Tải tệp PDF">
+                                            <i class="fa-solid fa-file-pdf"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                <!-- Văn bản 6 -->
+                                <tr class="hover:bg-red-50/40 transition-colors group">
+                                    <td class="py-3.5 px-4 font-bold text-xs text-[#DC2626] align-top">
+                                        15/TT-MTTQ
+                                        <span class="block text-[10px] text-gray-400 font-normal mt-0.5">Thông tri</span>
+                                    </td>
+                                    <td class="py-3.5 px-4 align-top">
+                                        <a href="#" class="font-bold text-gray-900 group-hover:text-[#DC2626] transition-colors leading-snug block">
+                                            Thông tri hướng dẫn triển khai Tháng cao điểm “Vì người nghèo” năm 2026 và phong trào xóa nhà dột nát tỉnh Nghệ An
+                                        </a>
+                                        <div class="text-xs text-gray-500 mt-1 flex flex-wrap gap-3">
+                                            <span><i class="fa-regular fa-building text-gray-400 mr-1"></i> Ban Phong trào</span>
+                                            <span class="md:hidden"><i class="fa-regular fa-calendar text-gray-400 mr-1"></i> 28/08/2026</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3.5 px-4 text-xs text-gray-500 hidden md:table-cell align-top whitespace-nowrap">
+                                        28/08/2026
+                                    </td>
+                                    <td class="py-3.5 px-4 text-center align-top">
+                                        <a href="#" class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-red-50 text-[#DC2626] hover:bg-[#DC2626] hover:text-white transition-colors shadow-sm" title="Tải tệp PDF">
+                                            <i class="fa-solid fa-file-pdf"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                <!-- Văn bản 7 -->
+                                <tr class="hover:bg-red-50/40 transition-colors group">
+                                    <td class="py-3.5 px-4 font-bold text-xs text-[#DC2626] align-top">
+                                        89/TB-MTTQ
+                                        <span class="block text-[10px] text-gray-400 font-normal mt-0.5">Thông báo</span>
+                                    </td>
+                                    <td class="py-3.5 px-4 align-top">
+                                        <a href="#" class="font-bold text-gray-900 group-hover:text-[#DC2626] transition-colors leading-snug block">
+                                            Thông báo kết luận của Ban Thường trực Ủy ban MTTQ Việt Nam tỉnh tại phiên họp giao ban công tác tháng 8 năm 2026
+                                        </a>
+                                        <div class="text-xs text-gray-500 mt-1 flex flex-wrap gap-3">
+                                            <span><i class="fa-regular fa-building text-gray-400 mr-1"></i> Văn phòng Cơ quan</span>
+                                            <span class="md:hidden"><i class="fa-regular fa-calendar text-gray-400 mr-1"></i> 20/08/2026</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3.5 px-4 text-xs text-gray-500 hidden md:table-cell align-top whitespace-nowrap">
+                                        20/08/2026
+                                    </td>
+                                    <td class="py-3.5 px-4 text-center align-top">
+                                        <a href="#" class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-red-50 text-[#DC2626] hover:bg-[#DC2626] hover:text-white transition-colors shadow-sm" title="Tải tệp PDF">
+                                            <i class="fa-solid fa-file-pdf"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                <!-- Văn bản 8 -->
+                                <tr class="hover:bg-red-50/40 transition-colors group">
+                                    <td class="py-3.5 px-4 font-bold text-xs text-[#DC2626] align-top">
+                                        34/CV-MTTQ
+                                        <span class="block text-[10px] text-gray-400 font-normal mt-0.5">Công văn</span>
+                                    </td>
+                                    <td class="py-3.5 px-4 align-top">
+                                        <a href="#" class="font-bold text-gray-900 group-hover:text-[#DC2626] transition-colors leading-snug block">
+                                            Công văn về việc tuyên truyền, nhân rộng các mô hình tự quản khu dân cư "Sáng - Xanh - Sạch - Đẹp - An toàn"
+                                        </a>
+                                        <div class="text-xs text-gray-500 mt-1 flex flex-wrap gap-3">
+                                            <span><i class="fa-regular fa-building text-gray-400 mr-1"></i> Ban Tuyên giáo</span>
+                                            <span class="md:hidden"><i class="fa-regular fa-calendar text-gray-400 mr-1"></i> 12/08/2026</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3.5 px-4 text-xs text-gray-500 hidden md:table-cell align-top whitespace-nowrap">
+                                        12/08/2026
+                                    </td>
+                                    <td class="py-3.5 px-4 text-center align-top">
+                                        <a href="#" class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-red-50 text-[#DC2626] hover:bg-[#DC2626] hover:text-white transition-colors shadow-sm" title="Tải tệp PDF">
+                                            <i class="fa-solid fa-file-pdf"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- PHÂN TRANG -->
+                    <div class="p-4 border-t border-gray-100 flex items-center justify-center gap-1.5 bg-gray-50/60">
+                        <button class="w-9 h-9 rounded-lg border border-gray-200 text-gray-400 hover:bg-gray-100 flex items-center justify-center transition-colors disabled:opacity-40" disabled>
+                            <i class="fa-solid fa-angle-left text-xs"></i>
+                        </button>
+                        <button class="w-9 h-9 rounded-lg bg-[#DC2626] text-white font-bold flex items-center justify-center text-sm shadow-sm">
+                            1
+                        </button>
+                        <button class="w-9 h-9 rounded-lg border border-gray-200 hover:bg-red-50 hover:text-[#DC2626] hover:border-red-200 text-gray-700 font-medium flex items-center justify-center text-sm transition-colors">
+                            2
+                        </button>
+                        <button class="w-9 h-9 rounded-lg border border-gray-200 hover:bg-red-50 hover:text-[#DC2626] hover:border-red-200 text-gray-700 font-medium flex items-center justify-center text-sm transition-colors">
+                            3
+                        </button>
+                        <span class="px-1 text-gray-400">...</span>
+                        <button class="w-9 h-9 rounded-lg border border-gray-200 hover:bg-red-50 hover:text-[#DC2626] hover:border-red-200 text-gray-700 font-medium flex items-center justify-center text-sm transition-colors">
+                            8
+                        </button>
+                        <button class="w-9 h-9 rounded-lg border border-gray-200 text-gray-700 hover:bg-red-50 hover:text-[#DC2626] hover:border-red-200 flex items-center justify-center transition-colors">
+                            <i class="fa-solid fa-angle-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CỘT PHẢI: SIDEBAR (4 CỘT) -->
+            <aside class="lg:col-span-4 space-y-6">
+
+                <!-- PHÂN LOẠI VĂN BẢN -->
+                <div class="bg-white border border-gray-200/90 rounded-xl p-5 shadow-sm">
+                    <h3 class="font-bold text-base uppercase text-gray-900 border-b border-gray-100 pb-2 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-folder text-[#DC2626]"></i> Phân loại văn bản
+                    </h3>
+                    <ul class="space-y-1.5 text-sm">
+                        <li>
+                            <a href="#" onclick="quickFilter('Nghị quyết')" class="flex items-center justify-between py-2 px-2.5 rounded-lg text-gray-700 hover:bg-red-50 hover:text-[#DC2626] transition-colors group">
+                                <span class="flex items-center gap-2">
+                                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-400 group-hover:text-[#DC2626]"></i>
+                                    Nghị quyết Đại hội & Ủy ban
+                                </span>
+                                <span class="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full group-hover:bg-red-100 group-hover:text-[#DC2626]">12</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="quickFilter('Kế hoạch')" class="flex items-center justify-between py-2 px-2.5 rounded-lg text-gray-700 hover:bg-red-50 hover:text-[#DC2626] transition-colors group">
+                                <span class="flex items-center gap-2">
+                                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-400 group-hover:text-[#DC2626]"></i>
+                                    Kế hoạch triển khai công tác
+                                </span>
+                                <span class="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full group-hover:bg-red-100 group-hover:text-[#DC2626]">48</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="quickFilter('Hướng dẫn')" class="flex items-center justify-between py-2 px-2.5 rounded-lg text-gray-700 hover:bg-red-50 hover:text-[#DC2626] transition-colors group">
+                                <span class="flex items-center gap-2">
+                                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-400 group-hover:text-[#DC2626]"></i>
+                                    Hướng dẫn nghiệp vụ Mặt trận
+                                </span>
+                                <span class="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full group-hover:bg-red-100 group-hover:text-[#DC2626]">27</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="quickFilter('Quyết định')" class="flex items-center justify-between py-2 px-2.5 rounded-lg text-gray-700 hover:bg-red-50 hover:text-[#DC2626] transition-colors group">
+                                <span class="flex items-center gap-2">
+                                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-400 group-hover:text-[#DC2626]"></i>
+                                    Quyết định ban hành
+                                </span>
+                                <span class="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full group-hover:bg-red-100 group-hover:text-[#DC2626]">35</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="quickFilter('Thông tri')" class="flex items-center justify-between py-2 px-2.5 rounded-lg text-gray-700 hover:bg-red-50 hover:text-[#DC2626] transition-colors group">
+                                <span class="flex items-center gap-2">
+                                    <i class="fa-solid fa-chevron-right text-[10px] text-gray-400 group-hover:text-[#DC2626]"></i>
+                                    Thông tri, Thông báo kết luận
+                                </span>
+                                <span class="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full group-hover:bg-red-100 group-hover:text-[#DC2626]">64</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- HỖ TRỢ TRA CỨU & TIẾP NHẬN VĂN BẢN -->
+                <div class="bg-gradient-to-br from-red-600 to-[#B91C1C] text-white rounded-xl p-5 shadow-sm">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                            <i class="fa-solid fa-headset text-lg"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs uppercase tracking-wider text-yellow-300 font-bold block">Văn thư Cơ quan</span>
+                            <span class="text-lg font-extrabold block">02383.844.605</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-white/90 leading-relaxed mt-2">
+                        Hỗ trợ tiếp nhận văn bản đi - đến, tra cứu số hiệu công văn và chứng thực bản sao văn bản hành chính của Ủy ban MTTQ tỉnh Nghệ An.
+                    </p>
+                </div>
+
+                <!-- BANNER -->
+                <div class="rounded-xl overflow-hidden shadow-sm border border-gray-200">
+                    <img src="./images/kh.png" alt="Đoàn kết" class="w-full h-auto">
+                </div>
+
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="w-full bg-[#B91C1C] border-t-4 border-[#F5BC02] text-white py-8 px-4 text-center">
+        <div class="max-w-7xl mx-auto space-y-2 text-base leading-normal md:text-base font-normal leading-relaxed">
+            <p class="font-bold tracking-wide uppercase">
+                © 2026 TRANG THÔNG TIN ĐIỆN TỬ ỦY BAN MẶT TRẬN TỔ QUỐC VIỆT NAM TỈNH NGHỆ AN
+            </p>
+            <p>
+                Giấy phép hoạt động số 111/GP-TTĐT do sở Thông tin và Truyền thông tỉnh Nghệ An cấp ngày 16/11/2020
+            </p>
+            <p>
+                Trưởng Ban Biên tập: Ông Nguyễn Đình Hùng, Phó Chủ tịch Thường trực Ủy ban MTTQ Việt Nam tỉnh
+            </p>
+            <p>
+                Trụ sở: Số 2 - Đường Phan Đăng Lưu - Phường Trường Vinh - Nghệ An
+            </p>
+            <p>
+                Điện thoại: <a href="tel:02383849369" class="hover:underline">02383.849.369</a>
+            </p>
+            <p>
+                Email: <a href="mailto:ubmttq@nghean.gov.vn" class="hover:underline">ubmttq@nghean.gov.vn</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT TÌM KIẾM VÀ LỌC VĂN BẢN TRỰC TIẾP -->
+    <script>
+        function filterDocs() {
+            var keyword = document.getElementById('keyword-input').value.toLowerCase().trim();
+            var docType = document.getElementById('type-select').value.toLowerCase().trim();
+            var rows = document.querySelectorAll('#docs-table tbody tr');
+            var visibleCount = 0;
+
+            rows.forEach(function (row) {
+                var text = row.innerText.toLowerCase();
+                var matchesKeyword = keyword === '' || text.includes(keyword);
+                var matchesType = docType === '' || text.includes(docType);
+
+                if (matchesKeyword && matchesType) {
+                    row.style.display = '';
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            var countEl = document.getElementById('result-count');
+            if (countEl) {
+                countEl.innerHTML = 'Tìm thấy <b>' + visibleCount + '</b> văn bản phù hợp';
+            }
+        }
+
+        function resetFilter() {
+            document.getElementById('keyword-input').value = '';
+            document.getElementById('type-select').value = '';
+            var rows = document.querySelectorAll('#docs-table tbody tr');
+            rows.forEach(function (row) {
+                row.style.display = '';
+            });
+            var countEl = document.getElementById('result-count');
+            if (countEl) {
+                countEl.innerHTML = 'Hiển thị <b>8</b> văn bản ban hành mới nhất';
+            }
+        }
+
+        function quickFilter(type) {
+            document.getElementById('type-select').value = type;
+            filterDocs();
+        }
+
+        // Lọc khi gõ phím
+        document.getElementById('keyword-input').addEventListener('input', filterDocs);
+
+        // Mobile Menu Navigation
+        (function () {
+            var nav = document.querySelector('.mt-container');
+            var toggle = document.querySelector('.mt-mobile-toggle');
+            var navItems = document.querySelectorAll('.mt-nav-wrap');
+
+            if (!nav || !toggle) return;
+
+            toggle.addEventListener('click', function () {
+                var isOpen = nav.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+                toggle.querySelector('i').className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+            });
+
+            navItems.forEach(function (item) {
+                var link = item.querySelector(':scope > .mt-nav-item');
+                var dropdown = item.querySelector(':scope > .mt-nav-drop');
+                if (!link || !dropdown) return;
+
+                link.setAttribute('aria-haspopup', 'true');
+                link.setAttribute('aria-expanded', 'false');
+                link.addEventListener('click', function (event) {
+                    if (window.matchMedia('(min-width: 768px)').matches) return;
+                    event.preventDefault();
+
+                    var isOpen = item.classList.toggle('is-open');
+                    link.setAttribute('aria-expanded', String(isOpen));
+                });
+            });
+
+            window.addEventListener('resize', function () {
+                if (!window.matchMedia('(min-width: 768px)').matches) return;
+                nav.classList.remove('is-open');
+                toggle.setAttribute('aria-expanded', 'false');
+                toggle.querySelector('i').className = 'fa-solid fa-bars';
+                navItems.forEach(function (item) {
+                    item.classList.remove('is-open');
+                    var link = item.querySelector(':scope > .mt-nav-item');
+                    if (link) link.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }());
+    </script>
+</body>
+
+</html>

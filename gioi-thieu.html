@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu chung - Ủy ban Mặt trận Tổ quốc Việt Nam tỉnh Nghệ An</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        .nav-link {
+            height: 56px;
+            padding: 0 8px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: clamp(14px, 1vw, 16px);
+            font-weight: 600;
+            color: #222;
+            transition: .2s;
+        }
+
+        .nav-link:hover {
+            color: #DC2626;
+            background: rgb(255 217 102 / 20%);
+        }
+
+        .nav-link i {
+            font-size: 12px;
+            color: #555;
+        }
+
+        .top-search {
+            position: relative;
+            width: 220px;
+        }
+
+        .top-search input {
+            width: 100%;
+            height: 34px;
+            border-radius: 9999px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            padding: 0 36px 0 14px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .top-search input::placeholder {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .top-search i {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+        }
+
+        .mt-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            justify-content: space-between;
+            overflow: visible;
+        }
+
+        .mt-nav-wrap {
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .mt-nav-item {
+            display: flex;
+            white-space: nowrap;
+            align-items: center;
+            gap: 6px;
+            padding: 0 12px;
+            height: 56px;
+            font-size: clamp(13px, 1vw, 15px);
+            font-weight: 600;
+            color: #222;
+            transition: .2s;
+            text-decoration: none;
+        }
+
+        .mt-nav-item:hover,
+        .mt-nav-item.is-active {
+            color: #DC2626;
+            background: rgb(255 217 102 / 20%);
+        }
+
+        .mt-nav-item.is-active {
+            border-bottom: 3px solid #DC2626;
+        }
+
+        .mt-ico {
+            width: 20px;
+            height: 20px;
+        }
+
+        .caret {
+            width: 10px;
+            height: 10px;
+            fill: currentColor;
+            transition: transform 0.2s;
+        }
+
+        .mt-nav-wrap:hover .caret {
+            transform: rotate(180deg);
+        }
+
+        .mt-nav-drop {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            min-width: 220px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #eee;
+            border-top: 2px solid #DC2626;
+            display: none;
+            flex-direction: column;
+            z-index: 100;
+        }
+
+        .mt-nav-wrap:hover .mt-nav-drop {
+            display: flex;
+        }
+
+        .mt-nav-drop a {
+            padding: 12px 16px;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            border-bottom: 1px solid #f9f9f9;
+            transition: .2s;
+            white-space: normal;
+        }
+
+        .mt-nav-drop a:hover {
+            color: #DC2626;
+            background: #fdfdfd;
+            padding-left: 20px;
+        }
+
+        .mt-mobile-toggle {
+            display: none;
+        }
+
+        .brand-header {
+            height: 210px;
+            background-size: 100% 230px;
+        }
+
+        @media (max-width: 767px) {
+            .brand-header {
+                height: clamp(90px, 24vw, 120px);
+                background-size: auto 100%;
+            }
+
+            .mt-mobile-toggle {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: space-between;
+                padding: 12px 16px;
+                border: 0;
+                background: #fff;
+                color: #222;
+                font-size: 14px;
+                font-weight: 700;
+                text-align: left;
+            }
+
+            .mt-container {
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                border-top: 1px solid #eee;
+            }
+
+            .mt-container.is-open {
+                display: flex;
+            }
+
+            .mt-nav-wrap {
+                border-bottom: 1px solid #eee;
+            }
+
+            .mt-nav-home {
+                width: 100%;
+            }
+
+            .mt-nav-wrap>.mt-nav-item {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .mt-nav-drop {
+                position: static;
+                min-width: 0;
+                border: 0;
+                border-top: 1px solid #eee;
+                box-shadow: none;
+            }
+
+            .mt-nav-wrap:hover .mt-nav-drop {
+                display: none;
+            }
+
+            .mt-nav-wrap.is-open>.mt-nav-drop {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans text-base">
+
+    <!-- TOP BAR -->
+    <div class="bg-[#DC2626] text-white text-xs xl:text-sm leading-normal whitespace-nowrap">
+        <div class="max-w-[1550px] mx-auto px-4 h-[38px] flex items-center justify-between">
+            <div class="flex items-center gap-5">
+                <span class="flex items-center gap-2">
+                    <i class="fa-regular fa-calendar"></i>
+                    Thứ Hai, 29/09/2026
+                </span>
+                <span class="opacity-60">|</span>
+                <span class="flex items-center gap-2">
+                    🌤️ Nghệ An <b>26°C - 32°C</b>
+                </span>
+            </div>
+
+            <div class="hidden lg:flex items-center gap-2 xl:gap-4">
+                <div class="hidden xl:flex items-center gap-4">
+                    <span><i class="fa-regular fa-comment-dots mr-1"></i> Gửi phản ánh, ý kiến</span>
+                    <span class="opacity-60">|</span>
+                    <span><i class="fa-solid fa-envelope mr-1"></i> ubmttq@nghean.gov.vn</span>
+                    <span class="opacity-60">|</span>
+                </div>
+                <span>A</span>
+                <span>A+</span>
+                <span>A++</span>
+                <span class="opacity-60">|</span>
+                <span class="h-5 w-5 rounded-full bg-white/20 flex items-center justify-center">
+                    <i class="fa-solid fa-moon text-sm"></i>
+                </span>
+                <label class="top-search" aria-label="Tìm kiếm">
+                    <input type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </label>
+                <span class="flex items-center justify-center"><img class="w-[18px] h-[18px] mr-2"
+                        src="images/facei.png" alt=""> Fanpage</span>
+                <span class="flex items-center justify-center"><img class="w-[18px] h-[18px] mr-2"
+                        src="images/zaloi.png" alt=""> Zalo</span>
+                <span class="border-l border-white/50 pl-4">
+                    <div class="rounded-full border border-white px-2 py-1">
+                        <i class="fa-solid fa-user mr-1"></i> Đăng nhập
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- BRAND HEADER -->
+    <header class="brand-header relative border-b border-[#F5BC02] bg-center bg-no-repeat overflow-hidden"
+        style="background-image: url('images/headern.png');">
+        <div class="max-w-[1550px] h-full mx-auto px-4 flex items-center justify-center relative z-10">
+        </div>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-200 uppercase">
+        <div class="max-w-[1550px] mx-auto px-4">
+            <button class="mt-mobile-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">
+                <span></span>
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            </button>
+            <div class="mt-container" id="main-navigation" style="max-width: none;">
+                <a class="mt-nav-item mt-nav-home" href="index.html" aria-label="Trang chủ">
+                    <svg class="mt-ico" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none">
+                        <path d="M12 3 2 11h3v9h5v-6h4v6h5v-9h3z"></path>
+                    </svg>
+                </a>
+                <div class="mt-nav-wrap">
+                    <a class="mt-nav-item is-active" href="gioi-thieu.html">Giới thiệu <svg class="caret" viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="gioi-thieu.html">Giới thiệu chung</a>
+                        <a href="co-cau-to-chuc.html">Cơ cấu tổ chức</a>
+                        <a href="co-cau-to-chuc.html#ban-thuong-truc">Ban Thường trực</a>
+                        <a href="co-cau-to-chuc.html#cac-ban-chuyen-mon">Các Ban, Văn phòng</a>
+                        <a href="co-cau-to-chuc.html#to-chuc-thanh-vien">Tổ chức thành viên</a>
+                        <a href="co-cau-to-chuc.html#mttq-co-so">MTTQ các xã, phường</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap">
+                    <a class="mt-nav-item" href="tin-tuc.html">Hoạt động
+                        <svg class="caret" viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg>
+                    </a>
+                    <div class="mt-nav-drop">
+                        <a href="tin-tuc.html">Tất cả tin tức</a>
+                        <a href="tin-tuc.html">Thường trực Tỉnh ủy</a>
+                        <a href="tin-tuc.html">Ban Thường trực</a>
+                        <a href="tin-tuc.html">Mặt trận cơ sở</a>
+                        <a href="tin-tuc.html">Tổ chức thành viên</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="#">Tuyên truyền <svg class="caret"
+                            viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="#">Chủ trương, chính sách mới</a>
+                        <a href="#">Chuyển đổi số</a>
+                        <a href="#">Các ngày lễ lớn</a>
+                        <a href="#">Gương sáng</a>
+                        <a href="#">Chương trình phối hợp</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="#">Các cuộc vận động <svg class="caret"
+                            viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="#">Phong trào thi đua</a>
+                        <a href="#">An sinh xã hội</a>
+                        <a href="#">Đoàn kết xây dựng nông thôn mới</a>
+                        <a href="#">Khu dân cư Đoàn kết, ấm no, hạnh phúc</a>
+                        <a href="#">Người Việt ưu tiên dùng hàng Việt</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="#">Dân chủ – Giám sát
+                        <svg class="caret" viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="#">Giám sát, phản biện xã hội</a>
+                        <a href="#">Xây dựng Đảng, Nhà nước</a>
+                        <a href="#">Dân chủ ở cơ sở</a>
+                        <a href="#">Tháng nghe dân nói</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="#">Dân tộc – Tôn giáo
+                        <svg class="caret" viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="#">Công tác dân tộc</a>
+                        <a href="#">Công tác tôn giáo</a>
+                        <a href="#">Người có uy tín</a>
+                        <a href="#">Chính sách dân tộc, tôn giáo</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="co-cau-to-chuc.html">Tổ chức - Kiểm tra<svg class="caret"
+                            viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="co-cau-to-chuc.html">Tổ chức, cán bộ</a>
+                        <a href="co-cau-to-chuc.html#uy-vien-uy-ban">Ủy viên Ủy ban</a>
+                        <a href="co-cau-to-chuc.html">Kiểm tra</a>
+                        <a href="#">Thi đua - Khen thưởng</a>
+                        <a href="#">Tập huấn</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="#">Nhân dân<svg class="caret" viewBox="0 0 10 10"
+                            aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="#">Phản ánh, kiến nghị</a>
+                        <a href="#">Góp ý dự thảo</a>
+                        <a href="#">Tra cứu kết quả giải quyết</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap">
+                    <a class="mt-nav-item" href="van-ban.html">Văn bản</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BREADCRUMB -->
+    <div class="bg-gray-100/90 border-b border-gray-200 py-2.5">
+        <div class="max-w-7xl mx-auto px-4 flex items-center justify-between text-xs md:text-sm text-gray-600">
+            <div class="flex items-center gap-2 flex-wrap">
+                <a href="index.html" class="hover:text-[#DC2626] flex items-center gap-1.5 transition-colors">
+                    <i class="fa-solid fa-house text-[#DC2626]"></i> Trang chủ
+                </a>
+                <span class="text-gray-400">/</span>
+                <span class="text-gray-600">Giới thiệu</span>
+                <span class="text-gray-400">/</span>
+                <span class="text-[#DC2626] font-semibold">Giới thiệu chung</span>
+            </div>
+            <div class="hidden sm:flex items-center gap-2 text-xs text-gray-500">
+                <i class="fa-solid fa-landmark text-[#DC2626]"></i> Cổng thông tin MTTQ Việt Nam tỉnh Nghệ An
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-7xl mx-auto my-6 p-4">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+            <!-- CỘT CHÍNH: NỘI DUNG GIỚI THIỆU (8 CỘT) -->
+            <div class="lg:col-span-8 space-y-6">
+
+                <!-- BANNER GIỚI THIỆU TRANG TRỌNG -->
+                <div class="bg-white border border-gray-200/90 rounded-2xl p-6 sm:p-8 shadow-sm">
+                    <div class="flex items-center gap-3 border-b border-gray-100 pb-4 mb-6">
+                        <img class="w-8 h-8" src="./images/hoasen.png" alt="Biểu tượng">
+                        <div>
+                            <h1 class="text-xl md:text-2xl font-extrabold text-gray-900 uppercase tracking-wide">
+                                Giới thiệu Ủy ban Mặt trận Tổ quốc tỉnh Nghệ An
+                            </h1>
+                            <p class="text-xs md:text-sm text-gray-500 mt-0.5">
+                                Khối đại đoàn kết toàn dân tộc – Nền tảng sức mạnh phát triển quê hương Xô Viết anh hùng
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- THÔNG ĐIỆP CHỦ TỊCH MTTQ TỈNH -->
+                    <div class="bg-gradient-to-r from-red-50 to-orange-50 border-l-4 border-[#DC2626] p-5 rounded-r-xl mb-8 flex flex-col sm:flex-row gap-5 items-center sm:items-start">
+                        <img src="images/avt.jpg" alt="Đ/c Võ Thị Minh Sinh" class="w-24 h-28 object-cover rounded-xl shadow border border-red-200 shrink-0">
+                        <div>
+                            <p class="text-sm md:text-base text-gray-800 italic leading-relaxed">
+                                “Mặt trận Tổ quốc tỉnh Nghệ An là nơi hội tụ, kết tinh ý chí và nguyện vọng của các tầng lớp nhân dân trong tỉnh. Chúng tôi cam kết không ngừng đổi mới phương thức hoạt động, thực hiện tốt vai trò giám sát, phản biện xã hội, chăm lo bảo vệ quyền lợi hợp pháp, chính đáng của Nhân dân.”
+                            </p>
+                            <div class="mt-3 text-right">
+                                <h4 class="font-bold text-gray-900 text-sm">Võ Thị Minh Sinh</h4>
+                                <span class="text-xs text-[#DC2626] font-medium">Ủy viên BTV Tỉnh ủy, Chủ tịch Ủy ban MTTQ Việt Nam tỉnh Nghệ An</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NỘI DUNG CHI TIẾT -->
+                    <div class="space-y-6 text-gray-700 leading-relaxed text-sm md:text-base">
+
+                        <div>
+                            <h2 class="text-lg font-bold text-gray-900 border-l-4 border-[#F5BC02] pl-3 mb-3 uppercase">
+                                1. Vị trí, vai trò và tôn chỉ mục đích
+                            </h2>
+                            <p class="mb-3">
+                                <b>Mặt trận Tổ quốc Việt Nam tỉnh Nghệ An</b> là bộ phận cấu thành hệ thống chính trị của tỉnh nhà, là cơ sở chính trị của chính quyền nhân dân; đại diện, bảo vệ quyền và lợi ích hợp pháp, chính đáng của Nhân dân; tập hợp, phát huy sức mạnh đại đoàn kết toàn dân tộc, thực hiện dân chủ, tăng cường đồng thuận xã hội; giám sát, phản biện xã hội; tham gia xây dựng Đảng, Nhà nước, hoạt động đối ngoại nhân dân góp phần xây dựng và bảo vệ Tổ quốc.
+                            </p>
+                            <p>
+                                Trải qua các thời kỳ cách mạng vẻ vang của quê hương Xô Viết, Mặt trận Nghệ An luôn giương cao ngọn cờ đoàn kết, tập hợp đông đảo các tầng lớp nhân dân, đồng bào các dân tộc thiểu số, các chức sắc và tín đồ tôn giáo, nhân sĩ, trí thức và bà con kiều bào hướng về quê hương.
+                            </p>
+                        </div>
+
+                        <!-- ẢNH MINH HỌA HOẠT ĐỘNG -->
+                        <div class="overflow-hidden rounded-xl border border-gray-200 my-4 shadow-sm">
+                            <img src="./images/IMG_7454.jpg" alt="Hoạt động Mặt trận tỉnh Nghệ An" class="w-full h-auto object-cover max-h-[420px]">
+                            <div class="p-3 bg-gray-50 text-center text-xs text-gray-500 italic">
+                                Hội nghị tổng kết và phát động các phong trào thi đua yêu nước của Ủy ban MTTQ Việt Nam tỉnh Nghệ An.
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-lg font-bold text-gray-900 border-l-4 border-[#F5BC02] pl-3 mb-3 uppercase">
+                                2. Chức năng và nhiệm vụ chủ yếu
+                            </h2>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4">
+                                <div class="p-4 bg-gray-50 rounded-xl border border-gray-200/80 hover:border-red-200 transition-colors">
+                                    <div class="w-10 h-10 rounded-lg bg-red-100 text-[#DC2626] flex items-center justify-center font-bold mb-2.5">
+                                        <i class="fa-solid fa-users text-lg"></i>
+                                    </div>
+                                    <h3 class="font-bold text-gray-900 text-sm mb-1">Tập hợp khối Đại đoàn kết</h3>
+                                    <p class="text-xs text-gray-600 leading-relaxed">
+                                        Tuyên truyền, vận động nhân dân phát huy quyền làm chủ, củng cố sự đồng thuận xã hội giữa các giai tầng, dân tộc và tôn giáo.
+                                    </p>
+                                </div>
+
+                                <div class="p-4 bg-gray-50 rounded-xl border border-gray-200/80 hover:border-red-200 transition-colors">
+                                    <div class="w-10 h-10 rounded-lg bg-red-100 text-[#DC2626] flex items-center justify-center font-bold mb-2.5">
+                                        <i class="fa-solid fa-scale-balanced text-lg"></i>
+                                    </div>
+                                    <h3 class="font-bold text-gray-900 text-sm mb-1">Giám sát & Phản biện xã hội</h3>
+                                    <p class="text-xs text-gray-600 leading-relaxed">
+                                        Tham gia xây dựng Đảng, Nhà nước trong sạch, vững mạnh; thực hiện giám sát cán bộ, đảng viên và phản biện các đề án kinh tế - xã hội.
+                                    </p>
+                                </div>
+
+                                <div class="p-4 bg-gray-50 rounded-xl border border-gray-200/80 hover:border-red-200 transition-colors">
+                                    <div class="w-10 h-10 rounded-lg bg-red-100 text-[#DC2626] flex items-center justify-center font-bold mb-2.5">
+                                        <i class="fa-solid fa-hand-holding-heart text-lg"></i>
+                                    </div>
+                                    <h3 class="font-bold text-gray-900 text-sm mb-1">Chăm lo An sinh xã hội</h3>
+                                    <p class="text-xs text-gray-600 leading-relaxed">
+                                        Chủ trì cuộc vận động Quỹ “Vì người nghèo”, phong trào xóa nhà dột nát, kịp thời hỗ trợ cứu trợ thiên tai, bão lũ.
+                                    </p>
+                                </div>
+
+                                <div class="p-4 bg-gray-50 rounded-xl border border-gray-200/80 hover:border-red-200 transition-colors">
+                                    <div class="w-10 h-10 rounded-lg bg-red-100 text-[#DC2626] flex items-center justify-center font-bold mb-2.5">
+                                        <i class="fa-solid fa-bullhorn text-lg"></i>
+                                    </div>
+                                    <h3 class="font-bold text-gray-900 text-sm mb-1">Phong trào thi đua yêu nước</h3>
+                                    <p class="text-xs text-gray-600 leading-relaxed">
+                                        Thực hiện Cuộc vận động “Toàn dân đoàn kết xây dựng nông thôn mới, đô thị văn minh” và “Người Việt ưu tiên dùng hàng Việt”.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-lg font-bold text-gray-900 border-l-4 border-[#F5BC02] pl-3 mb-3 uppercase">
+                                3. Trụ sở và thông tin liên hệ chính thức
+                            </h2>
+                            <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 sm:p-5 text-sm space-y-2.5">
+                                <div class="flex items-start gap-2.5">
+                                    <i class="fa-solid fa-location-dot text-[#DC2626] mt-1 shrink-0"></i>
+                                    <span><b>Trụ sở Cơ quan:</b> Số 2 - Đường Phan Đăng Lưu - Phường Trường Vinh - Thành phố Vinh - Nghệ An</span>
+                                </div>
+                                <div class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-phone text-[#DC2626] shrink-0"></i>
+                                    <span><b>Điện thoại văn phòng:</b> 02383.849.369 - 02383.844.605</span>
+                                </div>
+                                <div class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-envelope text-[#DC2626] shrink-0"></i>
+                                    <span><b>Hộp thư điện tử:</b> ubmttq@nghean.gov.vn</span>
+                                </div>
+                                <div class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-globe text-[#DC2626] shrink-0"></i>
+                                    <span><b>Cổng Thông tin điện tử:</b> mattran.nghean.gov.vn</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- NÚT CHUYỂN TRANG SANG CƠ CẤU TỔ CHỨC & VĂN BẢN -->
+                    <div class="pt-6 mt-8 border-t border-gray-100 flex flex-wrap items-center justify-between gap-4">
+                        <a href="co-cau-to-chuc.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#DC2626] hover:bg-[#B91C1C] text-white text-sm font-bold shadow-sm transition-all group">
+                            <span>Xem Cơ cấu tổ chức</span>
+                            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="van-ban.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-bold transition-all">
+                            <i class="fa-solid fa-file-lines text-[#DC2626]"></i>
+                            <span>Xem Văn bản MTTQ tỉnh</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CỘT PHẢI: SIDEBAR (4 CỘT) -->
+            <aside class="lg:col-span-4 space-y-6">
+
+                <!-- MENU ĐIỀU HƯỚNG TRANG GIỚI THIỆU -->
+                <div class="bg-white border border-gray-200/90 rounded-xl p-5 shadow-sm">
+                    <h3 class="font-bold text-base uppercase text-gray-900 border-b border-gray-100 pb-2 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-info text-[#DC2626]"></i> Thông tin giới thiệu
+                    </h3>
+                    <ul class="space-y-1.5 text-sm">
+                        <li>
+                            <a href="gioi-thieu.html" class="flex items-center justify-between py-2 px-3 rounded-lg bg-red-50 text-[#DC2626] font-bold">
+                                <span><i class="fa-solid fa-angle-right mr-1.5 text-xs"></i> Giới thiệu chung</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="co-cau-to-chuc.html" class="flex items-center justify-between py-2 px-3 rounded-lg text-gray-700 hover:bg-red-50 hover:text-[#DC2626] transition-colors">
+                                <span><i class="fa-solid fa-angle-right mr-1.5 text-xs text-gray-400"></i> Cơ cấu tổ chức</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="co-cau-to-chuc.html#ban-thuong-truc" class="flex items-center justify-between py-2 px-3 rounded-lg text-gray-700 hover:bg-red-50 hover:text-[#DC2626] transition-colors">
+                                <span><i class="fa-solid fa-angle-right mr-1.5 text-xs text-gray-400"></i> Ban Thường trực</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="co-cau-to-chuc.html#cac-ban-chuyen-mon" class="flex items-center justify-between py-2 px-3 rounded-lg text-gray-700 hover:bg-red-50 hover:text-[#DC2626] transition-colors">
+                                <span><i class="fa-solid fa-angle-right mr-1.5 text-xs text-gray-400"></i> Các Ban chuyên môn</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="van-ban.html" class="flex items-center justify-between py-2 px-3 rounded-lg text-gray-700 hover:bg-red-50 hover:text-[#DC2626] transition-colors">
+                                <span><i class="fa-solid fa-angle-right mr-1.5 text-xs text-gray-400"></i> Văn bản - Quy chế</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- TIN TỨC MỚI LIÊN QUAN -->
+                <div class="bg-white border border-gray-200/90 rounded-xl p-5 shadow-sm">
+                    <h3 class="font-bold text-base uppercase text-gray-900 border-b border-gray-100 pb-2 mb-3 flex items-center gap-2">
+                        <i class="fa-regular fa-newspaper text-[#DC2626]"></i> Hoạt động mới nhất
+                    </h3>
+                    <div class="space-y-3.5 divide-y divide-gray-100">
+                        <div class="pt-1.5">
+                            <a href="chi-tiet-tin.html" class="text-sm font-semibold text-gray-800 hover:text-[#DC2626] transition-colors line-clamp-2 leading-snug">
+                                Phó Bí thư Tỉnh ủy Nguyễn Thanh Bình: Nỗ lực, chung sức xây dựng Nghệ An phát triển
+                            </a>
+                            <div class="text-xs text-gray-400 mt-1">21/09/2026</div>
+                        </div>
+                        <div class="pt-3">
+                            <a href="chi-tiet-tin.html" class="text-sm font-semibold text-gray-800 hover:text-[#DC2626] transition-colors line-clamp-2 leading-snug">
+                                Yên Xuân ra mắt mô hình “Kết nối số - Mặt trận đồng hành cùng nhân dân”
+                            </a>
+                            <div class="text-xs text-gray-400 mt-1">24/09/2026</div>
+                        </div>
+                        <div class="pt-3">
+                            <a href="chi-tiet-tin.html" class="text-sm font-semibold text-gray-800 hover:text-[#DC2626] transition-colors line-clamp-2 leading-snug">
+                                Đại hội đại biểu Hội Bảo vệ quyền trẻ em xã Quỳnh Phú, nhiệm kỳ 2026–2031
+                            </a>
+                            <div class="text-xs text-gray-400 mt-1">24/09/2026</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ĐƯỜNG DÂY NÓNG TIẾP DÂN -->
+                <div class="bg-gradient-to-br from-red-600 to-[#B91C1C] text-white rounded-xl p-5 shadow-sm">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                            <i class="fa-solid fa-phone-volume text-lg"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs uppercase tracking-wider text-yellow-300 font-bold block">Đường dây nóng</span>
+                            <span class="text-lg font-extrabold block">02383.849.369</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-white/90 leading-relaxed mt-2">
+                        Tiếp nhận phản ánh, ý kiến và đơn thư khiếu nại, kiến nghị của công dân trực tiếp đến Cơ quan UBMTTQ tỉnh Nghệ An.
+                    </p>
+                </div>
+
+                <!-- BANNER -->
+                <div class="rounded-xl overflow-hidden shadow-sm border border-gray-200">
+                    <img src="./images/kh2.png" alt="Đoàn kết" class="w-full h-auto">
+                </div>
+
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="w-full bg-[#B91C1C] border-t-4 border-[#F5BC02] text-white py-8 px-4 text-center">
+        <div class="max-w-7xl mx-auto space-y-2 text-base leading-normal md:text-base font-normal leading-relaxed">
+            <p class="font-bold tracking-wide uppercase">
+                © 2026 TRANG THÔNG TIN ĐIỆN TỬ ỦY BAN MẶT TRẬN TỔ QUỐC VIỆT NAM TỈNH NGHỆ AN
+            </p>
+            <p>
+                Giấy phép hoạt động số 111/GP-TTĐT do sở Thông tin và Truyền thông tỉnh Nghệ An cấp ngày 16/11/2020
+            </p>
+            <p>
+                Trưởng Ban Biên tập: Ông Nguyễn Đình Hùng, Phó Chủ tịch Thường trực Ủy ban MTTQ Việt Nam tỉnh
+            </p>
+            <p>
+                Trụ sở: Số 2 - Đường Phan Đăng Lưu - Phường Trường Vinh - Nghệ An
+            </p>
+            <p>
+                Điện thoại: <a href="tel:02383849369" class="hover:underline">02383.849.369</a>
+            </p>
+            <p>
+                Email: <a href="mailto:ubmttq@nghean.gov.vn" class="hover:underline">ubmttq@nghean.gov.vn</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT MOBILE MENU -->
+    <script>
+        (function () {
+            var nav = document.querySelector('.mt-container');
+            var toggle = document.querySelector('.mt-mobile-toggle');
+            var navItems = document.querySelectorAll('.mt-nav-wrap');
+
+            if (!nav || !toggle) return;
+
+            toggle.addEventListener('click', function () {
+                var isOpen = nav.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+                toggle.querySelector('i').className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+            });
+
+            navItems.forEach(function (item) {
+                var link = item.querySelector(':scope > .mt-nav-item');
+                var dropdown = item.querySelector(':scope > .mt-nav-drop');
+                if (!link || !dropdown) return;
+
+                link.setAttribute('aria-haspopup', 'true');
+                link.setAttribute('aria-expanded', 'false');
+                link.addEventListener('click', function (event) {
+                    if (window.matchMedia('(min-width: 768px)').matches) return;
+                    event.preventDefault();
+
+                    var isOpen = item.classList.toggle('is-open');
+                    link.setAttribute('aria-expanded', String(isOpen));
+                });
+            });
+
+            window.addEventListener('resize', function () {
+                if (!window.matchMedia('(min-width: 768px)').matches) return;
+                nav.classList.remove('is-open');
+                toggle.setAttribute('aria-expanded', 'false');
+                toggle.querySelector('i').className = 'fa-solid fa-bars';
+                navItems.forEach(function (item) {
+                    item.classList.remove('is-open');
+                    var link = item.querySelector(':scope > .mt-nav-item');
+                    if (link) link.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }());
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phó Bí thư Tỉnh ủy Nguyễn Thanh Bình: Nỗ lực, chung sức xây dựng Nghệ An phát triển - MTTQ Tỉnh Nghệ An</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        .nav-link {
+            height: 56px;
+            padding: 0 8px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: clamp(14px, 1vw, 16px);
+            font-weight: 600;
+            color: #222;
+            transition: .2s;
+        }
+
+        .nav-link:hover {
+            color: #DC2626;
+            background: rgb(255 217 102 / 20%);
+        }
+
+        .nav-link i {
+            font-size: 12px;
+            color: #555;
+        }
+
+        .top-search {
+            position: relative;
+            width: 220px;
+        }
+
+        .top-search input {
+            width: 100%;
+            height: 34px;
+            border-radius: 9999px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            padding: 0 36px 0 14px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .top-search input::placeholder {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .top-search i {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+        }
+
+        .mt-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            justify-content: space-between;
+            overflow: visible;
+        }
+
+        .mt-nav-wrap {
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .mt-nav-item {
+            display: flex;
+            white-space: nowrap;
+            align-items: center;
+            gap: 6px;
+            padding: 0 12px;
+            height: 56px;
+            font-size: clamp(13px, 1vw, 15px);
+            font-weight: 600;
+            color: #222;
+            transition: .2s;
+            text-decoration: none;
+        }
+
+        .mt-nav-item:hover,
+        .mt-nav-item.is-active {
+            color: #DC2626;
+            background: rgb(255 217 102 / 20%);
+        }
+
+        .mt-nav-item.is-active {
+            border-bottom: 3px solid #DC2626;
+        }
+
+        .mt-ico {
+            width: 20px;
+            height: 20px;
+        }
+
+        .caret {
+            width: 10px;
+            height: 10px;
+            fill: currentColor;
+            transition: transform 0.2s;
+        }
+
+        .mt-nav-wrap:hover .caret {
+            transform: rotate(180deg);
+        }
+
+        .mt-nav-drop {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            min-width: 220px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #eee;
+            border-top: 2px solid #DC2626;
+            display: none;
+            flex-direction: column;
+            z-index: 100;
+        }
+
+        .mt-nav-wrap:hover .mt-nav-drop {
+            display: flex;
+        }
+
+        .mt-nav-drop a {
+            padding: 12px 16px;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            border-bottom: 1px solid #f9f9f9;
+            transition: .2s;
+            white-space: normal;
+        }
+
+        .mt-nav-drop a:hover {
+            color: #DC2626;
+            background: #fdfdfd;
+            padding-left: 20px;
+        }
+
+        .mt-mobile-toggle {
+            display: none;
+        }
+
+        .brand-header {
+            height: 210px;
+            background-size: 100% 230px;
+        }
+
+        @media (max-width: 767px) {
+            .brand-header {
+                height: clamp(90px, 24vw, 120px);
+                background-size: auto 100%;
+            }
+
+            .mt-mobile-toggle {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: space-between;
+                padding: 12px 16px;
+                border: 0;
+                background: #fff;
+                color: #222;
+                font-size: 14px;
+                font-weight: 700;
+                text-align: left;
+            }
+
+            .mt-container {
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                border-top: 1px solid #eee;
+            }
+
+            .mt-container.is-open {
+                display: flex;
+            }
+
+            .mt-nav-wrap {
+                border-bottom: 1px solid #eee;
+            }
+
+            .mt-nav-home {
+                width: 100%;
+            }
+
+            .mt-nav-wrap>.mt-nav-item {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .mt-nav-drop {
+                position: static;
+                min-width: 0;
+                border: 0;
+                border-top: 1px solid #eee;
+                box-shadow: none;
+            }
+
+            .mt-nav-wrap:hover .mt-nav-drop {
+                display: none;
+            }
+
+            .mt-nav-wrap.is-open>.mt-nav-drop {
+                display: flex;
+            }
+        }
+
+        /* Tùy chỉnh hiển thị bài viết */
+        .article-body p {
+            margin-bottom: 1.25rem;
+            line-height: 1.8;
+            color: #374151;
+            font-size: 16px;
+        }
+
+        .article-body h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #111827;
+            margin-top: 1.75rem;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 2px solid #FEE2E2;
+        }
+
+        .article-body blockquote {
+            border-left: 4px solid #DC2626;
+            background-color: #FEF2F2;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+            border-radius: 0 0.5rem 0.5rem 0;
+            font-style: italic;
+            color: #1F2937;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans text-base">
+
+    <!-- TOP BAR -->
+    <div class="bg-[#DC2626] text-white text-xs xl:text-sm leading-normal whitespace-nowrap">
+        <div class="max-w-[1550px] mx-auto px-4 h-[38px] flex items-center justify-between">
+            <div class="flex items-center gap-5">
+                <span class="flex items-center gap-2">
+                    <i class="fa-regular fa-calendar"></i>
+                    Thứ Hai, 29/09/2026
+                </span>
+                <span class="opacity-60">|</span>
+                <span class="flex items-center gap-2">
+                    🌤️ Nghệ An <b>26°C - 32°C</b>
+                </span>
+            </div>
+
+            <div class="hidden lg:flex items-center gap-2 xl:gap-4">
+                <div class="hidden xl:flex items-center gap-4">
+                    <span><i class="fa-regular fa-comment-dots mr-1"></i> Gửi phản ánh, ý kiến</span>
+                    <span class="opacity-60">|</span>
+                    <span><i class="fa-solid fa-envelope mr-1"></i> ubmttq@nghean.gov.vn</span>
+                    <span class="opacity-60">|</span>
+                </div>
+                <span class="cursor-pointer" onclick="changeFontSize(-1)">A-</span>
+                <span class="cursor-pointer" onclick="changeFontSize(0)">A</span>
+                <span class="cursor-pointer font-bold" onclick="changeFontSize(1)">A+</span>
+                <span class="opacity-60">|</span>
+                <span class="h-5 w-5 rounded-full bg-white/20 flex items-center justify-center">
+                    <i class="fa-solid fa-moon text-sm"></i>
+                </span>
+                <label class="top-search" aria-label="Tìm kiếm">
+                    <input type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </label>
+                <span class="flex items-center justify-center"><img class="w-[18px] h-[18px] mr-2"
+                        src="images/facei.png" alt=""> Fanpage</span>
+                <span class="flex items-center justify-center"><img class="w-[18px] h-[18px] mr-2"
+                        src="images/zaloi.png" alt=""> Zalo</span>
+                <span class="border-l border-white/50 pl-4">
+                    <div class="rounded-full border border-white px-2 py-1">
+                        <i class="fa-solid fa-user mr-1"></i> Đăng nhập
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- BRAND HEADER -->
+    <header class="brand-header relative border-b border-[#F5BC02] bg-center bg-no-repeat overflow-hidden"
+        style="background-image: url('images/headern.png');">
+        <div class="max-w-[1550px] h-full mx-auto px-4 flex items-center justify-center relative z-10">
+        </div>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-200 uppercase">
+        <div class="max-w-[1550px] mx-auto px-4">
+            <button class="mt-mobile-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">
+                <span></span>
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            </button>
+            <div class="mt-container" id="main-navigation" style="max-width: none;">
+                <a class="mt-nav-item mt-nav-home" href="index.html" aria-label="Trang chủ">
+                    <svg class="mt-ico" viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none">
+                        <path d="M12 3 2 11h3v9h5v-6h4v6h5v-9h3z"></path>
+                    </svg>
+                </a>
+                <div class="mt-nav-wrap">
+                    <a class="mt-nav-item" href="gioi-thieu.html">Giới thiệu <svg class="caret" viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="gioi-thieu.html">Giới thiệu chung</a>
+                        <a href="co-cau-to-chuc.html">Cơ cấu tổ chức</a>
+                        <a href="co-cau-to-chuc.html#ban-thuong-truc">Ban Thường trực</a>
+                        <a href="co-cau-to-chuc.html#cac-ban-chuyen-mon">Các Ban, Văn phòng</a>
+                        <a href="co-cau-to-chuc.html#to-chuc-thanh-vien">Tổ chức thành viên</a>
+                        <a href="co-cau-to-chuc.html#mttq-co-so">MTTQ các xã, phường</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap">
+                    <a class="mt-nav-item is-active" href="tin-tuc.html">Hoạt động
+                        <svg class="caret" viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg>
+                    </a>
+                    <div class="mt-nav-drop">
+                        <a href="tin-tuc.html">Tất cả tin tức</a>
+                        <a href="#">Thường trực Tỉnh ủy</a>
+                        <a href="#">Ban Thường trực</a>
+                        <a href="#">Mặt trận cơ sở</a>
+                        <a href="#">Tổ chức thành viên</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="#">Tuyên truyền <svg class="caret"
+                            viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="#">Chủ trương, chính sách mới</a>
+                        <a href="#">Chuyển đổi số</a>
+                        <a href="#">Các ngày lễ lớn</a>
+                        <a href="#">Gương sáng</a>
+                        <a href="#">Chương trình phối hợp</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="#">Các cuộc vận động <svg class="caret"
+                            viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="#">Phong trào thi đua</a>
+                        <a href="#">An sinh xã hội</a>
+                        <a href="#">Đoàn kết xây dựng nông thôn mới</a>
+                        <a href="#">Khu dân cư Đoàn kết, ấm no, hạnh phúc</a>
+                        <a href="#">Người Việt ưu tiên dùng hàng Việt</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="#">Dân chủ – Giám sát
+                        <svg class="caret" viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="#">Giám sát, phản biện xã hội</a>
+                        <a href="#">Xây dựng Đảng, Nhà nước</a>
+                        <a href="#">Dân chủ ở cơ sở</a>
+                        <a href="#">Tháng nghe dân nói</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="#">Dân tộc – Tôn giáo
+                        <svg class="caret" viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="#">Công tác dân tộc</a>
+                        <a href="#">Công tác tôn giáo</a>
+                        <a href="#">Người có uy tín</a>
+                        <a href="#">Chính sách dân tộc, tôn giáo</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="#">Tổ chức - Kiểm tra<svg class="caret"
+                            viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="#">Tổ chức, cán bộ</a>
+                        <a href="#">Ủy viên Ủy ban</a>
+                        <a href="#">Kiểm tra</a>
+                        <a href="#">Thi đua - Khen thưởng</a>
+                        <a href="#">Tập huấn</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="#">Nhân dân<svg class="caret" viewBox="0 0 10 10"
+                            aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="#">Phản ánh, kiến nghị</a>
+                        <a href="#">Góp ý dự thảo</a>
+                        <a href="#">Tra cứu kết quả giải quyết</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap">
+                    <a class="mt-nav-item" href="van-ban.html">Văn bản</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BREADCRUMB -->
+    <div class="bg-gray-100/90 border-b border-gray-200 py-2.5">
+        <div class="max-w-7xl mx-auto px-4 flex items-center justify-between text-xs md:text-sm text-gray-600">
+            <div class="flex items-center gap-2 flex-wrap">
+                <a href="index.html" class="hover:text-[#DC2626] flex items-center gap-1.5 transition-colors">
+                    <i class="fa-solid fa-house text-[#DC2626]"></i> Trang chủ
+                </a>
+                <span class="text-gray-400">/</span>
+                <a href="tin-tuc.html" class="hover:text-[#DC2626] transition-colors">Tin tức - Hoạt động</a>
+                <span class="text-gray-400">/</span>
+                <span class="text-[#DC2626] font-semibold truncate max-w-[280px] sm:max-w-md">Chi tiết bài viết</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-7xl mx-auto my-6 p-4">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+            <!-- CỘT TRÁI: NỘI DUNG CHI TIẾT BÀI VIẾT (8 CỘT) -->
+            <article class="lg:col-span-8 p-5 md:p-8">
+
+                <!-- CHUYÊN MỤC & TIÊU ĐỀ -->
+                <div class="mb-4">
+                    <h1 id="article-title" class="text-2xl md:text-3xl font-extrabold text-gray-900 leading-snug tracking-tight text-justify">
+                        Phó Bí thư Tỉnh ủy Nguyễn Thanh Bình: Nỗ lực, chung sức xây dựng Nghệ An phát triển
+                    </h1>
+                </div>
+
+                <!-- THÔNG TIN TÁC GIẢ, NGÀY THÁNG, CÔNG CỤ -->
+                <div class="flex flex-wrap items-center justify-between gap-4 py-3 border-y border-gray-100 text-xs md:text-sm text-gray-500 mb-6">
+                    <div class="flex items-center gap-3 sm:gap-4 flex-wrap">
+                        <span class="flex items-center gap-1.5 text-gray-700 font-medium">
+                            <i class="fa-regular fa-calendar-check text-[#DC2626]"></i> Thứ Hai, 21/09/2026 - 08:30
+                        </span>
+                        <span>•</span>
+                        <span><i class="fa-regular fa-user text-gray-400"></i> Ban Biên tập</span>
+                        <span>•</span>
+                        <span><i class="fa-regular fa-eye text-gray-400"></i> 1.428 lượt xem</span>
+                    </div>
+
+                    <!-- THANH CÔNG CỤ: SIZE CHỮ, IN, CHIA SẺ -->
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="window.print()" title="In bài viết"
+                            class="w-8 h-8 rounded-lg bg-gray-50 hover:bg-gray-100 border border-gray-200 text-gray-600 flex items-center justify-center transition-colors">
+                            <i class="fa-solid fa-print text-xs"></i>
+                        </button>
+                        <a href="https://www.facebook.com" target="_blank" title="Chia sẻ Facebook"
+                            class="w-8 h-8 rounded-lg bg-blue-50 hover:bg-blue-100 border border-blue-200 text-blue-600 flex items-center justify-center transition-colors">
+                            <i class="fa-brands fa-facebook-f text-xs"></i>
+                        </a>
+                        <button type="button" onclick="copyArticleLink()" title="Sao chép liên kết" id="copy-btn"
+                            class="w-8 h-8 rounded-lg bg-gray-50 hover:bg-gray-100 border border-gray-200 text-gray-600 flex items-center justify-center transition-colors">
+                            <i class="fa-solid fa-link text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ĐOẠN TÓM TẮT / SA-PÔ -->
+                <div class="font-semibold text-base md:text-lg text-gray-800 leading-relaxed bg-red-50/50 p-4 sm:p-5 border-l-4 border-[#DC2626] rounded-r-xl mb-6 text-justify">
+                    Sáng ngày 21/9, Ban Thường trực Ủy ban MTTQ Việt Nam tỉnh Nghệ An tổ chức Hội nghị giao ban triển khai nhiệm vụ công tác Mặt trận. Đồng chí Nguyễn Thanh Bình - Phó Bí thư Tỉnh ủy dự và phát biểu chỉ đạo hội nghị, nhấn mạnh yêu cầu tiếp tục phát huy sức mạnh khối đại đoàn kết toàn dân tộc, thực hiện hiệu quả các phong trào thi đua yêu nước.
+                </div>
+
+                <!-- NỘI DUNG CHI TIẾT BÀI BÁO -->
+                <div id="article-content" class="article-body text-justify">
+                    <p>
+                        Dự hội nghị có đồng chí Võ Thị Minh Sinh - Ủy viên Ban Thường vụ Tỉnh ủy, Chủ tịch Ủy ban MTTQ Việt Nam tỉnh Nghệ An; các đồng chí trong Ban Thường trực Ủy ban MTTQ tỉnh cùng đại diện lãnh đạo các tổ chức chính trị - xã hội, các ban, ngành hữu quan.
+                    </p>
+
+                    <figure class="my-6">
+                        <img src="./images/news.avatar.938fbbdd7db7dd76.32616f626f717a6c316d79737a6f6570733162396839707031616874687978727131676f6a34656f2831292e6a7067.jpg"
+                            alt="Quang cảnh hội nghị" class="w-full rounded-xl shadow-sm object-cover max-h-[460px]">
+                        <figcaption class="text-center text-xs md:text-sm text-gray-500 italic mt-2">
+                            Đồng chí Nguyễn Thanh Bình - Phó Bí thư Tỉnh ủy phát biểu chỉ đạo tại hội nghị sáng ngày 21/9/2026.
+                        </figcaption>
+                    </figure>
+
+                    <h2>Phát huy vai trò nòng cốt của Mặt trận trong tập hợp Nhân dân</h2>
+
+                    <p>
+                        Báo cáo tại hội nghị cho thấy, trong thời gian qua, Ủy ban MTTQ các cấp trên địa bàn tỉnh đã chủ động bám sát sự chỉ đạo của Tỉnh ủy và Ban Thường trực Ủy ban Trung ương MTTQ Việt Nam, triển khai toàn diện, hiệu quả các chương trình công tác. Công tác tuyên truyền, vận động được đổi mới cả về nội dung và phương thức, ứng dụng mạnh mẽ công nghệ thông tin và mạng xã hội để kịp thời truyền tải các chủ trương của Đảng, chính sách pháp luật của Nhà nước đến mọi tầng lớp nhân dân.
+                    </p>
+
+                    <p>
+                        Đặc biệt, cuộc vận động <i>“Toàn dân đoàn kết xây dựng nông thôn mới, đô thị văn minh”</i> tiếp tục lan tỏa sâu rộng, khơi dậy tinh thần tự giác, ý thức làm chủ của nhân dân. Công tác chăm lo người nghèo, cứu trợ nhân đạo và bảo đảm an sinh xã hội được triển khai chu đáo, kịp thời, không để ai bị bỏ lại phía sau.
+                    </p>
+
+                    <blockquote>
+                        “Mặt trận Tổ quốc các cấp phải thực sự là cầu nối vững chắc giữa Đảng, chính quyền với Nhân dân; lắng nghe dân nói, nói cho dân hiểu và làm cho dân tin. Mọi chủ trương, chính sách đều phải lấy sự ấm no, hạnh phúc của Nhân dân làm thước đo cao nhất.”
+                        <div class="mt-2 font-bold not-italic text-sm text-[#DC2626]">— Đồng chí Nguyễn Thanh Bình, Phó Bí thư Tỉnh ủy Nghệ An</div>
+                    </blockquote>
+
+                    <h2>Tập trung nâng cao chất lượng giám sát và phản biện xã hội</h2>
+
+                    <p>
+                        Phát biểu kết luận và chỉ đạo, đồng chí Phó Bí thư Tỉnh ủy Nguyễn Thanh Bình biểu dương những kết quả tích cực mà Ủy ban MTTQ các cấp trong tỉnh đã đạt được thời gian qua. Đồng thời, đồng chí đề nghị trong những tháng cuối năm 2026, hệ thống Mặt trận cần tập trung thực hiện tốt các nhiệm vụ then chốt:
+                    </p>
+
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700 my-4 text-base">
+                        <li><b>Thứ nhất:</b> Tiếp tục đẩy mạnh tuyên truyền, học tập và quán triệt các Nghị quyết của Đảng; chuẩn bị chu đáo các điều kiện tổ chức thành công Đại hội Mặt trận Tổ quốc các cấp nhiệm kỳ 2026–2031.</li>
+                        <li><b>Thứ hai:</b> Nâng cao hiệu quả hoạt động giám sát và phản biện xã hội, tập trung vào những vấn đề bức thiết nhân dân quan tâm như quản lý đất đai, bảo vệ môi trường, chuyển đổi số và thủ tục hành chính.</li>
+                        <li><b>Thứ ba:</b> Nhân rộng các mô hình tự quản hiệu quả ở khu dân cư, đẩy mạnh phong trào “Vì người nghèo - Không để ai bị bỏ lại phía sau”, huy động tối đa các nguồn lực xã hội hóa hỗ trợ nhà ở cho hộ nghèo, hộ khó khăn.</li>
+                        <li><b>Thứ tư:</b> Kiện toàn, đào tạo đội ngũ cán bộ Mặt trận chuyên nghiệp, tâm huyết, gương mẫu, đủ năng lực đáp ứng yêu cầu nhiệm vụ trong giai đoạn phát triển mới.</li>
+                    </ul>
+
+                    <figure class="my-6">
+                        <img src="./images/IMG_7454.jpg" alt="Lãnh đạo tỉnh và đại biểu" class="w-full rounded-xl shadow-sm object-cover max-h-[460px]">
+                        <figcaption class="text-center text-xs md:text-sm text-gray-500 italic mt-2">
+                            Các đại biểu tham dự hội nghị trao đổi, thống nhất các chỉ tiêu thi đua trọng tâm năm 2026.
+                        </figcaption>
+                    </figure>
+
+                    <p>
+                        Thay mặt Ban Thường trực Ủy ban MTTQ tỉnh, đồng chí Võ Thị Minh Sinh trân trọng tiếp thu toàn bộ ý kiến chỉ đạo sâu sắc của đồng chí Phó Bí thư Tỉnh ủy; đồng thời khẳng định khối đại đoàn kết toàn dân tộc tỉnh Nghệ An sẽ không ngừng được củng cố vững chắc, chung sức đồng lòng hiện thực hóa mục tiêu đưa Nghệ An trở thành tỉnh phát triển khá của cả nước.
+                    </p>
+
+                    <div class="pt-4 text-right">
+                        <p class="font-bold text-gray-900 text-sm md:text-base">Hồng Quang - Ban Tuyên giáo MTTQ tỉnh</p>
+                        <p class="text-xs text-gray-400 italic">Nguồn: Cổng Thông tin điện tử Ủy ban MTTQ Việt Nam tỉnh Nghệ An</p>
+                    </div>
+                </div>
+
+                <!-- TỪ KHÓA / TAGS -->
+                <div class="pt-6 mt-8 border-t border-gray-100">
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <span class="text-xs font-bold text-gray-600 uppercase"><i class="fa-solid fa-tags mr-1"></i> Từ khóa:</span>
+                        <a href="tin-tuc.html" class="text-xs bg-gray-100 hover:bg-red-50 hover:text-[#DC2626] text-gray-700 px-3 py-1 rounded-full transition-colors">
+                            #MTTQ Nghệ An
+                        </a>
+                        <a href="tin-tuc.html" class="text-xs bg-gray-100 hover:bg-red-50 hover:text-[#DC2626] text-gray-700 px-3 py-1 rounded-full transition-colors">
+                            #Khối đại đoàn kết
+                        </a>
+                        <a href="tin-tuc.html" class="text-xs bg-gray-100 hover:bg-red-50 hover:text-[#DC2626] text-gray-700 px-3 py-1 rounded-full transition-colors">
+                            #Đại hội Mặt trận
+                        </a>
+                        <a href="tin-tuc.html" class="text-xs bg-gray-100 hover:bg-red-50 hover:text-[#DC2626] text-gray-700 px-3 py-1 rounded-full transition-colors">
+                            #Xây dựng quê hương
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CHIA SẺ BÀI VIẾT -->
+                <div class="mt-6 p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-3">
+                    <span class="text-xs md:text-sm font-semibold text-gray-700">Chia sẻ bài viết này đến bạn bè và người thân:</span>
+                    <div class="flex items-center gap-2">
+                        <a href="https://www.facebook.com" target="_blank"
+                            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#1877F2] text-white text-xs font-medium hover:opacity-90 transition-opacity">
+                            <i class="fa-brands fa-facebook"></i> Facebook
+                        </a>
+                        <a href="https://zalo.me" target="_blank"
+                            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0068FF] text-white text-xs font-medium hover:opacity-90 transition-opacity">
+                            <i class="fa-solid fa-comment-dots"></i> Zalo
+                        </a>
+                        <button type="button" onclick="copyArticleLink()"
+                            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-200 hover:bg-gray-300 text-gray-800 text-xs font-medium transition-colors">
+                            <i class="fa-regular fa-copy"></i> Copy Link
+                        </button>
+                    </div>
+                </div>
+
+                <!-- FORM GỬI Ý KIẾN BÌNH LUẬN -->
+                <div class="mt-8 pt-6 border-t border-gray-100">
+                    <h3 class="font-bold text-lg text-gray-900 mb-2 flex items-center gap-2">
+                        <i class="fa-regular fa-comments text-[#DC2626]"></i> Gửi ý kiến, phản hồi về bài viết
+                    </h3>
+                    <p class="text-xs text-gray-500 mb-4">Ý kiến của bạn sẽ được kiểm duyệt trước khi hiển thị công khai trên cổng thông tin điện tử.</p>
+
+                    <form class="space-y-4" onsubmit="event.preventDefault(); alert('Cảm ơn bạn đã gửi ý kiến! Ý kiến của bạn đã được tiếp nhận.');">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Họ và tên *</label>
+                                <input type="text" required placeholder="Nhập họ và tên của bạn"
+                                    class="w-full bg-gray-50 border border-gray-200 rounded-lg p-2.5 text-sm outline-none focus:border-[#DC2626] focus:bg-white transition-all">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Email / Số điện thoại *</label>
+                                <input type="text" required placeholder="Nhập email hoặc số điện thoại"
+                                    class="w-full bg-gray-50 border border-gray-200 rounded-lg p-2.5 text-sm outline-none focus:border-[#DC2626] focus:bg-white transition-all">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">Nội dung phản hồi *</label>
+                            <textarea rows="3" required placeholder="Nhập nội dung ý kiến đóng góp của bạn..."
+                                class="w-full bg-gray-50 border border-gray-200 rounded-lg p-2.5 text-sm outline-none focus:border-[#DC2626] focus:bg-white transition-all"></textarea>
+                        </div>
+                        <div class="text-right">
+                            <button type="submit"
+                                class="px-5 py-2.5 bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold text-sm rounded-lg shadow-sm transition-colors inline-flex items-center gap-2">
+                                <i class="fa-solid fa-paper-plane text-xs"></i> Gửi ý kiến
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- BÀI VIẾT CÙNG CHUYÊN MỤC (TIN LIÊN QUAN) -->
+                <div class="mt-10 pt-6 border-t border-gray-100">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-bold text-base md:text-lg uppercase text-gray-900 flex items-center gap-2">
+                            <i class="fa-solid fa-newspaper text-[#DC2626]"></i> Tin tức cùng chuyên mục
+                        </h3>
+                        <a href="tin-tuc.html" class="text-xs text-[#DC2626] font-semibold hover:underline">
+                            Xem tất cả &rarr;
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-justify">
+                        <a href="chi-tiet-tin.html" class="group block bg-gray-50 p-3 rounded-xl border border-gray-100 hover:border-red-200 transition-all">
+                            <div class="aspect-[16/10] overflow-hidden rounded-lg mb-2.5 bg-gray-200">
+                                <img src="./images/news.avatar.8ed1ad939e5e1266.6368692d73696e682e6a7067.jpg" alt=""
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <span class="text-[11px] text-gray-400 block mb-1">19/09/2026</span>
+                            <h4 class="font-bold text-xs md:text-sm text-gray-900 group-hover:text-[#DC2626] transition-colors line-clamp-2 leading-snug">
+                                Thư của Tổng Bí thư, Chủ tịch nước Tô Lâm gửi các cháu thiếu niên, nhi đồng
+                            </h4>
+                        </a>
+
+                        <a href="chi-tiet-tin.html" class="group block bg-gray-50 p-3 rounded-xl border border-gray-100 hover:border-red-200 transition-all">
+                            <div class="aspect-[16/10] overflow-hidden rounded-lg mb-2.5 bg-gray-200">
+                                <img src="./images/news.avatar.a951d3b5d1b423d8.3031312e706e67.png" alt=""
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <span class="text-[11px] text-gray-400 block mb-1">22/09/2026</span>
+                            <h4 class="font-bold text-xs md:text-sm text-gray-900 group-hover:text-[#DC2626] transition-colors line-clamp-2 leading-snug">
+                                Bàn giao chức năng, nhiệm vụ về công tác dân vận sang Đảng ủy Mặt trận Tổ quốc tỉnh
+                            </h4>
+                        </a>
+
+                        <a href="chi-tiet-tin.html" class="group block bg-gray-50 p-3 rounded-xl border border-gray-100 hover:border-red-200 transition-all">
+                            <div class="aspect-[16/10] overflow-hidden rounded-lg mb-2.5 bg-gray-200">
+                                <img src="./images/news.avatar.8d834326279a410a.312e6a7067.jpg" alt=""
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            </div>
+                            <span class="text-[11px] text-gray-400 block mb-1">23/09/2026</span>
+                            <h4 class="font-bold text-xs md:text-sm text-gray-900 group-hover:text-[#DC2626] transition-colors line-clamp-2 leading-snug">
+                                Quỳnh Anh: Đối thoại giữa người đứng đầu cấp ủy, chính quyền với Nhân dân
+                            </h4>
+                        </a>
+                    </div>
+                </div>
+
+            </article>
+
+            <!-- CỘT PHẢI: SIDEBAR THÔNG TIN (4 CỘT) -->
+            <aside class="lg:col-span-4 space-y-6">
+
+                <!-- WIDGET: CHỦ TỊCH ỦY BAN MTTQ TỈNH -->
+                <div class="p-5">
+                    <div class="flex justify-between items-center mb-3 border-b border-gray-100 pb-2">
+                        <h3 class="font-bold text-base uppercase text-gray-900">Ban Thường trực</h3>
+                        <a href="#" class="text-xs text-gray-500 hover:text-[#DC2626]">Chi tiết &gt;</a>
+                    </div>
+                    <div class="flex gap-3.5 items-start">
+                        <img src="images/avt.jpg" alt="Avatar" class="w-16 h-20 object-cover rounded-lg border border-gray-200 shadow-sm shrink-0">
+                        <div class="text-xs">
+                            <h4 class="font-bold text-base text-gray-900 leading-snug">Võ Thị Minh Sinh</h4>
+                            <p class="text-gray-600 mt-1.5 leading-relaxed text-justify">
+                                Ủy viên Ban Thường vụ Tỉnh ủy, Chủ tịch Ủy ban MTTQ Việt Nam tỉnh Nghệ An
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TIN TỨC MỚI CẬP NHẬT -->
+                <div class="p-5">
+                    <h3 class="font-bold text-base uppercase text-gray-900 border-b border-gray-100 pb-2 mb-3 flex items-center gap-2">
+                        <i class="fa-regular fa-newspaper text-[#DC2626]"></i> Tin mới cập nhật
+                    </h3>
+                    <div class="space-y-3.5 divide-y divide-gray-100 text-justify">
+                        <div class="pt-1.5">
+                            <a href="chi-tiet-tin.html" class="text-sm font-semibold text-gray-800 hover:text-[#DC2626] transition-colors line-clamp-2 leading-snug">
+                                Yên Xuân ra mắt mô hình “Kết nối số - Mặt trận đồng hành cùng nhân dân”
+                            </a>
+                            <div class="text-xs text-gray-400 mt-1 flex items-center gap-2">
+                                <span><i class="fa-regular fa-clock"></i> 24/09/2026</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-3">
+                            <a href="chi-tiet-tin.html" class="text-sm font-semibold text-gray-800 hover:text-[#DC2626] transition-colors line-clamp-2 leading-snug">
+                                Đại hội đại biểu Hội Bảo vệ quyền trẻ em xã Quỳnh Phú nhiệm kỳ 2026–2031
+                            </a>
+                            <div class="text-xs text-gray-400 mt-1 flex items-center gap-2">
+                                <span><i class="fa-regular fa-clock"></i> 24/09/2026</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-3">
+                            <a href="chi-tiet-tin.html" class="text-sm font-semibold text-gray-800 hover:text-[#DC2626] transition-colors line-clamp-2 leading-snug">
+                                Nghĩa Đàn tập trung kiện toàn tổ chức các hội quần chúng sau hợp nhất
+                            </a>
+                            <div class="text-xs text-gray-400 mt-1 flex items-center gap-2">
+                                <span><i class="fa-regular fa-clock"></i> 23/09/2026</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-3">
+                            <a href="chi-tiet-tin.html" class="text-sm font-semibold text-gray-800 hover:text-[#DC2626] transition-colors line-clamp-2 leading-snug">
+                                Ủy ban MTTQ Việt Nam tỉnh Nghệ An phát động phong trào thi đua yêu nước
+                            </a>
+                            <div class="text-xs text-gray-400 mt-1 flex items-center gap-2">
+                                <span><i class="fa-regular fa-clock"></i> 23/09/2026</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VĂN BẢN MỚI BAN HÀNH -->
+                <div class="p-5">
+                    <h3 class="font-bold text-base uppercase text-gray-900 border-b border-gray-100 pb-2 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-file-lines text-[#DC2626]"></i> Văn bản liên quan
+                    </h3>
+                    <div class="space-y-3 text-xs md:text-sm text-justify">
+                        <a href="#" class="block p-2.5 rounded-lg bg-gray-50 hover:bg-red-50 hover:text-[#DC2626] border border-gray-100 transition-colors">
+                            <span class="block font-semibold line-clamp-2">Kế hoạch số 45/KH-MTTQ về tổ chức Ngày hội Đại đoàn kết toàn dân tộc năm 2026</span>
+                            <span class="text-gray-400 text-xs mt-1 block">Ngày ban hành: 18/09/2026</span>
+                        </a>
+                        <a href="#" class="block p-2.5 rounded-lg bg-gray-50 hover:bg-red-50 hover:text-[#DC2626] border border-gray-100 transition-colors">
+                            <span class="block font-semibold line-clamp-2">Hướng dẫn số 12/HD-MTTQ về giám sát cán bộ, đảng viên tại nơi cư trú</span>
+                            <span class="text-gray-400 text-xs mt-1 block">Ngày ban hành: 15/09/2026</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ĐƯỜNG DÂY NÓNG TIẾP DÂN -->
+                <div class="bg-gradient-to-br from-red-600 to-[#B91C1C] text-white rounded-xl p-5 shadow-sm">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                            <i class="fa-solid fa-phone-volume text-lg"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs uppercase tracking-wider text-yellow-300 font-bold block">Đường dây nóng</span>
+                            <span class="text-lg font-extrabold block">02383.849.369</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-white/90 leading-relaxed mt-2 text-justify">
+                        Tiếp nhận phản ánh, ý kiến và đơn thư khiếu nại, tố cáo của công dân trực tiếp đến Cơ quan UBMTTQ tỉnh Nghệ An.
+                    </p>
+                </div>
+
+                <!-- BANNER -->
+                <div class="rounded-xl overflow-hidden shadow-sm border border-gray-200">
+                    <img src="./images/kh.png" alt="Khối đại đoàn kết" class="w-full h-auto">
+                </div>
+
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="w-full bg-[#B91C1C] border-t-4 border-[#F5BC02] text-white py-8 px-4 text-center">
+        <div class="max-w-7xl mx-auto space-y-2 text-base leading-normal md:text-base font-normal leading-relaxed">
+            <p class="font-bold tracking-wide uppercase">
+                © 2026 TRANG THÔNG TIN ĐIỆN TỬ ỦY BAN MẶT TRẬN TỔ QUỐC VIỆT NAM TỈNH NGHỆ AN
+            </p>
+            <p>
+                Giấy phép hoạt động số 111/GP-TTĐT do sở Thông tin và Truyền thông tỉnh Nghệ An cấp ngày 16/11/2020
+            </p>
+            <p>
+                Trưởng Ban Biên tập: Ông Nguyễn Đình Hùng, Phó Chủ tịch Thường trực Ủy ban MTTQ Việt Nam tỉnh
+            </p>
+            <p>
+                Trụ sở: Số 2 - Đường Phan Đăng Lưu - Phường Trường Vinh - Nghệ An
+            </p>
+            <p>
+                Điện thoại: <a href="tel:02383849369" class="hover:underline">02383.849.369</a>
+            </p>
+            <p>
+                Email: <a href="mailto:ubmttq@nghean.gov.vn" class="hover:underline">ubmttq@nghean.gov.vn</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT CHỨC NĂNG BÀI VIẾT VÀ MOBILE MENU -->
+    <script>
+        // Điều chỉnh cỡ chữ bài viết
+        var currentFontSize = 16;
+        function changeFontSize(delta) {
+            if (delta === 0) {
+                currentFontSize = 16;
+            } else {
+                currentFontSize = Math.min(22, Math.max(13, currentFontSize + (delta * 2)));
+            }
+            var paragraphs = document.querySelectorAll('#article-content p, #article-content ul li');
+            paragraphs.forEach(function (p) {
+                p.style.fontSize = currentFontSize + 'px';
+            });
+        }
+
+        // Sao chép link bài viết
+        function copyArticleLink() {
+            var url = window.location.href;
+            navigator.clipboard.writeText(url).then(function () {
+                var btn = document.getElementById('copy-btn');
+                if (btn) {
+                    var originalHtml = btn.innerHTML;
+                    btn.innerHTML = '<i class="fa-solid fa-check text-xs text-green-600"></i>';
+                    setTimeout(function () {
+                        btn.innerHTML = originalHtml;
+                    }, 2000);
+                }
+                alert('Đã sao chép liên kết bài viết vào bộ nhớ tạm!');
+            }).catch(function () {
+                prompt('Sao chép liên kết:', window.location.href);
+            });
+        }
+
+        // Mobile Menu Navigation
+        (function () {
+            var nav = document.querySelector('.mt-container');
+            var toggle = document.querySelector('.mt-mobile-toggle');
+            var navItems = document.querySelectorAll('.mt-nav-wrap');
+
+            if (!nav || !toggle) return;
+
+            toggle.addEventListener('click', function () {
+                var isOpen = nav.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+                toggle.querySelector('i').className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+            });
+
+            navItems.forEach(function (item) {
+                var link = item.querySelector(':scope > .mt-nav-item');
+                var dropdown = item.querySelector(':scope > .mt-nav-drop');
+                if (!link || !dropdown) return;
+
+                link.setAttribute('aria-haspopup', 'true');
+                link.setAttribute('aria-expanded', 'false');
+                link.addEventListener('click', function (event) {
+                    if (window.matchMedia('(min-width: 768px)').matches) return;
+                    event.preventDefault();
+
+                    var isOpen = item.classList.toggle('is-open');
+                    link.setAttribute('aria-expanded', String(isOpen));
+                });
+            });
+
+            window.addEventListener('resize', function () {
+                if (!window.matchMedia('(min-width: 768px)').matches) return;
+                nav.classList.remove('is-open');
+                toggle.setAttribute('aria-expanded', 'false');
+                toggle.querySelector('i').className = 'fa-solid fa-bars';
+                navItems.forEach(function (item) {
+                    item.classList.remove('is-open');
+                    var link = item.querySelector(':scope > .mt-nav-item');
+                    if (link) link.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }());
+    </script>
+</body>
+
+</html>
