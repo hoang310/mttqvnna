@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Góp ý Dự thảo Văn bản & Tham gia Xây dựng Pháp luật - Ủy ban Mặt trận Tổ quốc tỉnh Nghệ An</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        .nav-link {
+            height: 56px;
+            padding: 0 8px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: clamp(14px, 1vw, 16px);
+            font-weight: 600;
+            color: #222;
+            transition: .2s;
+        }
+
+        .nav-link:hover {
+            color: #DC2626;
+            background: rgb(255 217 102 / 20%);
+        }
+
+        .top-search {
+            position: relative;
+            width: 220px;
+        }
+
+        .top-search input {
+            width: 100%;
+            height: 34px;
+            border-radius: 9999px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            padding: 0 36px 0 14px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .top-search input::placeholder {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .top-search button {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.9);
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .mt-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .mt-nav-item {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 10px 14px;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: .2s;
+            cursor: pointer;
+        }
+
+        .mt-nav-item:hover,
+        .mt-nav-item.is-active {
+            color: #DC2626;
+            background: #fff5f5;
+        }
+
+        .mt-nav-wrap {
+            position: relative;
+        }
+
+        .mt-ico {
+            width: 20px;
+            height: 20px;
+        }
+
+        .caret {
+            width: 10px;
+            height: 10px;
+            fill: currentColor;
+            transition: transform 0.2s;
+        }
+
+        .mt-nav-wrap:hover .caret {
+            transform: rotate(180deg);
+        }
+
+        .mt-nav-drop {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            min-width: 230px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #eee;
+            border-top: 2px solid #DC2626;
+            display: none;
+            flex-direction: column;
+            z-index: 100;
+        }
+
+        .mt-nav-wrap:hover .mt-nav-drop {
+            display: flex;
+        }
+
+        .mt-nav-drop a {
+            padding: 12px 16px;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            border-bottom: 1px solid #f9f9f9;
+            transition: .2s;
+            white-space: normal;
+        }
+
+        .mt-nav-drop a:hover {
+            color: #DC2626;
+            background: #fdfdfd;
+            padding-left: 20px;
+        }
+
+        .mt-mobile-toggle {
+            display: none;
+        }
+
+        .brand-header {
+            height: 210px;
+            background-size: 100% 230px;
+        }
+
+        @media (max-width: 767px) {
+            .brand-header {
+                height: clamp(90px, 24vw, 120px);
+                background-size: auto 100%;
+            }
+
+            .mt-mobile-toggle {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: space-between;
+                padding: 12px 16px;
+                border: 0;
+                background: #fff;
+                color: #222;
+                font-size: 14px;
+                font-weight: 700;
+                text-align: left;
+            }
+
+            .mt-container {
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                border-top: 1px solid #eee;
+            }
+
+            .mt-container.is-open {
+                display: flex;
+            }
+
+            .mt-nav-wrap {
+                border-bottom: 1px solid #eee;
+            }
+
+            .mt-nav-home {
+                width: 100%;
+            }
+
+            .mt-nav-wrap>.mt-nav-item {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .mt-nav-drop {
+                position: static;
+                min-width: 0;
+                border: 0;
+                border-top: 1px solid #eee;
+                box-shadow: none;
+            }
+
+            .mt-nav-wrap:hover .mt-nav-drop {
+                display: none;
+            }
+
+            .mt-nav-wrap.is-open>.mt-nav-drop {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans text-base">
+
+    <!-- TOP BAR -->
+    <div class="bg-[#DC2626] text-white text-xs xl:text-sm leading-normal whitespace-nowrap">
+        <div class="max-w-[1550px] mx-auto px-4 h-[38px] flex items-center justify-between">
+            <div class="flex items-center gap-5">
+                <span class="flex items-center gap-2">
+                    <i class="fa-regular fa-calendar"></i>
+                    Thứ Hai, 29/09/2026
+                </span>
+                <span class="opacity-60">|</span>
+                <span class="flex items-center gap-2">
+                    🌤️ Nghệ An <b>26°C - 32°C</b>
+                </span>
+            </div>
+
+            <div class="hidden lg:flex items-center gap-2 xl:gap-4">
+                <div class="hidden xl:flex items-center gap-4">
+                    <a href="gui-y-kien.html" class="hover:underline flex items-center gap-1 font-semibold text-amber-200">
+                        <i class="fa-regular fa-comment-dots"></i> Gửi phản ánh, ý kiến
+                    </a>
+                    <span class="opacity-60">|</span>
+                    <span><i class="fa-solid fa-envelope mr-1"></i> ubmttq@nghean.gov.vn</span>
+                    <span class="opacity-60">|</span>
+                </div>
+                <span>A</span>
+                <span>A+</span>
+                <span>A++</span>
+                <span class="opacity-60">|</span>
+                <span class="h-5 w-5 rounded-full bg-white/20 flex items-center justify-center">
+                    <i class="fa-solid fa-moon text-sm"></i>
+                </span>
+                <form action="tim-kiem.html" method="get" class="top-search" aria-label="Tìm kiếm">
+                    <input type="search" name="q" placeholder="Tìm kiếm..." aria-label="Tìm kiếm">
+                    <button type="submit" aria-label="Nút tìm kiếm">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+                <span class="flex items-center justify-center"><img class="w-[18px] h-[18px] mr-2"
+                        src="images/facei.png" alt=""> Fanpage</span>
+                <span class="flex items-center justify-center"><img class="w-[18px] h-[18px] mr-2"
+                        src="images/zaloi.png" alt=""> Zalo</span>
+                <span class="border-l border-white/50 pl-4">
+                    <div class="rounded-full border border-white px-2 py-1">
+                        <i class="fa-solid fa-user mr-1"></i> Đăng nhập
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- BRAND HEADER -->
+    <header class="brand-header relative border-b border-[#F5BC02] bg-center bg-no-repeat overflow-hidden"
+        style="background-image: url('images/headern.png');">
+        <div class="max-w-[1550px] h-full mx-auto px-4 flex items-center justify-center relative z-10">
+        </div>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-200 uppercase">
+        <div class="max-w-[1550px] mx-auto px-4">
+            <button class="mt-mobile-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">
+                <span></span>
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            </button>
+            <div class="mt-container" id="main-navigation" style="max-width: none;"><a
+                    class="mt-nav-item mt-nav-home" href="index.html" aria-label="Trang chủ"><svg class="mt-ico"
+                        viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none">
+                        <path d="M12 3 2 11h3v9h5v-6h4v6h5v-9h3z"></path>
+                    </svg></a>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="gioi-thieu.html">Giới thiệu <svg class="caret"
+                            viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="gioi-thieu.html">Giới thiệu chung</a>
+                        <a href="co-cau-to-chuc.html">Cơ cấu tổ chức</a>
+                        <a href="co-cau-to-chuc.html#ban-thuong-truc">Ban Thường trực</a>
+                        <a href="co-cau-to-chuc.html#cac-ban-chuyen-mon">Các Ban, Văn phòng</a>
+                        <a href="co-cau-to-chuc.html#to-chuc-thanh-vien">Tổ chức thành viên</a>
+                        <a href="co-cau-to-chuc.html">MTTQ các xã, phường</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="tin-tuc.html">Hoạt động
+                        <svg class="caret" viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg>
+                    </a>
+                    <div class="mt-nav-drop">
+                        <a href="tin-tuc.html?category=all">Tất cả tin tức</a>
+                        <a href="tin-tuc.html?category=thuong-truc">Thường trực Tỉnh ủy</a>
+                        <a href="tin-tuc.html?category=ban-thuong-truc">Ban Thường trực</a>
+                        <a href="tin-tuc.html?category=co-so">Mặt trận cơ sở</a>
+                        <a href="tin-tuc.html?category=to-chuc-thanh-vien">Tổ chức thành viên</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="tin-tuc.html?category=tuyen-truyen">Tuyên truyền <svg class="caret"
+                            viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="tin-tuc.html?category=chu-truong-chinh-sach">Chủ trương, chính sách mới</a>
+                        <a href="tin-tuc.html?category=chuyen-doi-so">Chuyển đổi số</a>
+                        <a href="tin-tuc.html?category=ngay-le-lon">Các ngày lễ lớn</a>
+                        <a href="tin-tuc.html?category=guong-sang">Gương sáng</a>
+                        <a href="tin-tuc.html?category=chuong-trinh-phoi-hop">Chương trình phối hợp</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="tin-tuc.html?category=cac-cuoc-van-dong">Các cuộc vận động <svg class="caret"
+                            viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="tin-tuc.html?category=phong-trao-thi-dua">Phong trào thi đua</a>
+                        <a href="tin-tuc.html?category=an-sinh-xa-hoi">An sinh xã hội</a>
+                        <a href="tin-tuc.html?category=doan-ket-xay-dung-nong-thon-moi">Đoàn kết xây dựng nông thôn mới</a>
+                        <a href="tin-tuc.html?category=khu-dan-cu-doan-ket-am-no-hanh-phuc">Khu dân cư Đoàn kết, ấm no, hạnh phúc</a>
+                        <a href="tin-tuc.html?category=nguoi-viet-uu-tien-dung-hang-viet">Người Việt ưu tiên dùng hàng Việt</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="tin-tuc.html">Dân chủ – Giám sát
+                        <svg class="caret" viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="tin-tuc.html">Giám sát, phản biện xã hội</a>
+                        <a href="tin-tuc.html">Xây dựng Đảng, Nhà nước</a>
+                        <a href="tin-tuc.html">Dân chủ ở cơ sở</a>
+                        <a href="tin-tuc.html">Tháng nghe dân nói</a>
+
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="tin-tuc.html">Dân tộc – Tôn giáo
+                        <svg class="caret" viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="tin-tuc.html">Công tác dân tộc</a>
+                        <a href="tin-tuc.html">Công tác tôn giáo</a>
+                        <a href="tin-tuc.html">Người có uy tín</a>
+                        <a href="tin-tuc.html">Chính sách dân tộc, tôn giáo</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="co-cau-to-chuc.html">Tổ chức - Kiểm tra<svg class="caret"
+                            viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="co-cau-to-chuc.html">Tổ chức, cán bộ</a>
+                        <a href="co-cau-to-chuc.html">Ủy viên Ủy ban</a>
+                        <a href="co-cau-to-chuc.html">Kiểm tra</a>
+                        <a href="co-cau-to-chuc.html">Thi đua - Khen thưởng</a>
+                        <a href="co-cau-to-chuc.html">Tập huấn</a>
+                    </div>
+                </div>
+
+                <div class="mt-nav-wrap"><a class="mt-nav-item is-active" href="gui-y-kien.html">Nhân dân<svg class="caret" viewBox="0 0 10 10"
+                            aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="gui-y-kien.html">Phản ánh, kiến nghị</a>
+                        <a href="gop-y-du-thao.html">Góp ý dự thảo</a>
+                        <a href="gui-y-kien.html">Tra cứu kết quả giải quyết</a>
+                    </div>
+                </div>
+
+                <div class="mt-nav-wrap">
+                    <a class="mt-nav-item" href="van-ban.html">Văn bản</a>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- BREADCRUMB -->
+    <div class="bg-gray-100/90 border-b border-gray-200 py-2.5">
+        <div class="max-w-7xl mx-auto px-4 flex items-center justify-between text-xs md:text-sm text-gray-600">
+            <div class="flex items-center gap-2 flex-wrap">
+                <a href="index.html" class="hover:text-[#DC2626] flex items-center gap-1.5 transition-colors">
+                    <i class="fa-solid fa-house text-[#DC2626]"></i> Trang chủ
+                </a>
+                <span class="text-gray-400">/</span>
+                <span class="text-gray-600">Mặt trận với Nhân dân</span>
+                <span class="text-gray-400">/</span>
+                <span class="text-[#DC2626] font-semibold">Góp ý dự thảo văn bản</span>
+            </div>
+            <div class="hidden sm:flex items-center gap-2 text-xs text-gray-500">
+                <i class="fa-solid fa-scale-balanced text-[#DC2626]"></i> Phản biện xã hội & Xây dựng pháp luật
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-7xl mx-auto my-6 p-4">
+
+        <!-- HERO BANNER -->
+        <section class="bg-gradient-to-r from-amber-600 via-orange-600 to-[#DC2626] rounded-2xl p-6 md:p-8 text-white shadow-md mb-8 relative overflow-hidden">
+            <div class="absolute right-0 top-0 bottom-0 opacity-10 pointer-events-none flex items-center pr-6">
+                <img src="./images/thamgiaxaydungluat.png" class="w-72 h-72 object-contain" alt="Watermark">
+            </div>
+            <div class="relative z-10 max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white text-xs font-bold uppercase tracking-wider mb-3 backdrop-blur-sm">
+                    <i class="fa-solid fa-landmark text-amber-200"></i>
+                    Phản biện xã hội - Phát huy trí tuệ toàn dân
+                </div>
+                <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight leading-tight">
+                    Lấy ý kiến Nhân dân đối với Dự thảo Văn bản, Đề án & Chính sách
+                </h1>
+                <p class="text-amber-100 text-sm md:text-base mt-2.5 leading-relaxed">
+                    Ủy ban Mặt trận Tổ quốc Việt Nam tỉnh Nghệ An trân trọng kính mời các tầng lớp Nhân dân, nhân sĩ trí thức, nhà khoa học và các chuyên gia tham gia đóng góp trí tuệ vào các dự thảo văn bản quy phạm pháp luật, cơ chế chính sách lớn của tỉnh.
+                </p>
+
+                <!-- STATS STRIP -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 pt-6 border-t border-white/20 text-center">
+                    <div class="bg-white/10 rounded-xl p-2.5 backdrop-blur-sm">
+                        <div class="text-xl md:text-2xl font-black text-amber-300">14</div>
+                        <div class="text-[11px] text-amber-100 uppercase font-semibold mt-0.5">Dự thảo lấy ý kiến</div>
+                    </div>
+                    <div class="bg-white/10 rounded-xl p-2.5 backdrop-blur-sm">
+                        <div class="text-xl md:text-2xl font-black text-amber-300">4.820+</div>
+                        <div class="text-[11px] text-amber-100 uppercase font-semibold mt-0.5">Lượt góp ý tiếp nhận</div>
+                    </div>
+                    <div class="bg-white/10 rounded-xl p-2.5 backdrop-blur-sm">
+                        <div class="text-xl md:text-2xl font-black text-amber-300">93.8%</div>
+                        <div class="text-[11px] text-amber-100 uppercase font-semibold mt-0.5">Ý kiến được tiếp thu</div>
+                    </div>
+                    <div class="bg-white/10 rounded-xl p-2.5 backdrop-blur-sm">
+                        <div class="text-xl md:text-2xl font-black text-amber-300">100%</div>
+                        <div class="text-[11px] text-amber-100 uppercase font-semibold mt-0.5">Báo cáo giải trình</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MAIN GRID: DỰ THẢO & SIDEBAR -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+            <!-- LEFT COLUMN: DANH SÁCH DỰ THẢO (8 COLS) -->
+            <div class="lg:col-span-8 space-y-6">
+
+                <!-- TOOLBAR TÌM KIẾM & BỘ LỌC DỰ THẢO -->
+                <div class="bg-white border border-gray-200/90 rounded-2xl p-4 shadow-sm space-y-4">
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                        <div class="flex items-center gap-2 overflow-x-auto whitespace-nowrap pb-1" id="draft-status-tabs">
+                            <button type="button" onclick="filterDraftStatus('active', this)"
+                                class="status-btn px-4 py-2 rounded-xl text-xs md:text-sm font-bold bg-[#DC2626] text-white shadow-sm transition-all">
+                                <i class="fa-solid fa-clock-rotate-left mr-1"></i> Đang lấy ý kiến (4)
+                            </button>
+                            <button type="button" onclick="filterDraftStatus('closed', this)"
+                                class="status-btn px-4 py-2 rounded-xl text-xs md:text-sm font-medium bg-gray-100 hover:bg-gray-200 text-gray-700 transition-all">
+                                <i class="fa-solid fa-check-double mr-1 text-emerald-600"></i> Đã kết thúc (10)
+                            </button>
+                            <button type="button" onclick="filterDraftStatus('all', this)"
+                                class="status-btn px-4 py-2 rounded-xl text-xs md:text-sm font-medium bg-gray-100 hover:bg-gray-200 text-gray-700 transition-all">
+                                Tất cả (14)
+                            </button>
+                        </div>
+
+                        <!-- SEARCH BOX -->
+                        <div class="relative w-full sm:w-64">
+                            <input type="text" id="draft-search-input" oninput="searchDrafts()"
+                                placeholder="Tìm kiếm tên dự thảo..."
+                                class="w-full pl-9 pr-4 py-2 rounded-xl border border-gray-200 text-xs md:text-sm outline-none focus:border-[#DC2626]">
+                            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+                        </div>
+                    </div>
+
+                    <!-- BỘ LỌC LĨNH VỰC -->
+                    <div class="flex items-center gap-2 flex-wrap text-xs pt-2 border-t border-gray-100">
+                        <span class="text-gray-500 font-semibold">Lĩnh vực:</span>
+                        <button type="button" onclick="filterDraftField('all', this)"
+                            class="field-btn px-2.5 py-1 rounded-lg bg-red-100 text-[#DC2626] font-bold">
+                            Tất cả
+                        </button>
+                        <button type="button" onclick="filterDraftField('chinh-sach', this)"
+                            class="field-btn px-2.5 py-1 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200">
+                            Chính sách - An sinh xã hội
+                        </button>
+                        <button type="button" onclick="filterDraftField('giam-sat', this)"
+                            class="field-btn px-2.5 py-1 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200">
+                            Xây dựng chính quyền & Giám sát
+                        </button>
+                        <button type="button" onclick="filterDraftField('kinh-te', this)"
+                            class="field-btn px-2.5 py-1 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200">
+                            Kinh tế - Nông nghiệp
+                        </button>
+                        <button type="button" onclick="filterDraftField('chuyen-doi-so', this)"
+                            class="field-btn px-2.5 py-1 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200">
+                            Chuyển đổi số
+                        </button>
+                    </div>
+                </div>
+
+                <!-- DANH SÁCH DỰ THẢO CARD CHI TIẾT -->
+                <div id="drafts-list" class="space-y-5">
+
+                    <!-- DỰ THẢO 1: NGHỊ QUYẾT XÓA NHÀ TẠM -->
+                    <article class="draft-card bg-white border border-gray-200/90 rounded-2xl p-5 md:p-6 shadow-sm hover:shadow-md hover:border-red-300 transition-all space-y-4"
+                        data-status="active" data-field="chinh-sach">
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-gray-100 pb-3">
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <span class="px-2.5 py-0.5 rounded text-[11px] font-bold uppercase text-white bg-[#DC2626]">
+                                    Nghị quyết HĐND
+                                </span>
+                                <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-red-50 text-[#DC2626] border border-red-200 flex items-center gap-1">
+                                    <i class="fa-regular fa-clock"></i> Còn 17 ngày (Hạn: 15/11/2026)
+                                </span>
+                            </div>
+                            <span class="text-xs text-gray-500 font-medium flex items-center gap-1">
+                                <i class="fa-regular fa-comment-dots text-[#DC2626]"></i> <b>342</b> lượt đóng góp
+                            </span>
+                        </div>
+
+                        <div>
+                            <h2 class="text-base md:text-lg font-bold text-gray-900 hover:text-[#DC2626] transition-colors leading-snug">
+                                <a href="javascript:void(0)" onclick="openCommentModal('Dự thảo Nghị quyết HĐND tỉnh quy định chính sách hỗ trợ hộ nghèo, hộ cận nghèo xóa nhà tạm, nhà dột nát trên địa bàn tỉnh Nghệ An giai đoạn 2026 - 2030')">
+                                    Dự thảo Nghị quyết HĐND tỉnh quy định chính sách hỗ trợ hộ nghèo, hộ cận nghèo xóa nhà tạm, nhà dột nát trên địa bàn tỉnh Nghệ An giai đoạn 2026 - 2030
+                                </a>
+                            </h2>
+                            <p class="text-xs md:text-sm text-gray-600 mt-2 leading-relaxed">
+                                Quy định cụ thể đối tượng, điều kiện, mức chi hỗ trợ xây mới (60 triệu đồng/nhà) và sửa chữa (30 triệu đồng/nhà); quy trình bình xét từ thôn bản công khai, minh bạch; cơ chế huy động vốn kết hợp giữa ngân sách tỉnh và Quỹ "Vì người nghèo" các cấp...
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-gray-500 pt-2 border-t border-gray-100">
+                            <div>
+                                Cơ quan chủ trì: <strong class="text-gray-800">UBND tỉnh & Ban Thường trực MTTQ tỉnh</strong>
+                            </div>
+                            <div>
+                                Thời gian lấy ý kiến: <strong class="text-gray-800">15/09/2026 - 15/11/2026</strong>
+                            </div>
+                        </div>
+
+                        <!-- HÀNH ĐỘNG: TẢI VĂN BẢN & GÓP Ý TRỰC TUYẾN -->
+                        <div class="pt-3 border-t border-gray-100 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <a href="chi-tiet-van-ban.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold transition-all">
+                                    <i class="fa-solid fa-file-pdf text-red-600"></i> Toàn văn dự thảo (.PDF - 480 KB)
+                                </a>
+                                <a href="chi-tiet-van-ban.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold transition-all">
+                                    <i class="fa-solid fa-file-word text-blue-600"></i> Tờ trình & Đánh giá tác động
+                                </a>
+                            </div>
+
+                            <button type="button" onclick="openCommentModal('Dự thảo Nghị quyết HĐND tỉnh quy định chính sách hỗ trợ hộ nghèo, hộ cận nghèo xóa nhà tạm, nhà dột nát trên địa bàn tỉnh Nghệ An giai đoạn 2026 - 2030')"
+                                class="px-5 py-2 rounded-xl bg-[#DC2626] hover:bg-[#B91C1C] text-white text-xs md:text-sm font-bold shadow hover:shadow-md flex items-center justify-center gap-2 transition-all">
+                                <i class="fa-solid fa-pen-nib"></i> Góp ý trực tuyến ngay
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- DỰ THẢO 2: QUY CHẾ GIÁM SÁT CỦA MẶT TRẬN -->
+                    <article class="draft-card bg-white border border-gray-200/90 rounded-2xl p-5 md:p-6 shadow-sm hover:shadow-md hover:border-red-300 transition-all space-y-4"
+                        data-status="active" data-field="giam-sat">
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-gray-100 pb-3">
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <span class="px-2.5 py-0.5 rounded text-[11px] font-bold uppercase text-white bg-blue-600">
+                                    Quy chế Mặt trận
+                                </span>
+                                <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-red-50 text-[#DC2626] border border-red-200 flex items-center gap-1">
+                                    <i class="fa-regular fa-clock"></i> Còn 24 ngày (Hạn: 22/11/2026)
+                                </span>
+                            </div>
+                            <span class="text-xs text-gray-500 font-medium flex items-center gap-1">
+                                <i class="fa-regular fa-comment-dots text-[#DC2626]"></i> <b>215</b> lượt đóng góp
+                            </span>
+                        </div>
+
+                        <div>
+                            <h2 class="text-base md:text-lg font-bold text-gray-900 hover:text-[#DC2626] transition-colors leading-snug">
+                                <a href="javascript:void(0)" onclick="openCommentModal('Dự thảo Quy chế Giám sát của Mặt trận Tổ quốc và các đoàn thể chính trị - xã hội đối với cán bộ, đảng viên và người đứng đầu cấp ủy, chính quyền địa phương')">
+                                    Dự thảo Quy chế Giám sát của Mặt trận Tổ quốc và các đoàn thể chính trị - xã hội đối với cán bộ, đảng viên và người đứng đầu cấp ủy, chính quyền địa phương
+                                </a>
+                            </h2>
+                            <p class="text-xs md:text-sm text-gray-600 mt-2 leading-relaxed">
+                                Quy chế hóa 5 nhóm nội dung trọng tâm giám sát việc tu dưỡng rèn luyện đạo đức, lối sống, thực hiện trách nhiệm nêu gương; bảo vệ người phản ánh tố giác tham nhũng, tiêu cực; quy định chế độ báo cáo công khai trước Hội nghị Ủy ban MTTQ định kỳ...
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-gray-500 pt-2 border-t border-gray-100">
+                            <div>
+                                Cơ quan chủ trì: <strong class="text-gray-800">Ban Thường trực Ủy ban MTTQ Việt Nam tỉnh Nghệ An</strong>
+                            </div>
+                            <div>
+                                Thời gian lấy ý kiến: <strong class="text-gray-800">01/10/2026 - 22/11/2026</strong>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 border-t border-gray-100 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <a href="chi-tiet-van-ban.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold transition-all">
+                                    <i class="fa-solid fa-file-pdf text-red-600"></i> Toàn văn dự thảo (.PDF - 360 KB)
+                                </a>
+                            </div>
+
+                            <button type="button" onclick="openCommentModal('Dự thảo Quy chế Giám sát của Mặt trận Tổ quốc và các đoàn thể chính trị - xã hội đối với cán bộ, đảng viên và người đứng đầu cấp ủy, chính quyền địa phương')"
+                                class="px-5 py-2 rounded-xl bg-[#DC2626] hover:bg-[#B91C1C] text-white text-xs md:text-sm font-bold shadow hover:shadow-md flex items-center justify-center gap-2 transition-all">
+                                <i class="fa-solid fa-pen-nib"></i> Góp ý trực tuyến ngay
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- DỰ THẢO 3: ĐỀ ÁN DU LỊCH MIỀN TÂY -->
+                    <article class="draft-card bg-white border border-gray-200/90 rounded-2xl p-5 md:p-6 shadow-sm hover:shadow-md hover:border-red-300 transition-all space-y-4"
+                        data-status="active" data-field="kinh-te">
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-gray-100 pb-3">
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <span class="px-2.5 py-0.5 rounded text-[11px] font-bold uppercase text-white bg-emerald-600">
+                                    Đề án phát triển
+                                </span>
+                                <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-red-50 text-[#DC2626] border border-red-200 flex items-center gap-1">
+                                    <i class="fa-regular fa-clock"></i> Còn 10 ngày (Hạn: 08/11/2026)
+                                </span>
+                            </div>
+                            <span class="text-xs text-gray-500 font-medium flex items-center gap-1">
+                                <i class="fa-regular fa-comment-dots text-[#DC2626]"></i> <b>168</b> lượt đóng góp
+                            </span>
+                        </div>
+
+                        <div>
+                            <h2 class="text-base md:text-lg font-bold text-gray-900 hover:text-[#DC2626] transition-colors leading-snug">
+                                <a href="javascript:void(0)" onclick="openCommentModal('Dự thảo Đề án phát triển nông nghiệp sinh thái, bảo tồn văn hóa cộng đồng gắn với du lịch sinh thái miền Tây Nghệ An giai đoạn 2026 - 2030')">
+                                    Dự thảo Đề án phát triển nông nghiệp sinh thái, bảo tồn văn hóa cộng đồng gắn với du lịch sinh thái miền Tây Nghệ An giai đoạn 2026 - 2030
+                                </a>
+                            </h2>
+                            <p class="text-xs md:text-sm text-gray-600 mt-2 leading-relaxed">
+                                Đề xuất các cơ chế kích hoạt tiềm năng văn hóa cồng chiêng, làng nghề dệt thổ cẩm truyền thống; xây dựng các mô hình hợp tác xã nông sản sạch OCOP kết hợp homestay trải nghiệm tại Con Cuông, Quỳ Châu, Kỳ Sơn...
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-gray-500 pt-2 border-t border-gray-100">
+                            <div>
+                                Cơ quan chủ trì: <strong class="text-gray-800">Sở Nông nghiệp & PTNT phối hợp MTTQ tỉnh</strong>
+                            </div>
+                            <div>
+                                Thời gian lấy ý kiến: <strong class="text-gray-800">20/09/2026 - 08/11/2026</strong>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 border-t border-gray-100 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <a href="chi-tiet-van-ban.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold transition-all">
+                                    <i class="fa-solid fa-file-pdf text-red-600"></i> Toàn văn đề án (.PDF - 1.2 MB)
+                                </a>
+                            </div>
+
+                            <button type="button" onclick="openCommentModal('Dự thảo Đề án phát triển nông nghiệp sinh thái, bảo tồn văn hóa cộng đồng gắn với du lịch sinh thái miền Tây Nghệ An giai đoạn 2026 - 2030')"
+                                class="px-5 py-2 rounded-xl bg-[#DC2626] hover:bg-[#B91C1C] text-white text-xs md:text-sm font-bold shadow hover:shadow-md flex items-center justify-center gap-2 transition-all">
+                                <i class="fa-solid fa-pen-nib"></i> Góp ý trực tuyến ngay
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- DỰ THẢO 4: KẾ HOẠCH CHUYỂN ĐỔI SỐ MẶT TRẬN -->
+                    <article class="draft-card bg-white border border-gray-200/90 rounded-2xl p-5 md:p-6 shadow-sm hover:shadow-md hover:border-red-300 transition-all space-y-4"
+                        data-status="active" data-field="chuyen-doi-so">
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-gray-100 pb-3">
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <span class="px-2.5 py-0.5 rounded text-[11px] font-bold uppercase text-white bg-purple-600">
+                                    Kế hoạch chuyển đổi số
+                                </span>
+                                <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-red-50 text-[#DC2626] border border-red-200 flex items-center gap-1">
+                                    <i class="fa-regular fa-clock"></i> Còn 30 ngày (Hạn: 28/11/2026)
+                                </span>
+                            </div>
+                            <span class="text-xs text-gray-500 font-medium flex items-center gap-1">
+                                <i class="fa-regular fa-comment-dots text-[#DC2626]"></i> <b>98</b> lượt đóng góp
+                            </span>
+                        </div>
+
+                        <div>
+                            <h2 class="text-base md:text-lg font-bold text-gray-900 hover:text-[#DC2626] transition-colors leading-snug">
+                                <a href="javascript:void(0)" onclick="openCommentModal('Dự thảo Kế hoạch hành động của MTTQ Việt Nam tỉnh Nghệ An về thực hiện chương trình chuyển đổi số toàn diện công tác Mặt trận giai đoạn 2026 - 2030')">
+                                    Dự thảo Kế hoạch hành động của MTTQ Việt Nam tỉnh Nghệ An về thực hiện chương trình chuyển đổi số toàn diện công tác Mặt trận giai đoạn 2026 - 2030
+                                </a>
+                            </h2>
+                            <p class="text-xs md:text-sm text-gray-600 mt-2 leading-relaxed">
+                                Xây dựng cơ sở dữ liệu số hóa cán bộ Mặt trận 3 cấp; tích hợp hệ thống tiếp nhận ý kiến cử tri qua nền tảng số Zalo / App Công dân số Nghệ An; phòng họp số kết nối 460 xã phường thị trấn...
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-gray-500 pt-2 border-t border-gray-100">
+                            <div>
+                                Cơ quan chủ trì: <strong class="text-gray-800">Ban Thường trực Ủy ban MTTQ tỉnh</strong>
+                            </div>
+                            <div>
+                                Thời gian lấy ý kiến: <strong class="text-gray-800">01/10/2026 - 28/11/2026</strong>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 border-t border-gray-100 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <a href="chi-tiet-van-ban.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-semibold transition-all">
+                                    <i class="fa-solid fa-file-pdf text-red-600"></i> Bản dự thảo Kế hoạch
+                                </a>
+                            </div>
+
+                            <button type="button" onclick="openCommentModal('Dự thảo Kế hoạch hành động của MTTQ Việt Nam tỉnh Nghệ An về thực hiện chương trình chuyển đổi số toàn diện công tác Mặt trận giai đoạn 2026 - 2030')"
+                                class="px-5 py-2 rounded-xl bg-[#DC2626] hover:bg-[#B91C1C] text-white text-xs md:text-sm font-bold shadow hover:shadow-md flex items-center justify-center gap-2 transition-all">
+                                <i class="fa-solid fa-pen-nib"></i> Góp ý trực tuyến ngay
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- DỰ THẢO 5: ĐÃ KẾT THÚC (CLOSED) -->
+                    <article class="draft-card bg-gray-50 border border-gray-200 rounded-2xl p-5 md:p-6 shadow-sm space-y-4 opacity-90"
+                        data-status="closed" data-field="chinh-sach">
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-gray-200 pb-3">
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <span class="px-2.5 py-0.5 rounded text-[11px] font-bold uppercase text-white bg-gray-600">
+                                    Đã kết thúc lấy ý kiến
+                                </span>
+                                <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                                    <i class="fa-solid fa-circle-check"></i> Đã hoàn thành tiếp thu, giải trình
+                                </span>
+                            </div>
+                            <span class="text-xs text-gray-500 font-medium">
+                                Tổng cộng: <b>512</b> lượt đóng góp ý kiến
+                            </span>
+                        </div>
+
+                        <div>
+                            <h2 class="text-base md:text-lg font-bold text-gray-800 leading-snug">
+                                Dự thảo Nghị quyết quy định chính sách hỗ trợ đối với người có uy tín trong đồng bào dân tộc thiểu số trên địa bàn tỉnh Nghệ An
+                            </h2>
+                            <p class="text-xs md:text-sm text-gray-600 mt-2 leading-relaxed">
+                                Cơ quan chủ trì đã tổng hợp 512 lượt ý kiến của cử tri và chuyên gia, tiếp thu 48 nội dung xác đáng nhằm nâng mức hỗ trợ thù lao và thăm hỏi ốm đau cho các già làng, trưởng bản...
+                            </p>
+                        </div>
+
+                        <div class="pt-3 border-t border-gray-200 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                            <span class="text-xs text-gray-500">
+                                Thời gian lấy ý kiến đã đóng: <b>20/09/2026</b>
+                            </span>
+                            <a href="chi-tiet-van-ban.html" class="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-white border border-gray-300 text-gray-800 hover:text-[#DC2626] hover:border-red-300 text-xs font-bold transition-all shadow-sm">
+                                <i class="fa-solid fa-file-lines text-amber-600"></i> Xem Báo cáo tổng hợp tiếp thu & giải trình
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN: SIDEBAR (4 COLS) -->
+            <aside class="lg:col-span-4 space-y-6">
+
+                <!-- BANNER SANG TRANG GỬI Ý KIẾN PHẢN ÁNH -->
+                <div class="bg-gradient-to-br from-[#DC2626] to-[#B91C1C] rounded-2xl p-5 text-white shadow-sm relative overflow-hidden">
+                    <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mb-3">
+                        <i class="fa-regular fa-comment-dots text-xl text-amber-200"></i>
+                    </div>
+                    <h3 class="text-base font-extrabold leading-snug">
+                        Gửi phản ánh, kiến nghị của cử tri & Nhân dân
+                    </h3>
+                    <p class="text-xs text-red-100 mt-1.5 leading-relaxed">
+                        Phản ánh trực tiếp các vấn đề bức xúc, tiêu cực, khiếu nại hoặc sáng kiến xây dựng quê hương Nghệ An.
+                    </p>
+                    <a href="gui-y-kien.html"
+                        class="mt-4 inline-flex items-center justify-center gap-2 bg-white text-[#DC2626] font-bold text-xs md:text-sm px-4 py-2.5 rounded-xl shadow hover:bg-amber-50 transition-all w-full">
+                        <span>Đến trang Gửi phản ánh</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- HỘI ĐỒNG TƯ VẤN THẨM ĐỊNH -->
+                <div class="bg-white border border-gray-200/90 rounded-2xl p-5 shadow-sm">
+                    <div class="flex items-center gap-2 border-b border-gray-100 pb-3 mb-3 text-gray-900">
+                        <i class="fa-solid fa-graduation-cap text-[#DC2626] text-lg"></i>
+                        <h3 class="text-base font-bold uppercase tracking-wide">
+                            Hội đồng tư vấn phản biện
+                        </h3>
+                    </div>
+                    <p class="text-xs text-gray-600 mb-3 leading-relaxed">
+                        Ủy ban Mặt trận Tổ quốc tỉnh Nghệ An có 3 Hội đồng tư vấn quy tụ các chuyên gia, luật sư, nhà khoa học đầu ngành:
+                    </p>
+                    <div class="space-y-2.5 text-xs">
+                        <div class="p-2.5 rounded-xl bg-gray-50 border border-gray-100">
+                            <span class="font-bold text-gray-800 block">1. Hội đồng tư vấn Dân chủ - Pháp luật</span>
+                            <span class="text-gray-500 text-[11px]">Chuyên sâu thẩm định, phản biện các dự thảo luật, nghị quyết HĐND.</span>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-gray-50 border border-gray-100">
+                            <span class="font-bold text-gray-800 block">2. Hội đồng tư vấn Kinh tế - Xã hội</span>
+                            <span class="text-gray-500 text-[11px]">Phản biện các đề án quy hoạch, đất đai, ngân sách, môi trường.</span>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-gray-50 border border-gray-100">
+                            <span class="font-bold text-gray-800 block">3. Hội đồng tư vấn Dân tộc - Tôn giáo</span>
+                            <span class="text-gray-500 text-[11px]">Đóng góp chính sách vùng đồng bào miền núi, chính sách đại đoàn kết.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QUY TRÌNH PHẢN BIỆN XÃ HỘI CỦA MẶT TRẬN -->
+                <div class="bg-white border border-gray-200/90 rounded-2xl p-5 shadow-sm">
+                    <div class="flex items-center gap-2 border-b border-gray-100 pb-3 mb-3 text-gray-900">
+                        <i class="fa-solid fa-diagram-project text-[#DC2626]"></i>
+                        <h3 class="text-base font-bold uppercase tracking-wide">
+                            Quy trình phản biện xã hội
+                        </h3>
+                    </div>
+                    <ol class="space-y-2.5 text-xs text-gray-600">
+                        <li class="flex items-start gap-2">
+                            <span class="w-5 h-5 rounded-full bg-red-100 text-[#DC2626] font-bold flex items-center justify-center flex-shrink-0 text-[11px]">1</span>
+                            <span>Tiếp nhận văn bản dự thảo từ cơ quan soạn thảo.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="w-5 h-5 rounded-full bg-red-100 text-[#DC2626] font-bold flex items-center justify-center flex-shrink-0 text-[11px]">2</span>
+                            <span>Công khai lấy ý kiến nhân dân và tổ chức khảo sát thực tế.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="w-5 h-5 rounded-full bg-red-100 text-[#DC2626] font-bold flex items-center justify-center flex-shrink-0 text-[11px]">3</span>
+                            <span>Tổ chức Hội nghị phản biện của Hội đồng tư vấn chuyên gia.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="w-5 h-5 rounded-full bg-red-100 text-[#DC2626] font-bold flex items-center justify-center flex-shrink-0 text-[11px]">4</span>
+                            <span>Ban hành Văn bản kiến nghị phản biện gửi cơ quan có thẩm quyền.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="w-5 h-5 rounded-full bg-red-100 text-[#DC2626] font-bold flex items-center justify-center flex-shrink-0 text-[11px]">5</span>
+                            <span>Giám sát việc tiếp thu, giải trình và công khai kết quả.</span>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- TÀI LIỆU HƯỚNG DẪN & VĂN BẢN QUY PHẠM -->
+                <div class="bg-gray-50 border border-gray-200/90 rounded-2xl p-5 shadow-sm">
+                    <h3 class="text-sm font-bold text-gray-900 uppercase tracking-wide mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-book-bookmark text-[#DC2626]"></i> Căn cứ pháp lý
+                    </h3>
+                    <ul class="space-y-2 text-xs text-gray-700">
+                        <li>
+                            <a href="chi-tiet-van-ban.html" class="flex items-center gap-2 hover:text-[#DC2626] transition-colors">
+                                <i class="fa-solid fa-file-pdf text-red-600"></i> Luật Mặt trận Tổ quốc Việt Nam 2015
+                            </a>
+                        </li>
+                        <li>
+                            <a href="chi-tiet-van-ban.html" class="flex items-center gap-2 hover:text-[#DC2626] transition-colors">
+                                <i class="fa-solid fa-file-pdf text-red-600"></i> Quyết định số 217-QĐ/TW về giám sát & phản biện
+                            </a>
+                        </li>
+                        <li>
+                            <a href="chi-tiet-van-ban.html" class="flex items-center gap-2 hover:text-[#DC2626] transition-colors">
+                                <i class="fa-solid fa-file-pdf text-red-600"></i> Luật Ban hành văn bản quy phạm pháp luật
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+    <!-- MODAL ĐÓNG GÓP Ý KIẾN TRỰC TUYẾN -->
+    <div id="comment-modal" class="fixed inset-0 bg-black/60 z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto animate-in fade-in zoom-in duration-200">
+            <button type="button" onclick="closeCommentModal()"
+                class="absolute right-4 top-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-gray-800 flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="border-b border-gray-100 pb-4 mb-5">
+                <div class="flex items-center gap-2.5 text-[#DC2626] mb-1">
+                    <i class="fa-solid fa-pen-nib text-lg"></i>
+                    <span class="text-xs font-bold uppercase tracking-wider">Đóng góp ý kiến dự thảo</span>
+                </div>
+                <h3 class="text-base md:text-lg font-bold text-gray-900 leading-snug" id="modal-draft-title">
+                    Tên dự thảo văn bản
+                </h3>
+            </div>
+
+            <form id="draft-comment-form" onsubmit="submitDraftComment(event)" class="space-y-4 text-xs md:text-sm">
+                <!-- THÔNG TIN NGƯỜI ĐÓNG GÓP -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-semibold text-gray-700 mb-1">
+                            Họ và tên người góp ý <span class="text-red-500">*</span>
+                        </label>
+                        <input type="text" required placeholder="Ví dụ: TS. Phan Đình Hải"
+                            class="w-full px-3 py-2 rounded-xl border border-gray-200 outline-none focus:border-[#DC2626]">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-gray-700 mb-1">
+                            Số điện thoại liên hệ <span class="text-red-500">*</span>
+                        </label>
+                        <input type="tel" required placeholder="Ví dụ: 0913.456.789"
+                            class="w-full px-3 py-2 rounded-xl border border-gray-200 outline-none focus:border-[#DC2626]">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-gray-700 mb-1">
+                            Email nhận báo cáo tiếp thu
+                        </label>
+                        <input type="email" placeholder="Ví dụ: phandinhhai@gmail.com"
+                            class="w-full px-3 py-2 rounded-xl border border-gray-200 outline-none focus:border-[#DC2626]">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-gray-700 mb-1">
+                            Cơ quan / Đơn vị / Nghề nghiệp
+                        </label>
+                        <input type="text" placeholder="Ví dụ: Hội đồng tư vấn Pháp luật / Cán bộ hưu trí"
+                            class="w-full px-3 py-2 rounded-xl border border-gray-200 outline-none focus:border-[#DC2626]">
+                    </div>
+                </div>
+
+                <!-- PHẠM VI GÓP Ý -->
+                <div>
+                    <label class="block font-semibold text-gray-700 mb-1">
+                        Phạm vi nội dung góp ý <span class="text-red-500">*</span>
+                    </label>
+                    <select required class="w-full px-3 py-2 rounded-xl border border-gray-200 bg-white outline-none focus:border-[#DC2626]">
+                        <option value="toan-van">Góp ý toàn diện nội dung dự thảo</option>
+                        <option value="dieu-khoan">Góp ý theo từng Điều / Khoản cụ thể</option>
+                        <option value="tinh-kha-thi">Góp ý về tính khả thi & nguồn lực thực hiện</option>
+                        <option value="thutuc-hanhchinh">Góp ý về thủ tục hành chính & quyền lợi người dân</option>
+                    </select>
+                </div>
+
+                <!-- NỘI DUNG GÓP Ý -->
+                <div>
+                    <label class="block font-semibold text-gray-700 mb-1">
+                        Nội dung góp ý, phản biện chi tiết <span class="text-red-500">*</span>
+                    </label>
+                    <textarea required rows="5" placeholder="Ghi rõ ý kiến góp ý: Điều/Khoản cần sửa đổi, bổ sung hoặc bãi bỏ; căn cứ thực tiễn và đề xuất phương án chỉnh sửa cụ thể..."
+                        class="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 outline-none focus:border-[#DC2626] leading-relaxed"></textarea>
+                </div>
+
+                <!-- ĐÍNH KÈM TỆP VĂN BẢN GÓP Ý -->
+                <div>
+                    <label class="block font-semibold text-gray-700 mb-1">
+                        Đính kèm văn bản góp ý (PDF, DOCX có ký tên/đóng dấu nếu là tổ chức)
+                    </label>
+                    <input type="file" accept=".pdf,.doc,.docx"
+                        class="w-full text-xs text-gray-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-red-50 file:text-[#DC2626] hover:file:bg-red-100">
+                </div>
+
+                <!-- BUTTONS -->
+                <div class="pt-3 border-t border-gray-100 flex items-center justify-end gap-3">
+                    <button type="button" onclick="closeCommentModal()"
+                        class="px-5 py-2.5 rounded-xl border border-gray-200 text-gray-600 hover:bg-gray-100 font-semibold transition-colors">
+                        Hủy bỏ
+                    </button>
+                    <button type="submit"
+                        class="px-6 py-2.5 rounded-xl bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold shadow hover:shadow-md transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> Gửi nội dung góp ý
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL THÔNG BÁO CẢM ƠN GÓP Ý THÀNH CÔNG -->
+    <div id="thank-modal" class="fixed inset-0 bg-black/60 z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 text-center shadow-2xl relative animate-in fade-in zoom-in duration-200">
+            <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4 text-3xl">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">
+                Cảm ơn bạn đã đóng góp ý kiến!
+            </h3>
+            <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                Ý kiến quý báu của bạn đã được chuyển tới Ban Thường trực Ủy ban MTTQ tỉnh Nghệ An và Tổ biên tập soạn thảo để tổng hợp vào Báo cáo phản biện xã hội.
+            </p>
+            <div class="my-4 p-3 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-800">
+                Báo cáo tiếp thu, giải trình sẽ được công khai ngay sau khi kết thúc đợt lấy ý kiến.
+            </div>
+            <button type="button" onclick="closeThankModal()"
+                class="w-full py-2.5 rounded-xl bg-[#DC2626] text-white text-xs md:text-sm font-bold hover:bg-[#B91C1C] transition-colors shadow">
+                Hoàn tất
+            </button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="border-t-4 border-[#F5BC02] bg-[#DC2626] text-white py-8 mt-12 text-center text-xs md:text-sm">
+        <div class="max-w-7xl mx-auto px-4 space-y-2">
+            <p class="font-bold text-sm md:text-base tracking-wide uppercase">
+                TRANG THÔNG TIN ĐIỆN TỬ ỦY BAN MẶT TRẬN TỔ QUỐC VIỆT NAM TỈNH NGHỆ AN
+            </p>
+            <p>
+                Trụ sở: Số 2 - Đường Phan Đăng Lưu - Phường Trường Vinh - Nghệ An
+            </p>
+            <p>
+                Điện thoại: <a href="tel:02383849369" class="hover:underline">02383.849.369</a>
+            </p>
+            <p>
+                Email: <a href="mailto:ubmttq@nghean.gov.vn" class="hover:underline">ubmttq@nghean.gov.vn</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT ĐIỀU KHIỂN DỰ THẢO & MODAL GÓP Ý -->
+    <script>
+        var currentStatus = 'active';
+        var currentField = 'all';
+
+        function filterDraftStatus(status, btn) {
+            currentStatus = status;
+            var buttons = document.querySelectorAll('#draft-status-tabs .status-btn');
+            buttons.forEach(function (b) {
+                b.className = 'status-btn px-4 py-2 rounded-xl text-xs md:text-sm font-medium bg-gray-100 hover:bg-gray-200 text-gray-700 transition-all';
+            });
+            btn.className = 'status-btn px-4 py-2 rounded-xl text-xs md:text-sm font-bold bg-[#DC2626] text-white shadow-sm transition-all';
+            applyDraftFilters();
+        }
+
+        function filterDraftField(field, btn) {
+            currentField = field;
+            var buttons = document.querySelectorAll('.field-btn');
+            buttons.forEach(function (b) {
+                b.className = 'field-btn px-2.5 py-1 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200';
+            });
+            btn.className = 'field-btn px-2.5 py-1 rounded-lg bg-red-100 text-[#DC2626] font-bold';
+            applyDraftFilters();
+        }
+
+        function searchDrafts() {
+            applyDraftFilters();
+        }
+
+        function applyDraftFilters() {
+            var q = document.getElementById('draft-search-input').value.toLowerCase().trim();
+            var cards = document.querySelectorAll('.draft-card');
+
+            cards.forEach(function (card) {
+                var status = card.getAttribute('data-status');
+                var field = card.getAttribute('data-field');
+                var text = card.innerText.toLowerCase();
+
+                var matchStatus = (currentStatus === 'all' || status === currentStatus);
+                var matchField = (currentField === 'all' || field === currentField);
+                var matchQuery = (q === '' || text.includes(q));
+
+                if (matchStatus && matchField && matchQuery) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Modal Góp ý
+        function openCommentModal(title) {
+            document.getElementById('modal-draft-title').innerText = title;
+            var modal = document.getElementById('comment-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeCommentModal() {
+            var modal = document.getElementById('comment-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.getElementById('draft-comment-form').reset();
+        }
+
+        function submitDraftComment(e) {
+            e.preventDefault();
+            closeCommentModal();
+            var thankModal = document.getElementById('thank-modal');
+            thankModal.classList.remove('hidden');
+            thankModal.classList.add('flex');
+        }
+
+        function closeThankModal() {
+            var thankModal = document.getElementById('thank-modal');
+            thankModal.classList.add('hidden');
+            thankModal.classList.remove('flex');
+        }
+
+        // Đóng modal khi click ra ngoài
+        document.getElementById('comment-modal').addEventListener('click', function (e) {
+            if (e.target === this) closeCommentModal();
+        });
+        document.getElementById('thank-modal').addEventListener('click', function (e) {
+            if (e.target === this) closeThankModal();
+        });
+
+        // Mobile Menu Navigation
+        (function () {
+            var nav = document.querySelector('.mt-container');
+            var toggle = document.querySelector('.mt-mobile-toggle');
+            var navItems = document.querySelectorAll('.mt-nav-wrap');
+
+            if (!nav || !toggle) return;
+
+            toggle.addEventListener('click', function () {
+                var isOpen = nav.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+                toggle.querySelector('i').className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+            });
+
+            navItems.forEach(function (item) {
+                var link = item.querySelector(':scope > .mt-nav-item');
+                var dropdown = item.querySelector(':scope > .mt-nav-drop');
+                if (!link || !dropdown) return;
+
+                link.setAttribute('aria-haspopup', 'true');
+                link.setAttribute('aria-expanded', 'false');
+                link.addEventListener('click', function (event) {
+                    if (window.matchMedia('(min-width: 768px)').matches) return;
+                    event.preventDefault();
+
+                    var isOpen = item.classList.toggle('is-open');
+                    link.setAttribute('aria-expanded', String(isOpen));
+                });
+            });
+
+            window.addEventListener('resize', function () {
+                if (!window.matchMedia('(min-width: 768px)').matches) return;
+                nav.classList.remove('is-open');
+                toggle.setAttribute('aria-expanded', 'false');
+                toggle.querySelector('i').className = 'fa-solid fa-bars';
+                navItems.forEach(function (item) {
+                    item.classList.remove('is-open');
+                    var link = item.querySelector(':scope > .mt-nav-item');
+                    if (link) link.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }());
+    </script>
+</body>
+
+</html>

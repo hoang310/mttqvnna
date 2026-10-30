@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thư viện đa phương tiện: Ảnh, Video, Infographic - Ủy ban Mặt trận Tổ quốc tỉnh Nghệ An</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        .nav-link {
+            height: 56px;
+            padding: 0 8px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: clamp(14px, 1vw, 16px);
+            font-weight: 600;
+            color: #222;
+            transition: .2s;
+        }
+
+        .nav-link:hover {
+            color: #DC2626;
+            background: rgb(255 217 102 / 20%);
+        }
+
+        .nav-link i {
+            font-size: 12px;
+            color: #555;
+        }
+
+        .top-search {
+            position: relative;
+            width: 220px;
+        }
+
+        .top-search input {
+            width: 100%;
+            height: 34px;
+            border-radius: 9999px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            padding: 0 36px 0 14px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .top-search input::placeholder {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .top-search i {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+        }
+
+        .mt-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            justify-content: space-between;
+            overflow: visible;
+        }
+
+        .mt-nav-wrap {
+            position: relative;
+            flex: 0 0 auto;
+        }
+
+        .mt-nav-item {
+            display: flex;
+            white-space: nowrap;
+            align-items: center;
+            gap: 6px;
+            padding: 0 12px;
+            height: 56px;
+            font-size: clamp(13px, 1vw, 15px);
+            font-weight: 600;
+            color: #222;
+            transition: .2s;
+            text-decoration: none;
+        }
+
+        .mt-nav-item:hover,
+        .mt-nav-item.is-active {
+            color: #DC2626;
+            background: rgb(255 217 102 / 20%);
+        }
+
+        .mt-nav-item.is-active {
+            border-bottom: 3px solid #DC2626;
+        }
+
+        .mt-ico {
+            width: 20px;
+            height: 20px;
+        }
+
+        .caret {
+            width: 10px;
+            height: 10px;
+            fill: currentColor;
+            transition: transform 0.2s;
+        }
+
+        .mt-nav-wrap:hover .caret {
+            transform: rotate(180deg);
+        }
+
+        .mt-nav-drop {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            min-width: 220px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #eee;
+            border-top: 2px solid #DC2626;
+            display: none;
+            flex-direction: column;
+            z-index: 100;
+        }
+
+        .mt-nav-wrap:hover .mt-nav-drop {
+            display: flex;
+        }
+
+        .mt-nav-drop a {
+            padding: 12px 16px;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            border-bottom: 1px solid #f9f9f9;
+            transition: .2s;
+            white-space: normal;
+        }
+
+        .mt-nav-drop a:hover {
+            color: #DC2626;
+            background: #fdfdfd;
+            padding-left: 20px;
+        }
+
+        .mt-mobile-toggle {
+            display: none;
+        }
+
+        .brand-header {
+            height: 210px;
+            background-size: 100% 230px;
+        }
+
+        @media (max-width: 767px) {
+            .brand-header {
+                height: clamp(90px, 24vw, 120px);
+                background-size: auto 100%;
+            }
+
+            .mt-mobile-toggle {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: space-between;
+                padding: 12px 16px;
+                border: 0;
+                background: #fff;
+                color: #222;
+                font-size: 14px;
+                font-weight: 700;
+                text-align: left;
+            }
+
+            .mt-container {
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                border-top: 1px solid #eee;
+            }
+
+            .mt-container.is-open {
+                display: flex;
+            }
+
+            .mt-nav-wrap {
+                border-bottom: 1px solid #eee;
+            }
+
+            .mt-nav-home {
+                width: 100%;
+            }
+
+            .mt-nav-wrap>.mt-nav-item {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .mt-nav-drop {
+                position: static;
+                min-width: 0;
+                border: 0;
+                border-top: 1px solid #eee;
+                box-shadow: none;
+            }
+
+            .mt-nav-wrap:hover .mt-nav-drop {
+                display: none;
+            }
+
+            .mt-nav-wrap.is-open>.mt-nav-drop {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans text-base">
+
+    <!-- TOP BAR -->
+    <div class="bg-[#DC2626] text-white text-xs xl:text-sm leading-normal whitespace-nowrap">
+        <div class="max-w-[1550px] mx-auto px-4 h-[38px] flex items-center justify-between">
+            <div class="flex items-center gap-5">
+                <span class="flex items-center gap-2">
+                    <i class="fa-regular fa-calendar"></i>
+                    Thứ Hai, 29/09/2026
+                </span>
+                <span class="opacity-60">|</span>
+                <span class="flex items-center gap-2">
+                    🌤️ Nghệ An <b>26°C - 32°C</b>
+                </span>
+            </div>
+
+            <div class="hidden lg:flex items-center gap-2 xl:gap-4">
+                <div class="hidden xl:flex items-center gap-4">
+                    <span><i class="fa-regular fa-comment-dots mr-1"></i> Gửi phản ánh, ý kiến</span>
+                    <span class="opacity-60">|</span>
+                    <span><i class="fa-solid fa-envelope mr-1"></i> ubmttq@nghean.gov.vn</span>
+                    <span class="opacity-60">|</span>
+                </div>
+                <span>A</span>
+                <span>A+</span>
+                <span>A++</span>
+                <span class="opacity-60">|</span>
+                <span class="h-5 w-5 /20 flex items-center justify-center">
+                    <i class="fa-solid fa-moon text-sm"></i>
+                </span>
+                <form action="tim-kiem.html" method="get" class="top-search" aria-label="Tìm kiếm">
+                    <input type="search" name="q" placeholder="Tìm kiếm..." aria-label="Tìm kiếm">
+                    <button type="submit" class="absolute right-3 top-1/2 -translate-y-1/2 text-white/90 hover:text-white" aria-label="Tìm kiếm">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+                <span class="flex items-center justify-center"><img class="w-[18px] h-[18px] mr-2"
+                        src="images/facei.png" alt=""> Fanpage</span>
+                <span class="flex items-center justify-center"><img class="w-[18px] h-[18px] mr-2"
+                        src="images/zaloi.png" alt=""> Zalo</span>
+                <span class="border-l border-white/50 pl-4">
+                    <div class="border-white px-2 py-1">
+                        <i class="fa-solid fa-user mr-1"></i> Đăng nhập
+                    </div>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- BRAND HEADER -->
+    <header class="brand-header relative border-b border-[#F5BC02] bg-center bg-no-repeat overflow-hidden"
+        style="background-image: url('images/headern.png');">
+        <div class="max-w-[1550px] h-full mx-auto px-4 flex items-center justify-center relative z-10">
+        </div>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-200 uppercase">
+        <div class="max-w-[1550px] mx-auto px-4">
+            <button class="mt-mobile-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">
+                <span></span>
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            </button>
+            <div class="mt-container" id="main-navigation" style="max-width: none;"><a
+                    class="mt-nav-item mt-nav-home" href="index.html" aria-label="Trang chủ"><svg class="mt-ico"
+                        viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none">
+                        <path d="M12 3 2 11h3v9h5v-6h4v6h5v-9h3z"></path>
+                    </svg></a>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="gioi-thieu.html">Giới thiệu <svg class="caret"
+                            viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="gioi-thieu.html">Giới thiệu chung</a>
+                        <a href="co-cau-to-chuc.html">Cơ cấu tổ chức</a>
+                        <a href="co-cau-to-chuc.html#ban-thuong-truc">Ban Thường trực</a>
+                        <a href="co-cau-to-chuc.html#cac-ban-chuyen-mon">Các Ban, Văn phòng</a>
+                        <a href="co-cau-to-chuc.html#to-chuc-thanh-vien">Tổ chức thành viên</a>
+                        <a href="co-cau-to-chuc.html">MTTQ các xã, phường</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="tin-tuc.html">Hoạt động
+                        <svg class="caret" viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg>
+                    </a>
+                    <div class="mt-nav-drop">
+                        <a href="tin-tuc.html?category=all">Tất cả tin tức</a>
+                        <a href="tin-tuc.html?category=thuong-truc">Thường trực Tỉnh ủy</a>
+                        <a href="tin-tuc.html?category=ban-thuong-truc">Ban Thường trực</a>
+                        <a href="tin-tuc.html?category=co-so">Mặt trận cơ sở</a>
+                        <a href="tin-tuc.html?category=to-chuc-thanh-vien">Tổ chức thành viên</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item is-active" href="tin-tuc.html?category=tuyen-truyen">Tuyên truyền <svg class="caret"
+                            viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="tin-tuc.html?category=chu-truong-chinh-sach">Chủ trương, chính sách mới</a>
+                        <a href="tin-tuc.html?category=chuyen-doi-so">Chuyển đổi số</a>
+                        <a href="tin-tuc.html?category=ngay-le-lon">Các ngày lễ lớn</a>
+                        <a href="tin-tuc.html?category=guong-sang">Gương sáng</a>
+                        <a href="tin-tuc.html?category=chuong-trinh-phoi-hop">Chương trình phối hợp</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="tin-tuc.html?category=cac-cuoc-van-dong">Các cuộc vận động <svg class="caret"
+                            viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="tin-tuc.html?category=phong-trao-thi-dua">Phong trào thi đua</a>
+                        <a href="tin-tuc.html?category=an-sinh-xa-hoi">An sinh xã hội</a>
+                        <a href="tin-tuc.html?category=doan-ket-xay-dung-nong-thon-moi">Đoàn kết xây dựng nông thôn mới</a>
+                        <a href="tin-tuc.html?category=khu-dan-cu-doan-ket-am-no-hanh-phuc">Khu dân cư Đoàn kết, ấm no, hạnh phúc</a>
+                        <a href="tin-tuc.html?category=nguoi-viet-uu-tien-dung-hang-viet">Người Việt ưu tiên dùng hàng Việt</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="tin-tuc.html">Dân chủ – Giám sát
+                        <svg class="caret" viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="tin-tuc.html">Giám sát, phản biện xã hội</a>
+                        <a href="tin-tuc.html">Xây dựng Đảng, Nhà nước</a>
+                        <a href="tin-tuc.html">Dân chủ ở cơ sở</a>
+                        <a href="tin-tuc.html">Tháng nghe dân nói</a>
+
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="tin-tuc.html">Dân tộc – Tôn giáo
+                        <svg class="caret" viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="tin-tuc.html">Công tác dân tộc</a>
+                        <a href="tin-tuc.html">Công tác tôn giáo</a>
+                        <a href="tin-tuc.html">Người có uy tín</a>
+                        <a href="tin-tuc.html">Chính sách dân tộc, tôn giáo</a>
+                    </div>
+                </div>
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="co-cau-to-chuc.html">Tổ chức - Kiểm tra<svg class="caret"
+                            viewBox="0 0 10 10" aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="co-cau-to-chuc.html">Tổ chức, cán bộ</a>
+                        <a href="co-cau-to-chuc.html">Ủy viên Ủy ban</a>
+                        <a href="co-cau-to-chuc.html">Kiểm tra</a>
+                        <a href="co-cau-to-chuc.html">Thi đua - Khen thưởng</a>
+                        <a href="co-cau-to-chuc.html">Tập huấn</a>
+                    </div>
+                </div>
+
+                <div class="mt-nav-wrap"><a class="mt-nav-item" href="gui-y-kien.html">Nhân dân<svg class="caret" viewBox="0 0 10 10"
+                            aria-hidden="true">
+                            <path d="M1 3h8L5 8z"></path>
+                        </svg></a>
+                    <div class="mt-nav-drop">
+                        <a href="gui-y-kien.html">Phản ánh, kiến nghị</a>
+                        <a href="gop-y-du-thao.html">Góp ý dự thảo</a>
+                        <a href="gui-y-kien.html">Tra cứu kết quả giải quyết</a>
+                    </div>
+                </div>
+
+                <div class="mt-nav-wrap">
+                    <a class="mt-nav-item" href="van-ban.html">Văn bản</a>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- BREADCRUMB -->
+    <div class="bg-gray-100/90 border-b py-2.5">
+        <div class="max-w-7xl mx-auto px-4 flex items-center justify-between text-xs md:text-sm text-gray-600">
+            <div class="flex items-center gap-2 flex-wrap">
+                <a href="index.html" class="hover:text-[#DC2626] flex items-center gap-1.5 transition-colors">
+                    <i class="fa-solid fa-house text-[#DC2626]"></i> Trang chủ
+                </a>
+                <span class="text-gray-400">/</span>
+                <span class="text-gray-600">Tuyên truyền</span>
+                <span class="text-gray-400">/</span>
+                <span class="text-[#DC2626] font-semibold">Thư viện đa phương tiện</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-7xl mx-auto my-5 p-4">
+
+        <!-- TIÊU ĐIỂM MEDIA NỔI BẬT NHẤT (HERO SPOTLIGHT) -->
+        <section class="px-4 pt-4">
+            <div class="flex items-center justify-between border-b pb-3 mb-4">
+                <div class="flex items-center gap-2.5">
+                    <img class="w-7 h-7" src="./images/hoasen.png" alt="Icon">
+                    <h2 class="text-lg md:text-xl font-bold text-gray-900 uppercase tracking-wide">
+                        Đa phương tiện
+                    </h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- THANH BỘ LỌC TABS & TÌM KIẾM -->
+        <div class="px-4 py-3 mb-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <!-- Tabs lọc loại phương tiện -->
+            <div class="flex items-center gap-2 overflow-x-auto whitespace-nowrap w-full md:w-auto py-1" id="media-tabs">
+                <button type="button" onclick="filterMediaType('all', this)"
+                    class="tab-btn px-4 py-2 text-xs md:text-sm font-bold bg-[#DC2626] text-white transition-all">
+                    <i class="fa-solid fa-grip mr-1.5"></i> Tất cả
+                </button>
+                <button type="button" onclick="filterMediaType('image', this)"
+                    class="tab-btn px-4 py-2 text-xs md:text-sm font-medium bg-gray-100 hover:bg-gray-200 text-gray-700 transition-all">
+                    </i> Thư viện Ảnh (12)
+                </button>
+                <button type="button" onclick="filterMediaType('video', this)"
+                    class="tab-btn px-4 py-2 text-xs md:text-sm font-medium bg-gray-100 hover:bg-gray-200 text-gray-700 transition-all">
+                    </i> Video - Phóng sự (8)
+                </button>
+                <button type="button" onclick="filterMediaType('infographic', this)"
+                    class="tab-btn px-4 py-2 text-xs md:text-sm font-medium bg-gray-100 hover:bg-gray-200 text-gray-700 transition-all">
+                    </i> Infographic (6)
+                </button>
+            </div>
+
+            <!-- Ô tìm kiếm nội dung -->
+            <div class="relative w-full md:w-72 border">
+                <input type="text" id="media-search" oninput="searchMedia()" placeholder="Tìm tên album, video..."
+                    class="w-full bg-gray-50 py-2 pl-3.5 pr-9 text-xs md:text-sm outline-none focus:border-[#DC2626] focus:transition-all">
+                <i class="fa-solid fa-magnifying-glass absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+            <!-- CỘT CHÍNH: LƯỚI TÀI NGUYÊN ĐA PHƯƠNG TIỆN (8 CỘT) -->
+            <div class="lg:col-span-8 space-y-6">
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="media-grid">
+
+                    <!-- ITEM 1: ẢNH -->
+                    <div class="media-card group overflow-hidden hover:hover:border-red-300 transition-all cursor-pointer flex flex-col"
+                        data-type="image" onclick="openMediaModal('image', 'Đại hội đại biểu MTTQ các cấp tỉnh Nghệ An nhiệm kỳ 2024 - 2029', './images/IMG_7454.jpg', 'Toàn cảnh phiên bế mạc Đại hội với sự tham gia của đông đảo đại biểu ưu tú đại diện cho các tầng lớp nhân dân.')">
+                        <div class="aspect-[16/10] overflow-hidden bg-gray-100 relative">
+                            <img src="./images/IMG_7454.jpg" alt="" class="w-full h-full object-cover transition-transform duration-500">
+                            
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[11px] text-gray-400 block mb-1">26/09/2026</span>
+                                <h3 class="font-bold text-sm text-gray-900 group-hover:text-[#DC2626] transition-colors line-clamp-2 leading-snug">
+                                    Đại hội đại biểu MTTQ các cấp tỉnh Nghệ An nhiệm kỳ 2024 - 2029
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 2: VIDEO -->
+                    <div class="media-card group overflow-hidden hover:hover:border-red-300 transition-all cursor-pointer flex flex-col"
+                        data-type="video" onclick="openMediaModal('video', 'Phóng sự: Nâng cao chất lượng giám sát và phản biện xã hội', './images/IMG_7473.jpg', 'Phóng sự chuyên sâu về hoạt động giám sát đầu tư công và an sinh xã hội của MTTQ tỉnh Nghệ An.')">
+                        <div class="aspect-[16/10] overflow-hidden bg-gray-900 relative">
+                            <img src="./images/IMG_7473.jpg" alt="" class="w-full h-full object-cover transition-transform duration-500 opacity-90">
+                            
+                            <span class="absolute bottom-2 right-2 bg-black/70 text-white text-[11px] px-2 py-0.5 rounded font-semibold">
+                                12:45
+                            </span>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="w-10 h-10 bg-white/90 rounded-full text-[#DC2626] flex items-center justify-center shadow group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-play ml-0.5 text-sm"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[11px] text-gray-400 block mb-1">24/09/2026</span>
+                                <h3 class="font-bold text-sm text-gray-900 group-hover:text-[#DC2626] transition-colors line-clamp-2 leading-snug">
+                                    Phóng sự: Nâng cao chất lượng giám sát và phản biện xã hội
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 3: INFOGRAPHIC -->
+                    <div class="media-card group overflow-hidden hover:hover:border-red-300 transition-all cursor-pointer flex flex-col"
+                        data-type="infographic" onclick="openMediaModal('infographic', 'Infographic: 5 Nội dung Cuộc vận động Toàn dân đoàn kết xây dựng nông thôn mới', './images/youtube.avatar.9b492b050513329d.47656d696e695f47656e6572617465645f496d6167655f38336d76787238336d76787238336d762e706e67.png', 'Đồ họa chi tiết 5 tiêu chuẩn xây dựng khu dân cư văn minh, đoàn kết, ấm no và hạnh phúc.')">
+                        <div class="aspect-[16/10] overflow-hidden bg-gray-100 relative">
+                            <img src="./images/youtube.avatar.9b492b050513329d.47656d696e695f47656e6572617465645f496d6167655f38336d76787238336d76787238336d762e706e67.png" alt="" class="w-full h-full object-cover transition-transform duration-500">
+                            
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[11px] text-gray-400 block mb-1">22/09/2026</span>
+                                <h3 class="font-bold text-sm text-gray-900 group-hover:text-[#DC2626] transition-colors line-clamp-2 leading-snug">
+                                    5 Nội dung Cuộc vận động Toàn dân đoàn kết xây dựng nông thôn mới
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 4: ẢNH -->
+                    <div class="media-card group overflow-hidden hover:hover:border-red-300 transition-all cursor-pointer flex flex-col"
+                        data-type="image" onclick="openMediaModal('image', 'Hoạt động trao tặng nhà Đại đoàn kết và an sinh xã hội năm 2026', './images/IMG_7488.jpg', 'Niềm vui của các hộ gia đình nghèo tại huyện Quỳ Châu khi được hỗ trợ xây dựng ngôi nhà kiên cố.')">
+                        <div class="aspect-[16/10] overflow-hidden bg-gray-100 relative">
+                            <img src="./images/IMG_7488.jpg" alt="" class="w-full h-full object-cover transition-transform duration-500">
+                            
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[11px] text-gray-400 block mb-1">19/09/2026</span>
+                                <h3 class="font-bold text-sm text-gray-900 group-hover:text-[#DC2626] transition-colors line-clamp-2 leading-snug">
+                                    Hoạt động trao tặng nhà Đại đoàn kết và an sinh xã hội năm 2026
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 5: ẢNH -->
+                    <div class="media-card group overflow-hidden hover:hover:border-red-300 transition-all cursor-pointer flex flex-col"
+                        data-type="image" onclick="openMediaModal('image', 'Ra mắt mô hình Kết nối số - Mặt trận đồng hành cùng Nhân dân', './images/news.avatar.93d30f8f3e0179c9.313738393030383233333231325f3231333933393038303332323837323034395f3231333933393038303332323837323034395f30653034353466346.jpg', 'Lãnh đạo Mặt trận bấm nút vận hành nền tảng số hỗ trợ tương tác giữa nhân dân và chính quyền.')">
+                        <div class="aspect-[16/10] overflow-hidden bg-gray-100 relative">
+                            <img src="./images/news.avatar.93d30f8f3e0179c9.313738393030383233333231325f3231333933393038303332323837323034395f3231333933393038303332323837323034395f30653034353466346.jpg" alt="" class="w-full h-full object-cover transition-transform duration-500">
+                            
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[11px] text-gray-400 block mb-1">17/09/2026</span>
+                                <h3 class="font-bold text-sm text-gray-900 group-hover:text-[#DC2626] transition-colors line-clamp-2 leading-snug">
+                                    Ra mắt mô hình “Kết nối số - Mặt trận đồng hành cùng Nhân dân”
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 6: VIDEO -->
+                    <div class="media-card group overflow-hidden hover:hover:border-red-300 transition-all cursor-pointer flex flex-col"
+                        data-type="video" onclick="openMediaModal('video', 'Tọa đàm: Phát huy vai trò người có uy tín trong đồng bào dân tộc thiểu số', './images/IMG_7447.jpg', 'Chương trình tọa đàm trao đổi kinh nghiệm công tác tuyên truyền và giữ gìn bản sắc văn hóa các dân tộc anh em.')">
+                        <div class="aspect-[16/10] overflow-hidden bg-gray-900 relative">
+                            <img src="./images/IMG_7447.jpg" alt="" class="w-full h-full object-cover transition-transform duration-500 opacity-90">
+                           
+                            <span class="absolute bottom-2 right-2 bg-black/70 text-white text-[11px] px-2 py-0.5 rounded font-semibold">
+                                18:20
+                            </span>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="w-10 h-10 bg-white/90 rounded-full text-[#DC2626] flex items-center justify-center shadow group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-play ml-0.5 text-sm"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <div>
+                                <span class="text-[11px] text-gray-400 block mb-1">15/09/2026</span>
+                                <h3 class="font-bold text-sm text-gray-900 group-hover:text-[#DC2626] transition-colors line-clamp-2 leading-snug">
+                                    Phát huy vai trò người có uy tín trong đồng bào dân tộc thiểu số
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- PHÂN TRANG -->
+                <div class="p-4 flex items-center justify-center gap-1.5">
+                    <button class="w-9 h-9 text-gray-400 hover:bg-gray-100 flex items-center justify-center transition-colors disabled:opacity-40" disabled>
+                        <i class="fa-solid fa-angle-left text-xs"></i>
+                    </button>
+                    <button class="w-9 h-9 bg-[#DC2626] text-white font-bold flex items-center justify-center text-sm">
+                        1
+                    </button>
+                    <button class="w-9 h-9 hover:bg-red-50 hover:text-[#DC2626] hover:border-red-200 text-gray-700 font-medium flex items-center justify-center text-sm transition-colors">
+                        2
+                    </button>
+                    <button class="w-9 h-9 hover:bg-red-50 hover:text-[#DC2626] hover:border-red-200 text-gray-700 font-medium flex items-center justify-center text-sm transition-colors">
+                        3
+                    </button>
+                    <button class="w-9 h-9 text-gray-700 hover:bg-red-50 hover:text-[#DC2626] hover:border-red-200 flex items-center justify-center transition-colors">
+                        <i class="fa-solid fa-angle-right text-xs"></i>
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- CỘT PHẢI: SIDEBAR (4 CỘT) -->
+            <aside class="lg:col-span-4 space-y-6">
+
+                <!-- VIDEO XEM NHIỀU NHẤT -->
+                <div class="p-5">
+                    <h3 class="font-bold text-base uppercase text-gray-900 border-b pb-2 mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-fire text-[#DC2626]"></i> Video xem nhiều nhất
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex gap-3 group cursor-pointer" onclick="openMediaModal('video', 'Phim tài liệu: Lịch sử Mặt trận Nghệ An qua các thời kỳ', './images/IMG_7454.jpg', 'Hành trình 96 năm cống hiến vì độc lập dân tộc và hạnh phúc nhân dân.')">
+                            <div class="w-24 h-16 shrink-0 overflow-hidden relative bg-gray-900">
+                                <img src="./images/IMG_7454.jpg" class="w-full h-full object-cover">
+                                <span class="absolute inset-0 flex items-center justify-center">
+                                    <i class="fa-solid fa-play text-white text-[10px]"></i>
+                                </span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xs text-gray-900 group-hover:text-[#DC2626] transition-colors line-clamp-2">
+                                    Lịch sử Mặt trận Nghệ An qua các thời kỳ cách mạng
+                                </h4>
+                                <span class="text-[11px] text-gray-400 mt-1 block">5.420 lượt xem</span>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-3 group cursor-pointer" onclick="openMediaModal('video', 'Bài hát truyền thống: Khối Đại đoàn kết toàn dân', './images/IMG_7488.jpg', 'Tác phẩm âm nhạc đặc sắc ca ngợi tinh thần đại đoàn kết quê hương Bác.')">
+                            <div class="w-24 h-16 shrink-0 overflow-hidden relative bg-gray-900">
+                                <img src="./images/IMG_7488.jpg" class="w-full h-full object-cover">
+                                <span class="absolute inset-0 flex items-center justify-center">
+                                    <i class="fa-solid fa-play text-white text-[10px]"></i>
+                                </span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xs text-gray-900 group-hover:text-[#DC2626] transition-colors line-clamp-2">
+                                    Bài hát truyền thống: Khối Đại đoàn kết toàn dân
+                                </h4>
+                                <span class="text-[11px] text-gray-400 mt-1 block">4.180 lượt xem</span>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-3 group cursor-pointer" onclick="openMediaModal('video', 'Bài hát truyền thống: Khối Đại đoàn kết toàn dân', './images/IMG_7488.jpg', 'Tác phẩm âm nhạc đặc sắc ca ngợi tinh thần đại đoàn kết quê hương Bác.')">
+                            <div class="w-24 h-16 shrink-0 overflow-hidden relative bg-gray-900">
+                                <img src="./images/IMG_7488.jpg" class="w-full h-full object-cover">
+                                <span class="absolute inset-0 flex items-center justify-center">
+                                    <i class="fa-solid fa-play text-white text-[10px]"></i>
+                                </span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xs text-gray-900 group-hover:text-[#DC2626] transition-colors line-clamp-2">
+                                    Bài hát truyền thống: Khối Đại đoàn kết toàn dân
+                                </h4>
+                                <span class="text-[11px] text-gray-400 mt-1 block">4.180 lượt xem</span>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-3 group cursor-pointer" onclick="openMediaModal('video', 'Bài hát truyền thống: Khối Đại đoàn kết toàn dân', './images/IMG_7488.jpg', 'Tác phẩm âm nhạc đặc sắc ca ngợi tinh thần đại đoàn kết quê hương Bác.')">
+                            <div class="w-24 h-16 shrink-0 overflow-hidden relative bg-gray-900">
+                                <img src="./images/IMG_7488.jpg" class="w-full h-full object-cover">
+                                <span class="absolute inset-0 flex items-center justify-center">
+                                    <i class="fa-solid fa-play text-white text-[10px]"></i>
+                                </span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xs text-gray-900 group-hover:text-[#DC2626] transition-colors line-clamp-2">
+                                    Bài hát truyền thống: Khối Đại đoàn kết toàn dân
+                                </h4>
+                                <span class="text-[11px] text-gray-400 mt-1 block">4.180 lượt xem</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BANNER -->
+                <div class="overflow-hidden">
+                    <img src="./images/kh.png" alt="Khối đại đoàn kết" class="w-full h-auto">
+                </div>
+
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- MODAL LIGHTBOX XEM CHI TIẾT ẢNH / VIDEO / INFOGRAPHIC -->
+    <div id="media-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="max-w-4xl w-full overflow-hidden relative flex flex-col max-h-[90vh]">
+            <!-- Header Modal -->
+            <div class="flex items-center justify-between px-5 py-3.5 border-b bg-gray-50">
+                <div class="flex items-center gap-2">
+                    <span id="modal-badge" class="px-2.5 py-0.5 rounded text-[11px] font-bold uppercase text-white bg-[#DC2626]">
+                        Ảnh tư liệu
+                    </span>
+                    <h3 id="modal-title" class="font-bold text-sm sm:text-base text-gray-900 truncate max-w-md sm:max-w-xl">
+                        Tiêu đề phương tiện
+                    </h3>
+                </div>
+                <button type="button" onclick="closeMediaModal()" class="w-8 h-8 bg-gray-200 hover:bg-red-100 hover:text-[#DC2626] flex items-center justify-center transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Body Modal -->
+            <div class="p-4 sm:p-6 overflow-y-auto flex-1 flex flex-col items-center">
+                <div class="w-full aspect-[16/10] bg-black overflow-hidden relative flex items-center justify-center mb-4">
+                    <img id="modal-img" src="" alt="" class="max-w-full max-h-full object-contain">
+                    <div id="modal-video-overlay" class="hidden absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-white text-center p-4">
+                        <i class="fa-solid fa-circle-play text-5xl text-[#DC2626] mb-3"></i>
+                        <span class="font-bold text-sm">Đang phát nội dung đa phương tiện độ phân giải cao Full HD 1080p</span>
+                    </div>
+                </div>
+                <p id="modal-desc" class="text-xs sm:text-sm text-gray-600 leading-relaxed text-center max-w-2xl">
+                    Mô tả chi tiết của phương tiện đa phương tiện...
+                </p>
+            </div>
+
+            <!-- Footer Modal -->
+            <div class="px-5 py-3 border-t bg-gray-50 flex items-center justify-between text-xs">
+                <span class="text-gray-400">Bản quyền tư liệu © UBMTTQ Việt Nam tỉnh Nghệ An</span>
+                <div class="flex items-center gap-2">
+                    <a id="modal-download" href="#" download class="px-3 py-1.5 bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold transition-colors">
+                        <i class="fa-solid fa-download mr-1"></i> Tải về tệp gốc
+                    </a>
+                    <button type="button" onclick="closeMediaModal()" class="px-3 py-1.5 bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium transition-colors">
+                        Đóng
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="w-full bg-[#B91C1C] border-t-4 border-[#F5BC02] text-white py-8 px-4 text-center">
+        <div class="max-w-7xl mx-auto space-y-2 text-base leading-normal md:text-base font-normal leading-relaxed">
+            <p class="font-bold tracking-wide uppercase">
+                © 2026 TRANG THÔNG TIN ĐIỆN TỬ ỦY BAN MẶT TRẬN TỔ QUỐC VIỆT NAM TỈNH NGHỆ AN
+            </p>
+            <p>
+                Giấy phép hoạt động số 111/GP-TTĐT do sở Thông tin và Truyền thông tỉnh Nghệ An cấp ngày 16/11/2020
+            </p>
+            <p>
+                Trưởng Ban Biên tập: Ông Nguyễn Đình Hùng, Phó Chủ tịch Thường trực Ủy ban MTTQ Việt Nam tỉnh
+            </p>
+            <p>
+                Trụ sở: Số 2 - Đường Phan Đăng Lưu - Phường Trường Vinh - Nghệ An
+            </p>
+            <p>
+                Điện thoại: <a href="tel:02383849369" class="hover:underline">02383.849.369</a>
+            </p>
+            <p>
+                Email: <a href="mailto:ubmttq@nghean.gov.vn" class="hover:underline">ubmttq@nghean.gov.vn</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT ĐIỀU KHIỂN TABS, TÌM KIẾM VÀ MODAL POPUP -->
+    <script>
+        function filterMediaType(type, btn) {
+            // Update active button style
+            var buttons = document.querySelectorAll('#media-tabs .tab-btn');
+            buttons.forEach(function (b) {
+                b.className = 'tab-btn px-4 py-2 text-xs md:text-sm font-medium bg-gray-100 hover:bg-gray-200 text-gray-700 transition-all';
+            });
+            btn.className = 'tab-btn px-4 py-2 text-xs md:text-sm font-bold bg-[#DC2626] text-white transition-all';
+
+            // Filter cards
+            var cards = document.querySelectorAll('.media-card');
+            cards.forEach(function (card) {
+                if (type === 'all' || card.getAttribute('data-type') === type) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function searchMedia() {
+            var q = document.getElementById('media-search').value.toLowerCase().trim();
+            var cards = document.querySelectorAll('.media-card');
+            cards.forEach(function (card) {
+                var text = card.innerText.toLowerCase();
+                if (q === '' || text.includes(q)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function openMediaModal(type, title, imgSrc, desc) {
+            var modal = document.getElementById('media-modal');
+            var modalTitle = document.getElementById('modal-title');
+            var modalImg = document.getElementById('modal-img');
+            var modalDesc = document.getElementById('modal-desc');
+            var modalBadge = document.getElementById('modal-badge');
+            var videoOverlay = document.getElementById('modal-video-overlay');
+            var downloadBtn = document.getElementById('modal-download');
+
+            modalTitle.innerText = title;
+            modalImg.src = imgSrc;
+            modalDesc.innerText = desc;
+            downloadBtn.href = imgSrc;
+
+            if (type === 'video') {
+                modalBadge.innerText = 'Video Clip';
+                modalBadge.className = 'px-2.5 py-0.5 rounded text-[11px] font-bold uppercase text-white bg-[#DC2626]';
+                videoOverlay.classList.remove('hidden');
+            } else if (type === 'infographic') {
+                modalBadge.innerText = 'Infographic';
+                modalBadge.className = 'px-2.5 py-0.5 rounded text-[11px] font-bold uppercase text-white bg-amber-500';
+                videoOverlay.classList.add('hidden');
+            } else {
+                modalBadge.innerText = 'Album Ảnh';
+                modalBadge.className = 'px-2.5 py-0.5 rounded text-[11px] font-bold uppercase text-white bg-blue-600';
+                videoOverlay.classList.add('hidden');
+            }
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeMediaModal() {
+            var modal = document.getElementById('media-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Close on clicking outside
+        document.getElementById('media-modal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeMediaModal();
+            }
+        });
+
+        // URL query parameter support (?type=image|video|infographic)
+        window.addEventListener('DOMContentLoaded', function () {
+            var params = new URLSearchParams(window.location.search);
+            var mediaType = params.get('type');
+            if (mediaType) {
+                var targetBtn = document.querySelector(`button[onclick*="'${mediaType}'"]`);
+                if (targetBtn) {
+                    filterMediaType(mediaType, targetBtn);
+                }
+            }
+        });
+
+        // Mobile Menu Navigation
+        (function () {
+            var nav = document.querySelector('.mt-container');
+            var toggle = document.querySelector('.mt-mobile-toggle');
+            var navItems = document.querySelectorAll('.mt-nav-wrap');
+
+            if (!nav || !toggle) return;
+
+            toggle.addEventListener('click', function () {
+                var isOpen = nav.classList.toggle('is-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+                toggle.querySelector('i').className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+            });
+
+            navItems.forEach(function (item) {
+                var link = item.querySelector(':scope > .mt-nav-item');
+                var dropdown = item.querySelector(':scope > .mt-nav-drop');
+                if (!link || !dropdown) return;
+
+                link.setAttribute('aria-haspopup', 'true');
+                link.setAttribute('aria-expanded', 'false');
+                link.addEventListener('click', function (event) {
+                    if (window.matchMedia('(min-width: 768px)').matches) return;
+                    event.preventDefault();
+
+                    var isOpen = item.classList.toggle('is-open');
+                    link.setAttribute('aria-expanded', String(isOpen));
+                });
+            });
+
+            window.addEventListener('resize', function () {
+                if (!window.matchMedia('(min-width: 768px)').matches) return;
+                nav.classList.remove('is-open');
+                toggle.setAttribute('aria-expanded', 'false');
+                toggle.querySelector('i').className = 'fa-solid fa-bars';
+                navItems.forEach(function (item) {
+                    item.classList.remove('is-open');
+                    var link = item.querySelector(':scope > .mt-nav-item');
+                    if (link) link.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }());
+    </script>
+</body>
+
+</html>
